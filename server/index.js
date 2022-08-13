@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require('../app');
 const { conn, User, Product } = require('./db');
 
 const setUp = async()=> {
