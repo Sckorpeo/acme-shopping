@@ -20,6 +20,10 @@ const apiGetProducts = () => {
   return axios.get("/api/products");
 };
 
+const apiGetProduct = (productId) => {
+  return axios.get(`/api/products/${productId}`);
+};
+
 //Cart
 
 const apiGetCart = () => {
@@ -38,4 +42,11 @@ const apiAddToCart = (productInfo) => {
   });
 };
 
-export { apiGetAuth, apiSetAuth, apiGetCart, apiGetProducts, apiAddToCart };
+export {
+  apiGetAuth,
+  apiSetAuth,
+  apiGetCart,
+  apiGetProducts,
+  apiAddToCart,
+  apiGetProduct,
+};
