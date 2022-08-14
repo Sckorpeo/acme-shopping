@@ -1,4 +1,4 @@
-import { apiGetAuth, apiSetAuth } from "../../src/api";
+import { apiGetAuth, apiSetAuth } from "../../api";
 
 const login = (credentials) => {
   return async (dispatch) => {

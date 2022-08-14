@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { exchangeToken, logout } from "../state/actionCreators/authAC";
+import { exchangeToken, logout } from "./state/actionCreators/authAC";
 import { Route, Routes, NavLink, HashRouter } from "react-router-dom";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
