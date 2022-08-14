@@ -5,7 +5,11 @@ const path = require('path');
 
 app.use('/dist', express.static('dist'));
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.use('/public', express.static('assets'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 app.use('/api/orders', require('./server/routes/orders'));
 app.use('/api/sessions', require('./server/routes/sessions'));
