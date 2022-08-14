@@ -1,5 +1,5 @@
 const conn = require('./conn');
-const { STRING, INTEGER, UUID, UUIDV4 } = conn.Sequelize;
+const { STRING, INTEGER, UUID, UUIDV4, FLOAT } = conn.Sequelize;
 
 const Product = conn.define('product', {
     id: {
@@ -11,7 +11,7 @@ const Product = conn.define('product', {
         type: STRING,
     },
     price: {
-        type: INTEGER,
+        type: FLOAT,
         validate: {
             min: 1,
         },
