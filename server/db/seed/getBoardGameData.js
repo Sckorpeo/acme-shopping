@@ -5,15 +5,18 @@ const getBoardGameData = async (apiUrl) => {
     const filteredData = [];
 
     games.forEach((game) => {
-        filteredData.push({
+        let curr = {
             name: game.name,
             price: game.price,
             minPlayers: game.min_players,
             maxPlayers: game.max_players,
             timeToPlay: game.max_playtime,
             imageUrl: game.thumb_url,
-        });
+            categoryId: Math.floor(Math.random() * 4),
+        };
+        filteredData.push(curr);
     });
+    console.log(filteredData);
     return filteredData;
 };
 
