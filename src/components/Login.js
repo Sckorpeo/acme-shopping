@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../state/actionCreators.js/authAC";
+import { login } from "../state/actionCreators/authAC";
 
 function Login() {
   const dispatch = useDispatch();

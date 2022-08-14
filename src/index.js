@@ -2,9 +2,7 @@ import React from "react";
 import App from "./app";
 import { Provider } from "react-redux";
 import { createRoot } from "react-dom/client";
-import store from "../state/store";
-
-import Login from "./Login";
+import store from "./state/store";
 
 const root = createRoot(document.querySelector("#root"));
 

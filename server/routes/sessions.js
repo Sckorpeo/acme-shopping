@@ -3,8 +3,6 @@ const app = express.Router();
 const { User } = require("../db");
 const { isLoggedIn } = require("./middleware");
 
-module.exports = app;
-
 app.post("/", async (req, res, next) => {
   try {
     const credentials = {
@@ -20,3 +18,5 @@ app.post("/", async (req, res, next) => {
 app.get("/", isLoggedIn, async (req, res, next) => {
   res.send(req.user);
 });
+
+module.exports = app;
