@@ -1,27 +1,27 @@
-const { UUID } = require("sequelize");
-const conn = require("./conn");
+const { UUID } = require('sequelize');
+const conn = require('./conn');
 const { INTEGER, TEXT } = conn.Sequelize;
 
 const Rating = conn.define('rating', {
     userId: {
         type: INTEGER,
-        allowNull: false
+        allowNull: false,
     },
     productId: {
         type: UUID,
-        allowNull: false
+        allowNull: false,
     },
     value: {
         type: INTEGER,
         allowNull: false,
         validate: {
             min: 1,
-            max: 5
-        }
+            max: 5,
+        },
     },
     comment: {
         type: TEXT,
-    }
+    },
 });
 
 module.exports = Rating;
