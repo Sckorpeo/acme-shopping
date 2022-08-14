@@ -13,3 +13,5 @@ app.get('/:userId', async (req, res, next) => {
         next(ex);
     }
 });
+
+app.get('/:productId');

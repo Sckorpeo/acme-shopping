@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { exchangeToken, logout } from '../state/actionCreators/authAC';
-import { Navigate, Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function User() {
     const dispatch = useDispatch();
@@ -9,7 +9,6 @@ function User() {
     useEffect(() => {
         dispatch(exchangeToken());
     }, []);
-    console.log(auth.id == true);
 
     return (
         <div>

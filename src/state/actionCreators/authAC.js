@@ -13,7 +13,6 @@ const login = (credentials) => {
 };
 
 const logout = () => {
-    console.log(1);
     return (dispatch) => {
         window.localStorage.removeItem('token');
         dispatch({ auth: {}, type: 'SET_AUTH' });

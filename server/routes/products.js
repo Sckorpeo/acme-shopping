@@ -1,11 +1,25 @@
 const express = require('express');
 const app = express.Router();
-const { Product, Rating } = require('../db');
+const { Product, Rating, Category } = require('../db');
 const { isLoggedIn } = require('./middleware');
 
 app.get('/', async (req, res, next) => {
     try {
         res.send(await Product.findAll());
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+app.get('/category/:categoryId', async (req, res, next) => {
+    try {
+        res.send(
+            await Product.findAll({
+                where: {
+                    categoryId: req.params.categoryId,
+                },
+            })
+        );
     } catch (ex) {
         next(ex);
     }

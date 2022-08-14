@@ -15,8 +15,6 @@ function Login() {
         dispatch(exchangeToken());
     }, []);
 
-    console.log(auth.id);
-
     const handelSubmit = (ev) => {
         ev.preventDefault();
         const credentials = { username: username, password: password };
