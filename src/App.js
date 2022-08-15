@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { exchangeToken, logout } from './state/actionCreators/authAC';
+import { fetchCart } from './state/actionCreators/cartAC';
 import { Route, Routes, NavLink, HashRouter } from 'react-router-dom';
 import Cart from './components/Cart';
 import Home from './components/Home';
@@ -12,10 +13,20 @@ import Product from './components/Product';
 function App() {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.auth);
-    useEffect(() => {
+    const { cart } = useSelector((state) => state.cart);
+    console.log(cart);
+    const fetchData = () => {
         dispatch(exchangeToken());
+        dispatch(fetchCart());
+    };
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
+    // useEffect(() => {
+    //     dispatch(fetchCart());
+    // }, []);
     return (
         <HashRouter>
             <div className="nav-bar">
@@ -28,7 +39,11 @@ function App() {
                 ) : (
                     <NavLink to="/login">LogIn</NavLink>
                 )}
-                <NavLink to="/cart">Cart</NavLink>
+                {auth.id ? (
+                    <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
+                ) : (
+                    ''
+                )}
             </div>
             <Routes>
                 <Route exact path="/" element={<Home />} />
