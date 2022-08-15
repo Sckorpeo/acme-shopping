@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getProductBy } from '../state/actionCreators/productsAC';
 
 function Products(props) {
@@ -12,11 +13,11 @@ function Products(props) {
     return (
         <div>
             <h1>Products</h1>
-            <ul>
-                {products.map((product) => (
-                    <li>{product.name}</li>
-                ))}
-            </ul>
+            {products.map((product) => (
+                <Link className="list" to={`products/${product.id}`}>
+                    {product.name}
+                </Link>
+            ))}
         </div>
     );
 }
