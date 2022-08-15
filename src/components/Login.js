@@ -15,7 +15,7 @@ function Login() {
         dispatch(exchangeToken());
     }, []);
 
-    const handelSubmit = (ev) => {
+    const handleSubmit = (ev) => {
         ev.preventDefault();
         const credentials = { username: username, password: password };
         dispatch(login(credentials));
@@ -26,7 +26,7 @@ function Login() {
             {auth.id ? (
                 <Navigate to="/" />
             ) : (
-                <form onSubmit={handelSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input
                         placeholder="username"
                         value={username}

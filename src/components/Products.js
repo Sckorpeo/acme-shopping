@@ -10,13 +10,17 @@ function Products(props) {
     useEffect(() => {
         dispatch(getProductBy(categoryId));
     }, [props.categoryId]);
+
     return (
         <div>
             <h1>Products</h1>
             {products.map((product) => (
+                <div key={product.id}>
                 <Link className="list" to={`/products/${product.id}`}>
                     {product.name}
                 </Link>
+                <button>Add to Cart</button>
+                </div>
             ))}
         </div>
     );
