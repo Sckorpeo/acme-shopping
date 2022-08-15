@@ -14,7 +14,7 @@ function Products(props) {
         <div>
             <h1>Products</h1>
             {products.map((product) => (
-                <Link className="list" to={`products/${product.id}`}>
+                <Link className="list" to={`/products/${product.id}`}>
                     {product.name}
                 </Link>
             ))}
