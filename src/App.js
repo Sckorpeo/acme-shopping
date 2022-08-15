@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Products from './components/Products';
 import User from './components/User';
+import Product from './components/Product';
 
 function App() {
     const dispatch = useDispatch();
@@ -19,9 +20,9 @@ function App() {
         <HashRouter>
             <div className="nav-bar">
                 <NavLink to="/">LOGO</NavLink>
-                <NavLink to="/products/A">CategoryA</NavLink>
-                <NavLink to="/products/B">CategoryB</NavLink>
-                <NavLink to="/products/C">CategoryC</NavLink>
+                <NavLink to="/products/category/A">CategoryA</NavLink>
+                <NavLink to="/products/category/B">CategoryB</NavLink>
+                <NavLink to="/products/category/C">CategoryC</NavLink>
                 {auth.id ? (
                     <NavLink to="/user">{`Welcome, ${auth.username}`}</NavLink>
                 ) : (
@@ -32,20 +33,21 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route
-                    path="/products/A"
+                    path="/products/category/A"
                     element={<Products categoryId="1" />}
                 />
                 <Route
-                    path="/products/B"
+                    path="/products/category/B"
                     element={<Products categoryId="2" />}
                 />
                 <Route
-                    path="/products/C"
+                    path="/products/category/C"
                     element={<Products categoryId="3" />}
                 />
-                <Route path="/user" element={<User />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/user" element={<User />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/products/:productId" element={<Product />} />
             </Routes>
         </HashRouter>
     );
