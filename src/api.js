@@ -38,8 +38,8 @@ const apiGetCart = () => {
     });
 };
 
-const apiAddToCart = (productInfo) => {
-    return axios.put('/api/orders/cart', productInfo, {
+const apiAddToCart = (product, quantity) => {
+    return axios.put('/api/orders/cart', {product, quantity}, {
         headers: {
             authorization: window.localStorage.getItem('token'),
         },

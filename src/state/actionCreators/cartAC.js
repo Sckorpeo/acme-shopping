@@ -1,4 +1,4 @@
-import { apiGetCart, apiAddToCart } from "../../src/api";
+import { apiGetCart, apiAddToCart } from "../../../src/api";
 
 const fetchCart = () => {
   return async (dispatch) => {
@@ -10,11 +10,12 @@ const fetchCart = () => {
   };
 };
 
-const addToCart = (productInfo) => {
+const addToCart = (product, quantity) => {
   return async (dispatch) => {
-    const response = await apiAddToCart(productInfo);
+    const response = await apiAddToCart(product, quantity);
+    console.log(response.data)
     dispatch({
-      type: "ADD_ITEM",
+      type: "SET_CART",
       cart: response.data,
     });
   };

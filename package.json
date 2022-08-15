@@ -8,7 +8,7 @@
     "build:dev": "npm run build -- --watch --mode=development",
     "test": "mocha spec.js",
     "test:dev": "QUIET=true JWT=shh DATABASE_URL=postgres://localhost/acme_db_test npm test -- --watch",
-    "start:dev": "JWT=shhh nodemon server/index.js --ignore src/ --ignore dist/ & npm run build:dev"
+    "start:dev": "QUIET=true JWT=shhh nodemon server/index.js --ignore src/ --ignore dist/ & npm run build:dev"
   },
   "keywords": [],
   "author": "",
