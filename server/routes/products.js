@@ -27,6 +27,9 @@ app.get('/category/:categoryId', async (req, res, next) => {
 
 app.get('/:productId', async (req, res, next) => {
     try {
+        console.log('############################################')
+        console.log(req.params.productId)
+        console.log('############################################')
         res.send(await Product.findByPk(req.params.productId));
     } catch (ex) {
         next(ex);

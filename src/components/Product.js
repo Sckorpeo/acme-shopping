@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { apiGetProduct } from '../api';
 
 function Product() {
-    const productId = useParams();
+    const { productId } = useParams();
     const [product, setProduct] = useState({});
-
+    console.log(productId)
     async function fetchData() {
         const response = await apiGetProduct(productId);
         setProduct(response.data);
