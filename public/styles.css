@@ -25,9 +25,11 @@ a:visited {
 
 .neumorphism-layer1-medium {
     background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
-    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8),
-        10px 10px 20px rgba(166, 180, 200, 0.7);
+    box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
     transition: 0.2s;
+    border: 0.0625rem solid #fafbfe !important;
+    border-radius: 0.55rem !important;
+    border-color: #d1d9e6 !important;
 }
 
 .neumorphism-layer1-with-hover:hover {
