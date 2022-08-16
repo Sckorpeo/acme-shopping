@@ -32,8 +32,8 @@ User.prototype.addToCart = async function ({ product, quantity }) {
         },
     });
     if (lineItem) {
-        lineItem.quantity = quantity;
-        if (lineItem.quantity) {
+        lineItem.quantity = lineItem.quantity + quantity;
+        if (lineItem.quantity != 0) {
             await lineItem.save();
         } else {
             await lineItem.destroy();

@@ -14,19 +14,18 @@ function App() {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.auth);
     const { cart } = useSelector((state) => state.cart);
-    console.log(cart);
     const fetchData = () => {
         dispatch(exchangeToken());
-        dispatch(fetchCart());
+        if (auth.id) dispatch(fetchCart());
     };
 
     useEffect(() => {
-        fetchData();
+        dispatch(exchangeToken());
     }, []);
 
-    // useEffect(() => {
-    //     dispatch(fetchCart());
-    // }, []);
+    useEffect(() => {
+        if (auth.id) dispatch(fetchCart());
+    }, [auth]);
     return (
         <HashRouter>
             <div className="nav-bar">
