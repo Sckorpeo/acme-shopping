@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiGetProduct } from '../api';
+import './Product.css';
 
 function Product() {
     const { productId } = useParams();
@@ -13,7 +14,7 @@ function Product() {
     useEffect(() => {
         fetchData();
     }, []);
-    return <h1>{product.name}</h1>;
+    return <h1 class='product'>{product.name}</h1>;
 }
 
 export default Product;
