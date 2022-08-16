@@ -6,7 +6,7 @@ import './Product.css';
 function Product() {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
-    console.log(productId)
+    console.log(productId);
     async function fetchData() {
         const response = await apiGetProduct(productId);
         setProduct(response.data);
@@ -14,7 +14,7 @@ function Product() {
     useEffect(() => {
         fetchData();
     }, []);
-    return <h1 class='product'>{product.name}</h1>;
+    return <h1 class="product">{product.name}</h1>;
 }
 
 export default Product;

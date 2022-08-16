@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getProductBy } from '../../state/actionCreators/productsAC';
 import { exchangeToken } from '../../state/actionCreators/authAC';
 import { addToCart } from '../../state/actionCreators/cartAC';
+import ProductCard from '../ProductCard/ProductCard';
+import './Products.css';
 
 function Products(props) {
     const dispatch = useDispatch();
@@ -24,18 +26,11 @@ function Products(props) {
     return (
         <div>
             <h1>Products</h1>
-            {products.map((product) => (
-                <div key={product.id}>
-                    <Link to={`/products/${product.id}`}>{product.name}</Link>
-                    {auth.id ? (
-                        <button onClick={() => handelClick(product)}>
-                            Add to Cart
-                        </button>
-                    ) : (
-                        ''
-                    )}
-                </div>
-            ))}
+            <div className="product-list">
+                {products.map((product) => (
+                    <ProductCard product={product} />
+                ))}
+            </div>
         </div>
     );
 }

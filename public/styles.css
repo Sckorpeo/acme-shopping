@@ -1,9 +1,49 @@
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
+body {
+    background-color: #eef0f5;
+    color: #686868;
 }
 
-.list {
-    display: flex;
-    flex-direction: column;
+* {
+    color: #686868;
+    font-family: 'Lato';
+    font-style: normal;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.neumorphism-layer1-large {
+    background: #eef0f5;
+    box-shadow: 10px 10px 21px #c0adbe, -10px -10px 21px #ffe9ff;
+    transition: 0.2s;
+}
+
+.neumorphism-layer1-medium {
+    background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
+    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8),
+        10px 10px 20px rgba(166, 180, 200, 0.7);
+    transition: 0.2s;
+}
+
+.neumorphism-layer1-with-hover:hover {
+    box-shadow: 35px 35px 70px #c0adbe, -35px -35px 70px #ffe9ff;
+}
+
+.neumorphism-layer1-active {
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75),
+        inset 5px 5px 10px rgba(166, 180, 200, 0.75);
+}
+
+/* asdad */
+
+.product-list-item {
+    border-radius: 10px;
+    width: 20rem;
+    margin-top: 1rem;
+    padding: 10px;
 }

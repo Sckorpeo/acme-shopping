@@ -1,0 +1,29 @@
+.nav-bar {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-content {
+    justify-content: space-around;
+    display: flex;
+    height: 1rem;
+    width: 50rem;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.nav-content a {
+    height: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+}
