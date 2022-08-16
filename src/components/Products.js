@@ -7,7 +7,7 @@ import { addToCart } from '../state/actionCreators/cartAC';
 
 function Products(props) {
     const dispatch = useDispatch();
-    const { auth } = useSelector((state) => state.auth);
+    const { auth } = useSelector((state) => state);
     const { products } = useSelector((state) => state.products);
     const categoryId = props.categoryId;
 
