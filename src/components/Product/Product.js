@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { apiGetProduct } from '../api';
+import { apiGetProduct } from '../../api';
 import './Product.css';
 
 function Product() {
