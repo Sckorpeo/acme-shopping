@@ -28,7 +28,7 @@ function Products(props) {
             <h1>Products</h1>
             <div className="product-list">
                 {products.map((product) => (
-                    <ProductCard product={product} />
+                    <ProductCard product={product} key={product.id} />
                 ))}
             </div>
         </div>
