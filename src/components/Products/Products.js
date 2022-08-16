@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getProductBy } from '../state/actionCreators/productsAC';
-import { exchangeToken } from '../state/actionCreators/authAC';
-import { addToCart } from '../state/actionCreators/cartAC';
+import { getProductBy } from '../../state/actionCreators/productsAC';
+import { exchangeToken } from '../../state/actionCreators/authAC';
+import { addToCart } from '../../state/actionCreators/cartAC';
 
 function Products(props) {
     const dispatch = useDispatch();

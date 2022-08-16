@@ -1,9 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../state/actionCreators/authAC';
+import { login } from '../../state/actionCreators/authAC';
 import { Navigate } from 'react-router-dom';
-import { exchangeToken } from '../state/actionCreators/authAC';
+import { exchangeToken } from '../../state/actionCreators/authAC';
 
 function Login() {
     const dispatch = useDispatch();
