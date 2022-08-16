@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 const { Rating } = require('../db');
 
-app.get('/:userId', async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
     try {
         Rating.findAll({
             where: {
@@ -14,4 +14,6 @@ app.get('/:userId', async (req, res, next) => {
     }
 });
 
-app.get('/:productId');
+router.get('/:productId');
+
+module.exports = router;

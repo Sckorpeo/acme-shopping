@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 const { isLoggedIn } = require('./middleware');
 
-app.post('/', isLoggedIn, async (req, res, next) => {
+router.post('/', isLoggedIn, async (req, res, next) => {
     try {
         res.send(await req.user.createOrderFromCart());
     } catch (ex) {
@@ -10,7 +10,7 @@ app.post('/', isLoggedIn, async (req, res, next) => {
     }
 });
 
-app.put('/cart', isLoggedIn, async (req, res, next) => {
+router.put('/cart', isLoggedIn, async (req, res, next) => {
     try {
         res.send(await req.user.addToCart(req.body));
     } catch (ex) {
@@ -18,7 +18,7 @@ app.put('/cart', isLoggedIn, async (req, res, next) => {
     }
 });
 
-app.get('/cart', isLoggedIn, async (req, res, next) => {
+router.get('/cart', isLoggedIn, async (req, res, next) => {
     try {
         res.send(await req.user.getCart());
     } catch (ex) {
@@ -26,4 +26,4 @@ app.get('/cart', isLoggedIn, async (req, res, next) => {
     }
 });
 
-module.exports = app;
+module.exports = router;

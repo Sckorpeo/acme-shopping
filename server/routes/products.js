@@ -1,9 +1,9 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 const { Product, Rating, Category } = require('../db');
 const { isLoggedIn } = require('./middleware');
 
-app.get('/', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         res.send(await Product.findAll());
     } catch (ex) {
@@ -11,7 +11,7 @@ app.get('/', async (req, res, next) => {
     }
 });
 
-app.get('/category/:categoryId', async (req, res, next) => {
+router.get('/category/:categoryId', async (req, res, next) => {
     try {
         res.send(
             await Product.findAll({
@@ -25,7 +25,7 @@ app.get('/category/:categoryId', async (req, res, next) => {
     }
 });
 
-app.get('/:productId', async (req, res, next) => {
+router.get('/:productId', async (req, res, next) => {
     try {
         res.send(await Product.findByPk(req.params.productId));
     } catch (ex) {
@@ -33,7 +33,7 @@ app.get('/:productId', async (req, res, next) => {
     }
 });
 
-app.get('/:productId/rating', async (req, res, next) => {
+router.get('/:productId/rating', async (req, res, next) => {
     try {
         req.send(
             await Rating.findAll({
@@ -47,7 +47,7 @@ app.get('/:productId/rating', async (req, res, next) => {
     }
 });
 
-app.post('/:productId/rating', isLoggedIn, async (req, res, next) => {
+router.post('/:productId/rating', isLoggedIn, async (req, res, next) => {
     try {
         const userId = req.user.id;
         res.status(201).send(await Rating.create(req.body));
@@ -56,4 +56,4 @@ app.post('/:productId/rating', isLoggedIn, async (req, res, next) => {
     }
 });
 
-module.exports = app;
+module.exports = router;

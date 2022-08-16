@@ -1,9 +1,9 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 const { User, Rating } = require('../db');
 const { isLoggedIn } = require('./middleware');
 
-app.post('/', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         const credentials = {
             username: req.body.username,
@@ -15,11 +15,11 @@ app.post('/', async (req, res, next) => {
     }
 });
 
-app.get('/', isLoggedIn, async (req, res, next) => {
+router.get('/', isLoggedIn, async (req, res, next) => {
     res.send(req.user);
 });
 
-app.get('/rating', isLoggedIn, async (req, res, next) => {
+router.get('/rating', isLoggedIn, async (req, res, next) => {
     try {
         const userId = req.user.id;
         res.send(
@@ -34,7 +34,7 @@ app.get('/rating', isLoggedIn, async (req, res, next) => {
     }
 });
 
-app.delete('/rating/:ratingId', isLoggedIn, async (req, res, next) => {
+router.delete('/rating/:ratingId', isLoggedIn, async (req, res, next) => {
     try {
         const rating = await Rating.findByPK(req.params.ratingId);
         rating.destroy();
@@ -44,4 +44,4 @@ app.delete('/rating/:ratingId', isLoggedIn, async (req, res, next) => {
     }
 });
 
-module.exports = app;
+module.exports = router;
