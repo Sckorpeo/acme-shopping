@@ -5,16 +5,34 @@ import './Navbar.css';
 function Navbar({ auth, cart }) {
     return (
         <div className="nav-bar">
-            <NavLink to="/">LOGO</NavLink>
-            <div className="nav-content neumorphism-layer1-medium neumorphism-layer1-with-hover">
+            <NavLink className="logo neumorphism-layer1-medium" to="/">
+                LOGO
+            </NavLink>
+            <div className="nav-content">
                 <NavLink
-                    className="neumorphism-layer1-active"
+                    className={({ isActive }) =>
+                        isActive ? 'neumorphism-layer1-active' : undefined
+                    }
                     to="/products/category/A"
                 >
-                    CategoryA
+                    Campaign
                 </NavLink>
-                <NavLink to="/products/category/B">CategoryB</NavLink>
-                <NavLink to="/products/category/C">CategoryC</NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? 'neumorphism-layer1-active' : undefined
+                    }
+                    to="/products/category/B"
+                >
+                    Dexterity
+                </NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? 'neumorphism-layer1-active' : undefined
+                    }
+                    to="/products/category/C"
+                >
+                    Drafting
+                </NavLink>
                 {auth.id ? (
                     <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
                 ) : (
@@ -22,9 +40,17 @@ function Navbar({ auth, cart }) {
                 )}
             </div>
             {auth.id ? (
-                <NavLink to="/user">{`Welcome, ${auth.username}`}</NavLink>
+                <NavLink
+                    className="user_icon neumorphism-layer1-medium"
+                    to="/user"
+                >{`Welcome, ${auth.username}`}</NavLink>
             ) : (
-                <NavLink to="/login">LogIn</NavLink>
+                <NavLink
+                    className="user_icon neumorphism-layer1-medium"
+                    to="/login"
+                >
+                    LogIn
+                </NavLink>
             )}
         </div>
     );
