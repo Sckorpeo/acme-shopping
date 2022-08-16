@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { exchangeToken } from '../state/actionCreators/authAC';
-import { fetchCart, addToCart } from '../state/actionCreators/cartAC';
+import { exchangeToken } from '../../state/actionCreators/authAC';
+import { fetchCart, addToCart } from '../../state/actionCreators/cartAC';
 
 function Cart() {
     const dispatch = useDispatch();
