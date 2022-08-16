@@ -10,7 +10,7 @@ app.use('/public', express.static('./public'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/sessions', require('./routes/sessions'));
 app.use('/api/products', require('./routes/products'));
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 app.use((err, req, res, next) => {
