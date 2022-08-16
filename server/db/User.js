@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const User = conn.define('user', {
+    id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        primaryKey: true,
+    },
     username: {
         type: Sequelize.STRING,
     },

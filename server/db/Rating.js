@@ -1,10 +1,14 @@
-const { UUID } = require('sequelize');
 const conn = require('./conn');
-const { INTEGER, TEXT } = conn.Sequelize;
+const { UUID, UUIDV4, TEXT, INTEGER } = conn.Sequelize;
 
 const Rating = conn.define('rating', {
+    id: {
+        type: UUID,
+        defaultValue: UUIDV4,
+        primaryKey: true,
+    },
     userId: {
-        type: INTEGER,
+        type: UUID,
         allowNull: false,
     },
     productId: {
