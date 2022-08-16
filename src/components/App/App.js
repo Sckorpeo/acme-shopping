@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {exchangeToken, logout} from '../../state/actionCreators/authAC';
 import {fetchCart} from '../../state/actionCreators/cartAC';
-import {Route, Routes, NavLink} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
+import Navbar from '../Navbar';
 import Cart from '../Cart';
 import Home from '../Home';
 import Login from '../Login';
@@ -28,22 +29,7 @@ function App() {
     }, [auth]);
     return (
         <div id='app'>
-            <div className="nav-bar">
-                <NavLink to="/">LOGO</NavLink>
-                <NavLink to="/products/category/A">CategoryA</NavLink>
-                <NavLink to="/products/category/B">CategoryB</NavLink>
-                <NavLink to="/products/category/C">CategoryC</NavLink>
-                {auth.id ? (
-                    <NavLink to="/user">{`Welcome, ${auth.username}`}</NavLink>
-                ) : (
-                    <NavLink to="/login">LogIn</NavLink>
-                )}
-                {auth.id ? (
-                    <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
-                ) : (
-                    ''
-                )}
-            </div>
+            <Navbar auth={ auth } cart={ cart }/>
             <Routes>
                 <Route exact path="/" element={<Home/>}/>
                 <Route
@@ -64,8 +50,7 @@ function App() {
                 <Route path="/products/:productId" element={<Product/>}/>
             </Routes>
         </div>
-    )
-        ;
+    );
 }
 
 export default App;
