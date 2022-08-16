@@ -14,10 +14,6 @@ function App() {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.auth);
     const { cart } = useSelector((state) => state.cart);
-    const fetchData = () => {
-        dispatch(exchangeToken());
-        if (auth.id) dispatch(fetchCart());
-    };
 
     useEffect(() => {
         dispatch(exchangeToken());
@@ -29,19 +25,28 @@ function App() {
     return (
         <HashRouter>
             <div className="nav-bar">
-                <NavLink to="/">LOGO</NavLink>
-                <NavLink to="/products/category/A">CategoryA</NavLink>
-                <NavLink to="/products/category/B">CategoryB</NavLink>
-                <NavLink to="/products/category/C">CategoryC</NavLink>
+                <NavLink to="/" className="logo">
+                    LOGO
+                </NavLink>
+                <div className="nav-content neumorphism-layer1-medium">
+                    <NavLink
+                        className="neumorphism-layer1-active"
+                        to="/products/category/A"
+                    >
+                        CategoryA
+                    </NavLink>
+                    <NavLink to="/products/category/B">CategoryB</NavLink>
+                    <NavLink to="/products/category/C">CategoryC</NavLink>
+                    {auth.id ? (
+                        <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
+                    ) : (
+                        ''
+                    )}
+                </div>
                 {auth.id ? (
                     <NavLink to="/user">{`Welcome, ${auth.username}`}</NavLink>
                 ) : (
                     <NavLink to="/login">LogIn</NavLink>
-                )}
-                {auth.id ? (
-                    <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
-                ) : (
-                    ''
                 )}
             </div>
             <Routes>

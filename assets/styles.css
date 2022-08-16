@@ -1,4 +1,40 @@
+* {
+    background-color: #e2cbe0;
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.neumorphism-layer1-large {
+    background: #e2cbe0;
+    box-shadow: 10px 10px 21px #c0adbe, -10px -10px 21px #ffe9ff;
+    transition: 0.2s;
+}
+
+.neumorphism-layer1-medium {
+    background: #e2cbe0;
+    box-shadow: 7px 7px 13px #c0adbe, -7px -7px 13px #ffe9ff;
+    transition: 0.2s;
+}
+
+.neumorphism-layer1-with-hover:hover {
+    box-shadow: 35px 35px 70px #c0adbe, -35px -35px 70px #ffe9ff;
+}
+
+.neumorphism-layer1-active {
+    box-shadow: inset 5px 5px 8px #c0adbe, inset -5px -5px 8px #ffe9ff;
+}
+
+/* asdad */
+
 .nav-bar {
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
 }
@@ -6,4 +42,30 @@
 .list {
     display: flex;
     flex-direction: column;
+}
+
+.nav-content {
+    justify-content: space-around;
+    display: flex;
+    height: 1rem;
+    width: 50rem;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+}
+
+.nav-content a {
+    height: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+}
+
+.product-list-item {
+    border-radius: 10px;
+    width: 20rem;
+    margin-top: 1rem;
+    padding: 10px;
 }

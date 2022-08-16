@@ -25,7 +25,10 @@ function Products(props) {
         <div>
             <h1>Products</h1>
             {products.map((product) => (
-                <div key={product.id}>
+                <div
+                    className="product-list-item neumorphism-layer1-medium"
+                    key={product.id}
+                >
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                     {auth.id ? (
                         <button onClick={() => handelClick(product)}>
