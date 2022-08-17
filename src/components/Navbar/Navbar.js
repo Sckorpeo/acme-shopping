@@ -5,21 +5,50 @@ import './Navbar.css';
 function Navbar({ auth, cart }) {
     return (
         <div className="nav-bar">
-            <NavLink to="/">LOGO</NavLink>
-            <div className="nav-content neumorphism-layer1-medium neumorphism-layer1-with-hover">
+            <NavLink className="logo neumorphism" to="/">
+                LOGO
+            </NavLink>
+            <div className="nav-content">
                 <NavLink
-                    className="neumorphism-layer1-active"
+                    className={({ isActive }) =>
+                        isActive ? 'neumorphism-inset' : undefined
+                    }
                     to="/products/category/A"
                 >
-                    CategoryA
+                    Campaign
                 </NavLink>
-                <NavLink to="/products/category/B">CategoryB</NavLink>
-                <NavLink to="/products/category/C">CategoryC</NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? 'neumorphism-inset' : undefined
+                    }
+                    to="/products/category/B"
+                >
+                    Dexterity
+                </NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? 'neumorphism-inset' : undefined
+                    }
+                    to="/products/category/C"
+                >
+                    Drafting
+                </NavLink>
+                {auth.id ? (
+                    <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
+                ) : (
+                    ''
+                )}
+
             </div>
             {auth.id ? (
-                <NavLink to="/user">{`Welcome, ${auth.username}`}</NavLink>
+                <NavLink
+                    className="user_icon neumorphism"
+                    to="/user"
+                >{`Welcome, ${auth.username}`}</NavLink>
             ) : (
-                <NavLink to="/login">LogIn</NavLink>
+                <NavLink className="user_icon neumorphism" to="/login">
+                    LogIn
+                </NavLink>
             )}
         </div>
     );

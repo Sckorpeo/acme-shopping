@@ -21,4 +21,10 @@ const addToCart = (productInfo) => {
     };
 };
 
-export { fetchCart, addToCart };
+const emptyCart = () => {
+    return async (dispatch) => {
+        dispatch({ type: 'EMPTY_CART' });
+    };
+};
+
+export { fetchCart, addToCart, emptyCart };

@@ -4,6 +4,8 @@ const reducer = (state = { cart: [] }, action) => {
             return { ...state, cart: action.cart.lineItems };
         case 'MODIFY_ITEM':
             return { ...state, cart: action.cart.lineItems };
+        case 'EMPTY_CART':
+            return { ...state, cart: [] };
         default:
             return state;
     }

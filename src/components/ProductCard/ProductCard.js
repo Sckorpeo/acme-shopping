@@ -6,10 +6,10 @@ function ProductCard(props) {
     const product = props.product;
     return (
         <Link
-            className="product-card neumorphism-layer1-medium"
+            className="product-card neumorphism-with-border neumorphism-inset-hover"
             to={`/products/${product.id}`}
         >
-            <img className="neumorphism-layer1-active" src={product.imageUrl} />
+            <img className="neumorphism-inset" src={product.imageUrl} />
             <div>
                 <p>{product.name}</p>
             </div>
