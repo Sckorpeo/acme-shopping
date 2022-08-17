@@ -6,7 +6,7 @@ const path = require('path');
 app.use('/dist', express.static('./dist'));
 
 app.use('/public', express.static('./public'));
-
+app.use('/api/user', require('./routes/user'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/sessions', require('./routes/sessions'));
 app.use('/api/products', require('./routes/products'));

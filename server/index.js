@@ -10,11 +10,9 @@ const setUp = async () => {
         await Category.create({ name: 'B' });
         await Category.create({ name: 'C' });
         boardGameSeed();
-        await User.create({ username: 'moe', password: 'moe_pw' });
-        const lucy = await User.create({
-            username: 'lucy',
-            password: 'lucy_pw',
-        });
+        const moe = await User.create({ username: 'moe', password: 'moe_pw' });
+        const lucy = await User.create({ username: 'lucy', password: 'lucy_pw' });
+        const admin = await User.create({ username: 'admin', password: 'admin_pw', isAdmin: true});
         const foo = await Product.create({ name: 'foo' });
         const bar = await Product.create({ name: 'bar' });
         await lucy.addToCart({ product: foo, quantity: 3 });
