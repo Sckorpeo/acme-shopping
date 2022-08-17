@@ -13,7 +13,7 @@ const Product = conn.define('product', {
     price: {
         type: FLOAT,
         validate: {
-            min: 1,
+            min: 0,
         },
     },
     minPlayers: {

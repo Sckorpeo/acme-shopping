@@ -38,6 +38,7 @@ function Navbar({ auth, cart }) {
                 ) : (
                     ''
                 )}
+
             </div>
             {auth.id ? (
                 <NavLink

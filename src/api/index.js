@@ -1,7 +1,7 @@
 import {apiGetAuth, apiSetAuth} from './auth';
 import {apiGetProducts, apiGetProduct, apiGetProductCategory} from './products';
 import {apiGetCart,apiAddToCart} from './cart';
-
+import {apiGetUser, apiGetUsers} from './user';
 export {
     apiGetAuth,
     apiSetAuth,
@@ -10,4 +10,6 @@ export {
     apiGetProductCategory,
     apiGetCart,
     apiAddToCart,
+    apiGetUser,
+    apiGetUsers
 };
