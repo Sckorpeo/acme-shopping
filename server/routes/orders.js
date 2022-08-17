@@ -10,6 +10,11 @@ router.post('/', isLoggedIn, async (req, res, next) => {
     }
 });
 
+router.post('/', async (req, res, next) => {
+    try {
+    } catch (ex) {}
+});
+
 router.put('/cart', isLoggedIn, async (req, res, next) => {
     try {
         res.send(await req.user.addToCart(req.body));

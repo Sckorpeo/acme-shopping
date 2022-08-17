@@ -33,12 +33,6 @@ function Navbar({ auth, cart }) {
                 >
                     Drafting
                 </NavLink>
-                {auth.id ? (
-                    <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
-                ) : (
-                    ''
-                )}
-
             </div>
             {auth.id ? (
                 <NavLink
