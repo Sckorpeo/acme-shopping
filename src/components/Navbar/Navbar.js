@@ -15,11 +15,6 @@ function Navbar({ auth, cart }) {
                 </NavLink>
                 <NavLink to="/products/category/B">CategoryB</NavLink>
                 <NavLink to="/products/category/C">CategoryC</NavLink>
-                {auth.id ? (
-                    <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
-                ) : (
-                    ''
-                )}
             </div>
             {auth.id ? (
                 <NavLink to="/user">{`Welcome, ${auth.username}`}</NavLink>
