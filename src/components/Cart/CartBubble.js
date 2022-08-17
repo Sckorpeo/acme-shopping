@@ -18,7 +18,7 @@ const CartBubble = (props) => {
         <NavLink to="/cart">
             <div
                 id="CartBubble"
-                className="CartBubble neumorphism-layer1-medium"
+                className="CartBubble neumorphism"
                 onMouseEnter={() => setOpen(!open)}
                 onMouseLeave={() => setOpen(!open)}
             >
