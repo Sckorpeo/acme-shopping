@@ -5,13 +5,13 @@ import './Navbar.css';
 function Navbar({ auth, cart }) {
     return (
         <div className="nav-bar">
-            <NavLink className="logo neumorphism-layer1-medium" to="/">
+            <NavLink className="logo neumorphism" to="/">
                 LOGO
             </NavLink>
             <div className="nav-content">
                 <NavLink
                     className={({ isActive }) =>
-                        isActive ? 'neumorphism-layer1-active' : undefined
+                        isActive ? 'neumorphism-inset' : undefined
                     }
                     to="/products/category/A"
                 >
@@ -19,7 +19,7 @@ function Navbar({ auth, cart }) {
                 </NavLink>
                 <NavLink
                     className={({ isActive }) =>
-                        isActive ? 'neumorphism-layer1-active' : undefined
+                        isActive ? 'neumorphism-inset' : undefined
                     }
                     to="/products/category/B"
                 >
@@ -27,7 +27,7 @@ function Navbar({ auth, cart }) {
                 </NavLink>
                 <NavLink
                     className={({ isActive }) =>
-                        isActive ? 'neumorphism-layer1-active' : undefined
+                        isActive ? 'neumorphism-inset' : undefined
                     }
                     to="/products/category/C"
                 >
@@ -41,14 +41,11 @@ function Navbar({ auth, cart }) {
             </div>
             {auth.id ? (
                 <NavLink
-                    className="user_icon neumorphism-layer1-medium"
+                    className="user_icon neumorphism"
                     to="/user"
                 >{`Welcome, ${auth.username}`}</NavLink>
             ) : (
-                <NavLink
-                    className="user_icon neumorphism-layer1-medium"
-                    to="/login"
-                >
+                <NavLink className="user_icon neumorphism" to="/login">
                     LogIn
                 </NavLink>
             )}
