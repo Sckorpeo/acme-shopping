@@ -19,8 +19,8 @@ const CartBubble = (props) => {
             <div
                 id="CartBubble"
                 className="CartBubble neumorphism"
-                onMouseEnter={() => setOpen(!open)}
-                onMouseLeave={() => setOpen(!open)}
+                onMouseEnter={() => setOpen(true)}
+                onMouseLeave={() => setOpen(false)}
             >
                 {open && props.children}
                 <p>Cart ({cart.length})</p>
