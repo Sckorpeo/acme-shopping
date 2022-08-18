@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Carousel from './Carousel';
+import { useDispatch, useSelector } from 'react-redux';
+import ProductCard from '../ProductCard/ProductCard';
+import { fetchProduct } from '../../state/actionCreators/productsAC';
 
 function Home() {
-    return <h1>Home</h1>;
+    // For testing, might use in the future
+    // const dispatch = useDispatch();
+    // const { products } = useSelector((state) => state.products);
+
+    // useEffect(() => {
+    //     dispatch(fetchProduct());
+    //     console.log(12);
+    // }, []);
+    // console.log(products);
+
+    return (
+        <div className="home">
+            <Carousel />
+        </div>
+    );
 }
 
 export default Home;
