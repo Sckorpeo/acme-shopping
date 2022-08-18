@@ -47,3 +47,17 @@ a:visited {
     margin-top: 1rem;
     padding: 10px;
 }
+
+.splitter {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-right: 17rem;
+    margin-left: 17rem;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: white;
+    border: 0px;
+    background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
+    background: #e6e7ee;
+    box-shadow: inset 1px 1px 2px #c4c4ca, inset -1px -1px 2px #ffffff;
+}

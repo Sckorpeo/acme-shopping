@@ -18,11 +18,6 @@ function Products(props) {
         dispatch(getProductBy(categoryId));
     }, [props.categoryId]);
 
-    const handelClick = (product) => {
-        const productInfo = { product: product, quantity: 1 };
-        dispatch(addToCart(productInfo));
-    };
-
     return (
         <div>
             <h1>Products</h1>
