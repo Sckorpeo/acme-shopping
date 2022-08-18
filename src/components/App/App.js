@@ -16,10 +16,6 @@ function App() {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.auth);
     const { cart } = useSelector((state) => state.cart);
-    const fetchData = () => {
-        dispatch(exchangeToken());
-        if (auth.id) dispatch(fetchCart());
-    };
 
     useEffect(() => {
         dispatch(exchangeToken());

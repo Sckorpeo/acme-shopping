@@ -13,7 +13,7 @@ const CartBubble = (props) => {
         setTimeout(() => {
             cartEl?.classList.remove('bounce');
         }, 650);
-    }, [cart]);
+    }, [cart.length]);
     return (
         <NavLink to="/cart">
             <div
