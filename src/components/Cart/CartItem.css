@@ -1,0 +1,25 @@
+.CartItem img {
+    height: 14rem;
+    width: 14rem;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.CartItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 0;
+    margin: 1.5rem 0;
+    margin-left: 2rem;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.CartItem-content {
+    width: 50%;
+}
+
+.boardGame-name {
+    font-weight: bold;
+}
