@@ -38,7 +38,7 @@ function LoginButton() {
         if (users[0].avatar) {
             userLogo = <img className='user-icon' src={users[0].avatar} />;
         } else {
-            userLogo = users[0].username;
+            userLogo = users[0].username[0].toUpperCase();
         }
     } else {
         userLogo = null;
@@ -48,7 +48,7 @@ function LoginButton() {
             {auth.id ? (
                 <div className="user-icon neumorphism menu-container">
                     <button onClick={handleClick} className="user-icon neumorphism menu-trigger">
-                        {userLogo}
+                        <h1>{userLogo}</h1>
                     </button>
                     <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                         <ul>
