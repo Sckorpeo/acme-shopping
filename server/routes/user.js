@@ -28,4 +28,13 @@ router.get('/all', isLoggedIn, async (req, res, next) => {
     };
 })
 
+router.put('/', isLoggedIn, async (req, res, next) => {
+    try {
+        await req.user.update(req.body);
+        res.status(200).send(req.user);
+    } catch (ex) {
+        next(ex);
+    };
+})
+
 module.exports = router;

@@ -19,11 +19,17 @@ const User = conn.define('user', {
     isAdmin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
+    },
+    avatar: {
+        type: Sequelize.TEXT,
+        allowNull: true
     }
 });
 
 User.addHook('beforeSave', async (user) => {
-    user.password = await bcrypt.hash(user.password, 5);
+    if (user.changed('password')) {
+        user.password = await bcrypt.hash(user.password, 5);
+    }
 });
 
 User.prototype.createOrderFromCart = async function () {

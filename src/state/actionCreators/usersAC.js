@@ -1,5 +1,4 @@
-import { apiGetUser, apiGetUsers } from '../../api';
-
+import { apiGetUser, apiGetUsers, apiEditUser } from '../../api';
 
 // Action Types
 const LOAD_USER = 'LOAD_USER';
@@ -68,11 +67,22 @@ const loadUsers = () => {
     return async (dispatch) => {
         try {
             const users = await apiGetUsers();
-            dispatch(_loadUsers(user))
+            dispatch(_loadUsers(users))
         } catch (ex) {
             console.log(ex);
         }
     }
 }
 
-export { loadUser, loadUsers };
+const editUser = (user) => {
+    return async (dispatch) => {
+        try {
+            const response = await apiEditUser(user);
+            const editedUser = response.data;
+            dispatch(_editUser(editedUser));
+        } catch (ex) {
+            console.log(ex);
+        }
+    }
+}
+export { loadUser, loadUsers, editUser };

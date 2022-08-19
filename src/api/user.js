@@ -18,7 +18,19 @@ const apiGetUsers = async () => {
     return res.data;
 };
 
+const apiEditUser = async (user) => {
+    const editedUser = await axios.put('/api/user',
+        user,
+        {
+            headers: {
+                authorization: window.localStorage.getItem('token'),
+            }
+        });
+    return editedUser;
+}
+
 export {
     apiGetUser,
-    apiGetUsers
+    apiGetUsers,
+    apiEditUser
 };

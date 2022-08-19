@@ -1,7 +1,8 @@
 import {apiGetAuth, apiSetAuth} from './auth';
 import {apiGetProducts, apiGetProduct, apiGetProductCategory} from './products';
 import {apiGetCart,apiAddToCart} from './cart';
-import {apiGetUser, apiGetUsers} from './user';
+import {apiGetUser, apiGetUsers, apiEditUser} from './user';
+
 export {
     apiGetAuth,
     apiSetAuth,
@@ -11,5 +12,6 @@ export {
     apiGetCart,
     apiAddToCart,
     apiGetUser,
-    apiGetUsers
+    apiGetUsers,
+    apiEditUser
 };
