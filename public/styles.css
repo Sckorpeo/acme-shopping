@@ -49,10 +49,6 @@ a:visited {
 }
 
 .splitter {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    margin-right: 17rem;
-    margin-left: 17rem;
     border-radius: 10px;
     padding: 2px;
     background-color: white;
@@ -63,13 +59,15 @@ a:visited {
 }
 
 .neumorphism-btn {
+    transition-duration: 1s;
+    height: 2rem;
     border-radius: 2rem;
     box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
-    transition: all 0.2s ease;
     border: 0.0625rem solid transparent;
     border-color: #d1d9e6;
+    transition: 0.3s;
 }
 
 .neumorphism-btn:hover {
-    box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff;
+    box-shadow: none;
 }
