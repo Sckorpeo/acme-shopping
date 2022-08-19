@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { LoginButton } from '../Login'
 import './Navbar.css';
+
 
 function Navbar({ auth, cart }) {
     return (
@@ -40,16 +42,7 @@ function Navbar({ auth, cart }) {
                         ''
                     )}
                 </div>
-                {auth.id ? (
-                    <NavLink
-                        className="user_icon neumorphism"
-                        to="/user"
-                    >{`Welcome, ${auth.username}`}</NavLink>
-                ) : (
-                    <NavLink className="user_icon neumorphism" to="/login">
-                        LogIn
-                    </NavLink>
-                )}
+                <LoginButton auth={auth} />
             </div>
             <hr className="splitter" />
         </div>
