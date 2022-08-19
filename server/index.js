@@ -15,15 +15,6 @@ const setUp = async () => {
             username: 'lucy',
             password: 'lucy_pw',
         });
-        const frank = await User.create({
-            username: 'moe',
-            password: 'moe_pw',
-        });
-        const jane = await User.create({
-            username: 'lucy',
-            password: 'lucy_pw',
-        });
-        const tom = await User.create({ username: 'moe', password: 'moe_pw' });
         const Kaiyuan = await User.create({
             username: 'Kaiyuan',
             password: 'kaiyuan_pw',
