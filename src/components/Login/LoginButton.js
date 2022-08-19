@@ -48,7 +48,7 @@ function LoginButton() {
             {auth.id ? (
                 <div className="user-icon neumorphism menu-container">
                     <button onClick={handleClick} className="user-icon neumorphism menu-trigger">
-                        <h1>{userLogo}</h1>
+                        {userLogo}
                     </button>
                     <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                         <ul>
