@@ -4,14 +4,17 @@ import { NavLink } from 'react-router-dom';
 import { logout } from '../../state/actionCreators/authAC';
 import './Login.css';
 
-function LoginButton({auth}) {
+function LoginButton() {
     const dropdownRef = useRef(null);
-    const clickMenuRef = useRef(false)
+    const clickMenuRef = useRef(false);
     const dispatch = useDispatch();
+    const { auth } = useSelector(state => state.auth);
+    const { users } = useSelector(state=>state.users);
     const [ isActive, setIsActive ] = useState(false);
     const handleClick = () => {
         setIsActive(!isActive)
     };
+
     useEffect(() => {
         const pageClickEvent = (e) => {
             if ((isActive) && (!clickMenuRef.current)) {
@@ -30,12 +33,22 @@ function LoginButton({auth}) {
         }
     }, [isActive]);
 
+    let userLogo;
+    if (users[0]) {
+        if (users[0].avatar) {
+            userLogo = <img className='user-icon' src={users[0].avatar} />;
+        } else {
+            userLogo = users[0].username;
+        }
+    } else {
+        userLogo = null;
+    }
     return (
         <div>
             {auth.id ? (
                 <div className="user-icon neumorphism menu-container">
                     <button onClick={handleClick} className="user-icon neumorphism menu-trigger">
-                    {auth.username}
+                        {userLogo}
                     </button>
                     <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                         <ul>

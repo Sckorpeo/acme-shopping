@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { exchangeToken, logout } from '../../state/actionCreators/authAC';
 import { fetchCart } from '../../state/actionCreators/cartAC';
+import { loadUser } from '../../state/actionCreators/usersAC';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Cart from '../Cart';
@@ -22,7 +23,10 @@ function App() {
     }, []);
 
     useEffect(() => {
-        if (auth.id) dispatch(fetchCart());
+        if (auth.id) {
+            dispatch(fetchCart())
+            dispatch(loadUser())
+        };
     }, [auth]);
     return (
         <div id="app">
