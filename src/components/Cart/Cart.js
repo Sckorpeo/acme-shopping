@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import CartItem from './CartItem';
+import CartSubtotal from './CartSubtotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { exchangeToken } from '../../state/actionCreators/authAC';
-import { fetchCart, addToCart } from '../../state/actionCreators/cartAC';
+import { fetchCart } from '../../state/actionCreators/cartAC';
 import './Cart.css';
 
 function Cart() {
@@ -17,10 +18,6 @@ function Cart() {
         if (auth.id) dispatch(fetchCart());
     }, [auth]);
 
-    const handelClick = (product, number) => {
-        const productInfo = { product: product, quantity: number };
-        dispatch(addToCart(productInfo));
-    };
     console.log(cart);
 
     return (
@@ -29,9 +26,11 @@ function Cart() {
                 {cart.map((item) => (
                     <CartItem product={item.product} key={item.id} />
                 ))}
-                <hr />
+                <hr className="splitter" />
             </div>
-            <div className="Cart-sidebar"></div>
+            <div className="Cart-sidebar">
+                <CartSubtotal />
+            </div>
         </div>
     );
 }

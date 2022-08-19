@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { quantityReducer } from '../../util/reducers';
 import './CartBubble.css';
 
 const CartBubble = (props) => {
@@ -23,7 +24,7 @@ const CartBubble = (props) => {
                 onMouseLeave={() => setOpen(false)}
             >
                 {open && props.children}
-                <p>Cart ({cart.length})</p>
+                <p>Cart ({quantityReducer(cart)})</p>
             </div>
         </NavLink>
     );
