@@ -4,3 +4,10 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.product-list-item {
+    border-radius: 10px;
+    width: 20rem;
+    margin-top: 1rem;
+    padding: 10px;
+}
