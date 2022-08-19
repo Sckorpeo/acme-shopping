@@ -12,9 +12,12 @@ const User = conn.define('user', {
     },
     username: {
         type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
     },
     password: {
         type: Sequelize.STRING,
+        allowNull: false,
     },
     isAdmin: {
         type: Sequelize.BOOLEAN,
@@ -23,6 +26,31 @@ const User = conn.define('user', {
     avatar: {
         type: Sequelize.TEXT,
         allowNull: true
+    },
+    email: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: true,
+        validate: {
+            isEmail: true
+        }
+    },
+    phone: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: true,
+        is: ["^\d{3}-\d{3}-\d{4}"]
+    },
+    address: {
+        type: Sequelize.TEXT,
+        allowNull: true
+    },
+    creditCard: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            isCreditCard: true
+        }
     }
 });
 
