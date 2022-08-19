@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../state/actionCreators/authAC';
 import { Navigate } from 'react-router-dom';
 import { exchangeToken } from '../../state/actionCreators/authAC';
+import { loadUser } from '../../state/actionCreators/usersAC';
 
 function Login() {
     const dispatch = useDispatch();
@@ -13,7 +14,8 @@ function Login() {
 
     useEffect(() => {
         dispatch(exchangeToken());
-    }, []);
+        dispatch(loadUser());
+    }, [auth.id]);
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
