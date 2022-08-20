@@ -1,0 +1,10 @@
+.user-info-header {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info-header-title {
+    font-size: 20px;
+}
