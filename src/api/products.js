@@ -13,8 +13,6 @@ const apiGetProductCategory = (categoryId) => {
 };
 
 const seedProductData = async () => {
-    console.log(window.localStorage.getItem('token'));
-    console.log('In the api request');
     await axios.get('/api/products/seed', {
         headers: {
             authorization: window.localStorage.getItem('token'),

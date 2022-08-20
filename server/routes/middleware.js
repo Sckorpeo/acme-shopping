@@ -2,7 +2,6 @@ const { User } = require('../db');
 
 const isLoggedIn = async (req, res, next) => {
     try {
-        console.log(req.headers);
         req.user = await User.findByToken(req.headers.authorization);
         next();
     } catch (ex) {
@@ -17,9 +16,11 @@ const isAdmin = async (req, res, next) => {
         if (admin) {
             next();
         }
-        throw new Error('User is not an Admin');
+        throw 'error';
     } catch (ex) {
-        next(ex);
+        const error = new Error('User is not an Admin');
+        error.status = 401;
+        next(error);
     }
 };
 

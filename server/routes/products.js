@@ -26,11 +26,7 @@ router.get('/category/:categoryId', async (req, res, next) => {
     }
 });
 
-router.get('/seed', isLoggedIn, async (req, res, next) => {
-    res.send('Hello World');
-    console.log(
-        'hit the route#################################################'
-    );
+router.get('/seed', isLoggedIn, isAdmin, async (req, res, next) => {
     try {
         await boardGameSeed();
         res.sendStatus(201);
