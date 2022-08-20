@@ -10,6 +10,7 @@ import Home from '../Home';
 import Login from '../Login';
 import Products from '../Products';
 import User from '../User';
+import { UserInfo, UserOrders } from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 
@@ -45,7 +46,11 @@ function App() {
                     path="/products/category/C"
                     element={<Products categoryId="3" />}
                 />
-                <Route path="/user" element={<User />} />
+                <Route path="/user" element={<User />}>
+                    <Route index element={<UserInfo />} />
+                    <Route path='info' element={<UserInfo />} />
+                    <Route path='orders' element={<UserOrders />} />
+                </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/products/:productId" element={<Product />} />

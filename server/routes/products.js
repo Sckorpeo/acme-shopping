@@ -26,6 +26,19 @@ router.get('/category/:categoryId', async (req, res, next) => {
     }
 });
 
+router.get('/seed', isLoggedIn, async (req, res, next) => {
+    res.send('Hello World');
+    console.log(
+        'hit the route#################################################'
+    );
+    try {
+        await boardGameSeed();
+        res.sendStatus(201);
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 router.get('/:productId', async (req, res, next) => {
     try {
         res.send(await Product.findByPk(req.params.productId));
@@ -53,18 +66,6 @@ router.post('/:productId/rating', isLoggedIn, async (req, res, next) => {
         const userId = req.user.id;
         console.log(req.user);
         res.status(201).send(await Rating.create(req.body));
-    } catch (ex) {
-        next(ex);
-    }
-});
-
-router.get('/seed', isLoggedIn, async (req, res, next) => {
-    console.log(
-        'hit the route#################################################'
-    );
-    try {
-        await boardGameSeed();
-        res.sendStatus(201);
     } catch (ex) {
         next(ex);
     }

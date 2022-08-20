@@ -23,8 +23,8 @@ const getProductBy = (category) => {
 
 const getSeededData = () => {
     return async (dispatch) => {
-        seedProductData();
-        dispatch(fetchProduct());
+        await seedProductData();
+        // dispatch(fetchProduct());
     };
 };
 
