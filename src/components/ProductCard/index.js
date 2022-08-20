@@ -1,2 +1,2 @@
 import ProductCard from './ProductCard';
-export default Product;
+export default ProductCard;
