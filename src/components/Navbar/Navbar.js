@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LoginButton } from '../Login'
+import { LoginButton } from '../Login';
+import SeedButton from '../Seed/SeedButton';
 import './Navbar.css';
-
 
 function Navbar({ auth, cart }) {
     return (
@@ -36,6 +36,7 @@ function Navbar({ auth, cart }) {
                     >
                         Drafting
                     </NavLink>
+                    <SeedButton />
                     {auth.id ? (
                         <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
                     ) : (

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User, Rating } = require('../db');
-const { isLoggedIn } = require('./middleware');
+const { isLoggedIn, isAdmin } = require('./middleware');
 
 router.post('/', async (req, res, next) => {
     try {

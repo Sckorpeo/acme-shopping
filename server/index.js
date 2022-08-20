@@ -1,7 +1,6 @@
 const app = require('./app');
 const { conn, User, Product } = require('./db');
 const Category = require('./db/Category');
-const boardGameSeed = require('./db/seed/boardGameSeed');
 
 const setUp = async () => {
     try {
@@ -9,7 +8,6 @@ const setUp = async () => {
         await Category.create({ name: 'A' });
         await Category.create({ name: 'B' });
         await Category.create({ name: 'C' });
-        boardGameSeed();
         const moe = await User.create({ username: 'moe', password: 'moe_pw' });
         const lucy = await User.create({
             username: 'lucy',

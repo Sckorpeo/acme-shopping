@@ -1,4 +1,5 @@
 import { apiGetProducts, apiGetProductCategory } from '../../api';
+import { seedProductData } from '../../api/products';
 
 const fetchProduct = () => {
     return async (dispatch) => {
@@ -20,4 +21,11 @@ const getProductBy = (category) => {
     };
 };
 
-export { fetchProduct, getProductBy };
+const getSeededData = () => {
+    return async (dispatch) => {
+        seedProductData();
+        dispatch(fetchProduct());
+    };
+};
+
+export { fetchProduct, getProductBy, getSeededData };
