@@ -1,3 +1,4 @@
+const { Rating } = require('../index');
 const fakeRatings = [
     { value: 1, comment: "I won't but it again" },
     { value: 1, comment: null },
@@ -30,3 +31,28 @@ const fakeRatings = [
             "its the WORSE, 5 star for y'all to see it, it took forever to play, and its actually so boring, no idea why so many 5 stars",
     },
 ];
+
+const createRating = (products, users) => {
+    const curr = fakeRatings[Math.floor(Math.random() * 22)];
+    return {
+        value: curr.value,
+        comment: curr.comment,
+        productId: products[Math.floor(Math.random() * 50)].id,
+        userId: users[Math.floor(Math.random() * 4)].id,
+    };
+};
+
+const ratingsSeed = async (products, users) => {
+    try {
+        console.log(products[1].id);
+        const RATINGS = [];
+        Array.from({ length: 200 }).forEach(() =>
+            RATINGS.push(createRating(products, users))
+        );
+        await Promise.all(RATINGS.map((rating) => Rating.create(rating)));
+    } catch (ex) {
+        console.log(ex);
+    }
+};
+
+module.exports = ratingsSeed;

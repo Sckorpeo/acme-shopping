@@ -12,8 +12,13 @@ const apiGetProductCategory = (categoryId) => {
     return axios.get(`/api/products/category/${categoryId}`);
 };
 
+const apiGetProductRatings = (productId) => {
+    return axios.get(`/api/products/${productId}/rating`);
+};
+
 export {
     apiGetProducts,
     apiGetProduct,
     apiGetProductCategory,
+    apiGetProductRatings,
 };
