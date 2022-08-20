@@ -6,7 +6,10 @@ const _URL =
 const boardGameSeed = async () => {
     try {
         const boardGames = await getBoardGameData(_URL);
-        await Promise.all(boardGames.map((game) => Product.create(game)));
+        const boardGamesSQL = await Promise.all(
+            boardGames.map((game) => Product.create(game))
+        );
+        return boardGamesSQL;
     } catch (ex) {
         console.log(ex);
     }

@@ -12,7 +12,7 @@ const getBoardGameData = async (apiUrl) => {
             maxPlayers: game.max_players,
             timeToPlay: game.max_playtime,
             imageUrl: game.thumb_url,
-            categoryId: Math.floor(Math.random() * 4),
+            categoryId: Math.floor(Math.random() * 3) + 1,
         };
         filteredData.push(curr);
     });
