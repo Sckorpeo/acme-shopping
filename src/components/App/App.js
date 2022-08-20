@@ -9,8 +9,7 @@ import Cart from '../Cart';
 import Home from '../Home';
 import Login from '../Login';
 import Products from '../Products';
-import User from '../User';
-import { UserInfo, UserOrders } from '../User';
+import User, { UserInfo, UserOrders, UserSecurity } from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 
@@ -49,6 +48,7 @@ function App() {
                 <Route path="/user" element={<User />}>
                     <Route index element={<UserInfo />} />
                     <Route path='info' element={<UserInfo />} />
+                    <Route path='security' element={<UserSecurity />} />
                     <Route path='orders' element={<UserOrders />} />
                 </Route>
                 <Route path="/login" element={<Login />} />

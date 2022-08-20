@@ -8,8 +8,9 @@ import {emptyCart} from "../../state/actionCreators/cartAC";
 function UserNavBar() {
     const dispatch = useDispatch();
     return (
-        <nav class='user-nav-bar'>
+        <nav className='user-nav-bar'>
             <NavLink to='info'>User Info</NavLink>
+            <NavLink to='security'>Security</NavLink>
             <NavLink to='orders'>Past Orders</NavLink>
             <NavLink onClick={()=>{
                 dispatch(logout());
