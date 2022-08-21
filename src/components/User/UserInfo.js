@@ -14,28 +14,26 @@ function UserInfo() {
     const { users } = useSelector(state => state.users);
     const [ editForm, setEditForm ] = useState(users[0]);
 
-    useEffect(() => {
-        dispatch(exchangeToken());
-        // dispatch(loadUser());
-        if (picRef.current) {
-            picRef.current.addEventListener('change', (ev) => {
-                const file = (ev.target.files[0])
-                const reader = new FileReader();
-
-                // reading the binary data and encoding that as base64 data url
-                reader.readAsDataURL(file);
-
-                reader.addEventListener('load', () => {
-                    dispatch(editUser({avatar:reader.result}))
-                });
-            })
-        }
-    },[]);
+    // useEffect(() => {
+    //     dispatch(exchangeToken());
+    //     // dispatch(loadUser());
+    //     if (editMode && picRef.current) {
+    //         picRef.current.addEventListener('change', (ev) => {
+    //             const file = (ev.target.files[0])
+    //             const reader = new FileReader();
+    //
+    //             // reading the binary data and encoding that as base64 data url
+    //             reader.readAsDataURL(file);
+    //
+    //             reader.addEventListener('load', () => {
+    //                 dispatch(editUser({avatar:reader.result}))
+    //             });
+    //         })
+    //     }
+    // },[]);
 
     const toggleEdit = () => {
-        console.log(!editMode)
         setEditMode(!editMode)
-        console.log(editMode)
     }
 
     const handleChange = (ev) => {
@@ -47,7 +45,16 @@ function UserInfo() {
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        dispatch(editUser(editForm));
+        if (ev.target.avatar.files[0]) {
+            const file = (ev.target.avatar.files[0])
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener('load', () => {
+                dispatch(editUser({...editForm, avatar: reader.result}))
+            });
+        } else {
+            dispatch(editUser({...editForm, avatar: users[0].avatar}))
+        };
         setEditMode(false);
     }
 
@@ -58,12 +65,13 @@ function UserInfo() {
                 <div><input type='submit' form='edit-form' value='Save' /></div>
                 <div><button type='button' onClick={toggleEdit}>Cancel</button></div>
             </div>
-            <input type='file' ref={picRef} />
+            {/*<input type='file' ref={picRef} />*/}
             {users.map((user) => {
                 return (
                     <div key={user.id}>
                         <form id='edit-form' onSubmit={handleSubmit}>
                             {!! user.avatar && <img className='user-avatar' src={user.avatar} />}
+                            <h4>Avatar: <input id='avatar' name='avatar' type='file' ref={picRef} onChange={handleChange} /></h4>
                             <h4>Username: <input id='username' name='username' value={editForm.username} onChange={handleChange} /></h4>
                             <h4>Email: <input id='email' name='email' value={editForm.email === null ? '' : editForm.email} onChange={handleChange} /></h4>
                             <h4>Phone: <input id='phone' name='phone' value={editForm.phone === null ? '' : editForm.phone} onChange={handleChange} /></h4>
