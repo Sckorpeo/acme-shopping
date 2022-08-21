@@ -1,8 +1,15 @@
+.product-list-wrapper {
+    margin-left: 17rem;
+    margin-right: 17rem;
+    display: flex;
+    flex-direction: column;
+}
+
 .product-list {
     display: flex;
-    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 4.18rem;
 }
 
 .product-list-item {

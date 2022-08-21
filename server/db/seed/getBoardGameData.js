@@ -16,7 +16,6 @@ const getBoardGameData = async (apiUrl) => {
         };
         filteredData.push(curr);
     });
-    console.log(filteredData);
     return filteredData;
 };
 

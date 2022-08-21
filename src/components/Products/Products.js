@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getProductBy } from '../../state/actionCreators/productsAC';
 import { exchangeToken } from '../../state/actionCreators/authAC';
 import { addToCart } from '../../state/actionCreators/cartAC';
-import ProductCard from '../ProductCard/ProductCard';
+import ProductCard from '../ProductCard';
 import './Products.css';
 
 function Products(props) {
@@ -19,12 +19,14 @@ function Products(props) {
     }, [props.categoryId]);
 
     return (
-        <div>
+        <div className="product-list-wrapper">
             <h1>Products</h1>
-            <div className="product-list">
-                {products.map((product) => (
-                    <ProductCard product={product} key={product.id} />
-                ))}
+            <div>
+                <div className="product-list">
+                    {products.map((product) => (
+                        <ProductCard product={product} key={product.id} />
+                    ))}
+                </div>
             </div>
         </div>
     );

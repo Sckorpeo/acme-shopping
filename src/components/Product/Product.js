@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { apiGetProduct } from '../../api';
+import { apiGetProduct, apiGetProductRatings } from '../../api/products';
 import { addToCart } from '../../state/actionCreators/cartAC';
 import './Product.css';
 
 function Product() {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    const [ratings, setRatings] = useState([]);
     const dispatch = useDispatch();
     async function fetchData() {
-        const response = await apiGetProduct(productId);
+        let response = await apiGetProduct(productId);
         setProduct(response.data);
+        response = await apiGetProductRatings(productId);
+        setRatings(response.data);
     }
     useEffect(() => {
         fetchData();
     }, []);
+
+    console.log(ratings);
     const handleClick = () => {
         dispatch(addToCart({ product, quantity: 1 }));
     };
