@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { priceReducer, quantityReducer } from '../../util/reducers';
+import './CartSubtotal.css';
 
 const CartSubtotal = () => {
     const { cart } = useSelector((state) => state.cart);
@@ -8,7 +9,7 @@ const CartSubtotal = () => {
     const quantity = quantityReducer(cart);
 
     return (
-        <div className="CartSubtotal">
+        <div className="CartSubtotal neumorphism-with-border">
             <h2>
                 {' '}
                 Subtotal ({quantity} {quantity > 1 ? 'items' : 'item'}): $
