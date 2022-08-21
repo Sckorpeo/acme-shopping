@@ -3,6 +3,7 @@ import Carousel from './Carousel';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from '../ProductCard/ProductCard';
 import { fetchProduct } from '../../state/actionCreators/productsAC';
+import './Home.css';
 
 function Home() {
     // For testing, might use in the future
