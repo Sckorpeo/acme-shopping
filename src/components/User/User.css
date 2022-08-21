@@ -4,8 +4,8 @@
     border-radius: 50%;
 }
 
-.small-password{
-    font-size:10px;
+.small-password {
+    font-size: 10px;
 }
 
 .user-wrapper {
@@ -14,9 +14,10 @@
     margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
-
+    gap: 10rem;
 }
 
 .user-nav-bar {
+    display: flex;
     width: 150px;
 }
