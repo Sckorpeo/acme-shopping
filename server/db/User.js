@@ -13,7 +13,7 @@ const User = conn.define('user', {
     username: {
         type: Sequelize.STRING,
         unique: true,
-        allowNull: false
+        allowNull: false,
     },
     password: {
         type: Sequelize.STRING,
@@ -21,37 +21,37 @@ const User = conn.define('user', {
     },
     isAdmin: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
     },
     avatar: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: true,
     },
     email: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: true,
         validate: {
-            isEmail: true
-        }
+            isEmail: true,
+        },
     },
     phone: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: true,
-        is: ["^\d{3}-\d{3}-\d{4}"]
+        is: ['^d{3}-d{3}-d{4}'],
     },
     address: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: true,
     },
     creditCard: {
         type: Sequelize.STRING,
         allowNull: true,
         validate: {
-            isCreditCard: true
-        }
-    }
+            isCreditCard: true,
+        },
+    },
 });
 
 User.addHook('beforeSave', async (user) => {
@@ -80,6 +80,8 @@ User.prototype.addToCart = async function ({ product, quantity }) {
             await lineItem.save();
         } else {
             await lineItem.destroy();
+            console.log(lineItem);
+            console.log(lineItem);
         }
     } else {
         await conn.models.lineItem.create({
