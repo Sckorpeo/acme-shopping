@@ -1,0 +1,37 @@
+input {
+    font-size: 16px;
+    width: 100%;
+    padding: 11px 15px 11px 8px;
+    color: black;
+    background-color: transparent;
+    animation: 1ms void-animation-out;
+}
+
+input::placeholder {
+    color: #666777;
+    font-size: 16px;
+}
+
+label {
+    width: 20%;
+    min-width: 70px;
+    padding: 11px 0;
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-right: 1px solid #d1d9e6;
+}
+
+.FormField {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: 1px solid black;
+    max-width: 965px;
+}
+
+.FormField:first-of-type {
+    border-top: none;
+}

@@ -1,0 +1,11 @@
+.Checkout {
+    width: 70%;
+    height: 70vh;
+    margin-left: 17rem;
+    margin-right: 17rem;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
