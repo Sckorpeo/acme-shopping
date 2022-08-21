@@ -1,3 +1,37 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 30rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 17rem;
+    margin-right: 17rem;
+}
+
+.login-wrapper form {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+}
+
+.login-wrapper form label {
+    font-size: 0.875rem;
+    margin-bottom: 10px;
+}
+
+.login-wrapper form input {
+    margin-bottom: 1rem;
+}
+
+.login-wrapper form input:focus {
+    outline: none !important;
+}
+
+.login-wrapper form button {
+    margin-top: 1rem;
+    height: 2.5rem;
+}
+
 .user-icon {
     display: flex;
     justify-content: center;
@@ -14,16 +48,15 @@
 }
 
 .menu {
-    background: #ffffff;
     border-radius: 8px;
     position: absolute;
     top: 70px;
-    right: 0;
     width: 100px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
+    box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+    background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
     z-index: 10;
 }
@@ -42,6 +75,10 @@
 
 .menu li {
     border-bottom: 1px solid #dddddd;
+}
+
+.menu :last-child {
+    border: 0;
 }
 
 .menu li a {

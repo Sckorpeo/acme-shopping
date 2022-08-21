@@ -8,20 +8,20 @@ function LoginButton() {
     const dropdownRef = useRef(null);
     const clickMenuRef = useRef(false);
     const dispatch = useDispatch();
-    const { auth } = useSelector(state => state.auth);
-    const { users } = useSelector(state=>state.users);
-    const [ isActive, setIsActive ] = useState(false);
+    const { auth } = useSelector((state) => state.auth);
+    const { users } = useSelector((state) => state.users);
+    const [isActive, setIsActive] = useState(false);
     const handleClick = () => {
-        setIsActive(!isActive)
+        setIsActive(!isActive);
     };
 
     useEffect(() => {
         const pageClickEvent = (e) => {
-            if ((isActive) && (!clickMenuRef.current)) {
+            if (isActive && !clickMenuRef.current) {
                 clickMenuRef.current = !clickMenuRef.current;
-            } else if ((isActive) && (clickMenuRef.current)) {
+            } else if (isActive && clickMenuRef.current) {
                 clickMenuRef.current = !clickMenuRef.current;
-                setIsActive(!isActive)
+                setIsActive(!isActive);
             }
         };
         // If the item is active (ie open) then listen for clicks
@@ -30,13 +30,13 @@ function LoginButton() {
         }
         return () => {
             window.removeEventListener('click', pageClickEvent);
-        }
+        };
     }, [isActive]);
 
     let userLogo;
     if (users[0]) {
         if (users[0].avatar) {
-            userLogo = <img className='user-icon' src={users[0].avatar} />;
+            userLogo = <img className="user-icon" src={users[0].avatar} />;
         } else {
             userLogo = users[0].username[0].toUpperCase();
         }
@@ -47,14 +47,33 @@ function LoginButton() {
         <div>
             {auth.id ? (
                 <div className="user-icon neumorphism menu-container">
-                    <button onClick={handleClick} className="user-icon neumorphism menu-trigger">
+                    <button
+                        onClick={handleClick}
+                        className="user-icon neumorphism menu-trigger"
+                    >
                         {userLogo}
                     </button>
-                    <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
+                    <nav
+                        ref={dropdownRef}
+                        className={`menu ${isActive ? 'active' : 'inactive'}`}
+                    >
                         <ul>
-                            <li><NavLink to='/user'>Wishlist</NavLink></li>
-                            <li><NavLink to='/user'>Account</NavLink></li>
-                            <li><NavLink onClick={()=>{dispatch(logout())}} to='/'>Logout</NavLink></li>
+                            <li>
+                                <NavLink to="/user">Wishlist</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/user">Account</NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    onClick={() => {
+                                        dispatch(logout());
+                                    }}
+                                    to="/"
+                                >
+                                    Logout
+                                </NavLink>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -64,7 +83,7 @@ function LoginButton() {
                 </NavLink>
             )}
         </div>
-    )
-};
+    );
+}
 
-export default LoginButton
+export default LoginButton;

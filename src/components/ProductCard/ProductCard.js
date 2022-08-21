@@ -35,27 +35,27 @@ function ProductCard(props) {
                 <div className="star-read-only">
                     <span
                         className={
-                            rate > 1 ? 'fa fa-star checked' : 'fa fa-star'
+                            rate >= 1 ? 'fa fa-star checked' : 'fa fa-star'
                         }
                     ></span>
                     <span
                         className={
-                            rate > 2 ? 'fa fa-star checked' : 'fa fa-star'
+                            rate >= 2 ? 'fa fa-star checked' : 'fa fa-star'
                         }
                     ></span>
                     <span
                         className={
-                            rate > 3 ? 'fa fa-star checked' : 'fa fa-star'
+                            rate >= 3 ? 'fa fa-star checked' : 'fa fa-star'
                         }
                     ></span>
                     <span
                         className={
-                            rate > 4 ? 'fa fa-star checked' : 'fa fa-star'
+                            rate >= 4 ? 'fa fa-star checked' : 'fa fa-star'
                         }
                     ></span>
                     <span
                         className={
-                            rate > 5 ? 'fa fa-star checked' : 'fa fa-star'
+                            rate >= 5 ? 'fa fa-star checked' : 'fa fa-star'
                         }
                     ></span>
                     {rateCount > 0 ? <p>{`(${rateCount})`}</p> : ''}

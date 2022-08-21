@@ -24,22 +24,24 @@ function Login() {
     };
 
     return (
-        <div>
+        <div className="login-wrapper">
             {auth.id ? (
                 <Navigate to="/" />
             ) : (
                 <form onSubmit={handleSubmit}>
+                    <label>Username</label>
                     <input
-                        placeholder="username"
+                        className="neumorphism-input"
                         value={username}
                         onChange={(ev) => setUsername(ev.target.value)}
                     />
+                    <label>Password</label>
                     <input
-                        placeholder="password"
+                        className="neumorphism-input"
                         value={password}
                         onChange={(ev) => setPassword(ev.target.value)}
                     />
-                    <button>Login</button>
+                    <button className="neumorphism-btn">Login</button>
                 </form>
             )}
         </div>
