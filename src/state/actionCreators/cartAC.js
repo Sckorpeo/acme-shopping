@@ -13,7 +13,6 @@ const fetchCart = () => {
 const addToCart = (productInfo) => {
     return async (dispatch) => {
         const response = await apiAddToCart(productInfo);
-        console.log(response.data);
         dispatch({
             type: 'MODIFY_ITEM',
             cart: response.data,
