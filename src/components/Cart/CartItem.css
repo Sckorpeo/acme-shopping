@@ -8,11 +8,11 @@
 .CartItem {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 1rem 0;
+    padding: 1rem;
     margin: 1.5rem 0;
-    width: 75%;
+    width: 90%;
     border-radius: 20px;
+    justify-content: space-between;
 }
 
 .CartItem-content {

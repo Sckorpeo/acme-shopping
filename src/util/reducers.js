@@ -5,9 +5,11 @@ const quantityReducer = (lineItems) => {
 };
 
 const priceReducer = (lineItems) => {
-    return lineItems.reduce((prev, next) => {
-        return prev + next.product.price * next.quantity;
-    }, 0);
+    return lineItems
+        .reduce((prev, next) => {
+            return prev + next.product.price * next.quantity;
+        }, 0)
+        .toFixed(2);
 };
 
 export { quantityReducer, priceReducer };

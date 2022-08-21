@@ -21,17 +21,19 @@ function Cart() {
     console.log(cart);
 
     return (
-        <div className="Cart-page">
-            <div className="Cart-content">
-                {cart.map((item) => (
-                    <CartItem product={item.product} key={item.id} />
-                ))}
-                <hr className="splitter" />
+        <>
+            <div className="Cart-page">
+                <div className="Cart-content">
+                    {cart.map((item) => (
+                        <CartItem product={item.product} key={item.id} />
+                    ))}
+                </div>
+                <div className="Cart-sidebar">
+                    <CartSubtotal />
+                </div>
             </div>
-            <div className="Cart-sidebar">
-                <CartSubtotal />
-            </div>
-        </div>
+            <hr className="splitter" />
+        </>
     );
 }
 
