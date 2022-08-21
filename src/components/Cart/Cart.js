@@ -18,14 +18,17 @@ function Cart() {
         if (auth.id) dispatch(fetchCart());
     }, [auth]);
 
-    console.log(cart);
-
     return (
         <>
             <div className="Cart-page">
                 <div className="Cart-content">
                     {cart.map((item) => (
-                        <CartItem product={item.product} key={item.id} />
+                        <CartItem
+                            product={item.product}
+                            key={item.id}
+                            quantity={item.quantity}
+                            lineItem={item}
+                        />
                     ))}
                 </div>
                 <div className="Cart-sidebar">
