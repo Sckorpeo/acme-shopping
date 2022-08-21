@@ -81,6 +81,13 @@ const editUser = (user) => {
             const editedUser = response.data;
             dispatch(_editUser(editedUser));
         } catch (ex) {
+            if (ex.response.data.error.errors[0].validatorKey === 'isCreditCard') {
+                alert('Invalid credit card number');
+            } else if (ex.response.data.error.errors[0].validatorKey === 'isEmail') {
+                alert('Invalid email');
+            } else {
+                alert('Invalid input');
+            }
             console.log(ex);
         }
     }
