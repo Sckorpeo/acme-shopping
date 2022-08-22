@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Product, Rating, Category } = require('../db');
+const { Product, Rating, Category, LineItem } = require('../db');
 const { isLoggedIn, isAdminUser } = require('./middleware');
 
 router.get('/', async (req, res, next) => {
@@ -68,6 +68,12 @@ router.post('/', isAdminUser, async (req, res, next) => {
 router.delete('/:productId', isAdminUser, async (req, res, next) => {
     try {
         const product = await Product.findByPk(req.params.productId);
+        await Rating.destroy({
+            where: { productId: req.params.productId },
+        });
+        await LineItem.destroy({
+            where: { productId: req.params.productId },
+        });
         await product.destroy();
         res.sendStatus(200);
     } catch (ex) {

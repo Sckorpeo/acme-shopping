@@ -37,7 +37,7 @@ function UserNavBar() {
             </NavLink>
             <hr className="splitter" />
             {auth.isAdmin ? (
-                <NavLink className="neumorphism-btn" to="/admin">
+                <NavLink className="neumorphism-btn" to="/admin/users">
                     Admin Page
                 </NavLink>
             ) : null}
