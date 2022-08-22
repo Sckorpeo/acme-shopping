@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { apiAdminGetUsers } from '../../api/user';
 
 function AdminPageUser() {
@@ -13,7 +14,7 @@ function AdminPageUser() {
     return (
         <div>
             {users.map((user) => (
-                <p>{user.firstName}</p>
+                <NavLink to={`users/${user.id}`}>{user.username}</NavLink>
             ))}
         </div>
     );

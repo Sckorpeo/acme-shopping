@@ -3,15 +3,19 @@
     margin-right: 17rem;
 }
 
+.admin-product-item-wrapper {
+    display: flex;
+}
+
 .admin-product-item {
     display: flex;
 }
 
 .admin-product-item div {
     border: 1px solid gray;
-    width: 15rem;
+    width: 16rem;
 }
 
 .admin-product-item div:first-child {
-    width: 30rem;
+    width: 19rem;
 }
