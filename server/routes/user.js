@@ -25,8 +25,8 @@ router.get('/all', isLoggedIn, async (req, res, next) => {
         }
     } catch (ex) {
         next(ex);
-    };
-})
+    }
+});
 
 router.put('/', isLoggedIn, async (req, res, next) => {
     try {
@@ -34,7 +34,15 @@ router.put('/', isLoggedIn, async (req, res, next) => {
         res.status(200).send(req.user);
     } catch (ex) {
         next(ex);
-    };
-})
+    }
+});
+
+router.post('/', async (req, res, next) => {
+    try {
+        res.status(201).send(await User.create(req.body));
+    } catch (ex) {
+        next(ex);
+    }
+});
 
 module.exports = router;

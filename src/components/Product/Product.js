@@ -25,9 +25,19 @@ function Product() {
         dispatch(addToCart({ product, quantity: 1 }));
     };
     return (
-        <div>
-            <h1 className="product">{product.name}</h1>
-            <button onClick={handleClick}>Add To Cart</button>
+        <div className="product-page">
+            <img src={product.imageUrl} />
+            <div className="product-content">
+                <h1>{product.name}</h1>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et
+                    malesuada fames ac turpis egestas. Vestibulum tortor quam,
+                    feugiat vitae, ultricies eget, tempor sit amet, ante. Donec
+                    eu libero sit amet quam egestas semper. Aenean ultricies mi
+                    vitae est. Mauris placerat eleifend leo.
+                </p>
+                <button onClick={handleClick}>Add To Cart</button>
+            </div>
         </div>
     );
 }

@@ -1,4 +1,15 @@
-.product {
-    font-family: Arial;
-    font-size: 100px;
+.product-page {
+    margin-left: 17rem;
+    margin-right: 17rem;
+    display: flex;
+}
+
+.product-page img {
+    width: 20rem;
+    height: 20rem;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
 }

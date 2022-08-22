@@ -1,0 +1,9 @@
+.sign-up-wrapper {
+    margin-left: 17rem;
+    margin-right: 17rem;
+}
+
+.sign-up-wrapper form {
+    display: flex;
+    flex-direction: column;
+}

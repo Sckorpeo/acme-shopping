@@ -10,6 +10,18 @@ const User = conn.define('user', {
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
     },
+    firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    lastName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    middleName: {
+        type: Sequelize.STRING,
+        allowNull: true,
+    },
     username: {
         type: Sequelize.STRING,
         unique: true,
