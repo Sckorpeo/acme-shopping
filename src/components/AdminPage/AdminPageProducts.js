@@ -25,16 +25,18 @@ function AdminPageProducts() {
     return (
         <div>
             {products.map((product) => (
-                <NavLink
-                    className="admin-product-item"
-                    to={`products/${product.id}`}
-                    key={product.id}
-                >
-                    <div>name: {product.name}</div>
-                    <div>price: {product.price}</div>
-                    <div>min players: {product.minPlayers}</div>
-                    <div>max Player: {product.maxPlayers}</div>
-                    <div>time to play: {product.timeToPlay}</div>
+                <div className="admin-product-item-wrapper">
+                    <NavLink
+                        className="admin-product-item"
+                        to={`${product.id}`}
+                        key={product.id}
+                    >
+                        <div>{product.name}</div>
+                        <div>price: {product.price}</div>
+                        <div>min players: {product.minPlayers}</div>
+                        <div>max Player: {product.maxPlayers}</div>
+                        <div>time to play: {product.timeToPlay}</div>
+                    </NavLink>
                     <button
                         onClick={() => {
                             handleDelete(product.id);
@@ -42,7 +44,7 @@ function AdminPageProducts() {
                     >
                         X
                     </button>
-                </NavLink>
+                </div>
             ))}
         </div>
     );

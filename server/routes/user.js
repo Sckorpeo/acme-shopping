@@ -21,6 +21,14 @@ router.get('/all', isAdminUser, async (req, res, next) => {
     }
 });
 
+router.get('/:userId', isAdminUser, async (req, res, next) => {
+    try {
+        res.status(200).send(await User.findByPk(req.params.userId));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 router.put('/', isLoggedIn, async (req, res, next) => {
     try {
         await req.user.update(req.body);
