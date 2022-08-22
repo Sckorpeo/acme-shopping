@@ -9,7 +9,7 @@ const apiGetUser = async () => {
     return res.data;
 };
 
-const apiGetUsers = async () => {
+const apiAdminGetUsers = async () => {
     const res = await axios.get('/api/user/all', {
         headers: {
             authorization: window.localStorage.getItem('token'),
@@ -32,4 +32,4 @@ const apiCreateUser = async (user) => {
     return res;
 };
 
-export { apiGetUser, apiGetUsers, apiEditUser, apiCreateUser };
+export { apiGetUser, apiAdminGetUsers, apiEditUser, apiCreateUser };

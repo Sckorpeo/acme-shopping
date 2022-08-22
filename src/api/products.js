@@ -17,15 +17,27 @@ const apiGetProductRatings = (productId) => {
 };
 
 const apiAdminAddProduct = (product) => {
-    return axios.post('/api/products', product);
+    return axios.post('/api/products', product, {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
 };
 
 const apiAdminDeleteProduct = (productId) => {
-    return axios.delete(`/api/products/${productId}`);
+    return axios.delete(`/api/products/${productId}`, {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
 };
 
 const apiAdminEditProduct = (productId, params) => {
-    return axios.put(`api/products/${productId}`, params);
+    return axios.put(`api/products/${productId}`, params, {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
 };
 
 export {

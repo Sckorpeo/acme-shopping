@@ -1,7 +1,11 @@
-import {apiGetAuth, apiSetAuth} from './auth';
-import {apiGetProducts, apiGetProduct, apiGetProductCategory} from './products';
-import {apiGetCart,apiAddToCart} from './cart';
-import {apiGetUser, apiGetUsers, apiEditUser} from './user';
+import { apiGetAuth, apiSetAuth } from './auth';
+import {
+    apiGetProducts,
+    apiGetProduct,
+    apiGetProductCategory,
+} from './products';
+import { apiGetCart, apiAddToCart } from './cart';
+import { apiGetUser, apiAdminGetUsers, apiEditUser } from './user';
 
 export {
     apiGetAuth,
@@ -12,6 +16,6 @@ export {
     apiGetCart,
     apiAddToCart,
     apiGetUser,
-    apiGetUsers,
-    apiEditUser
+    apiAdminGetUsers,
+    apiEditUser,
 };

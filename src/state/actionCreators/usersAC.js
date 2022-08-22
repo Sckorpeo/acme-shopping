@@ -12,43 +12,43 @@ const EDIT_USER = 'EDIT_USER';
 const _loadUser = (user) => {
     return {
         type: LOAD_USER,
-        payload: user  // Object (row in database)
-    }
+        payload: user, // Object (row in database)
+    };
 };
 
 const _loadUsers = (users) => {
     return {
         type: LOAD_USERS,
-        payload: users  // Array of objects
-    }
+        payload: users, // Array of objects
+    };
 };
 
 const _createUser = (user) => {
     return {
         type: CREATE_USER,
-        payload: user
-    }
+        payload: user,
+    };
 };
 
 const _removeUser = (user) => {
     return {
         type: REMOVE_USER,
-        payload: user
-    }
+        payload: user,
+    };
 };
 
 const _removeUserById = (userId) => {
     return {
         type: REMOVE_USER_BY_ID,
-        payload: userId
-    }
+        payload: userId,
+    };
 };
 
 const _editUser = (user) => {
     return {
         type: EDIT_USER,
-        payload: user
-    }
+        payload: user,
+    };
 };
 
 // Thunks
@@ -56,23 +56,23 @@ const loadUser = () => {
     return async (dispatch) => {
         try {
             const user = await apiGetUser();
-            dispatch(_loadUser(user))
+            dispatch(_loadUser(user));
         } catch (ex) {
             console.log(ex);
         }
-    }
-}
+    };
+};
 
-const loadUsers = () => {
-    return async (dispatch) => {
-        try {
-            const users = await apiGetUsers();
-            dispatch(_loadUsers(users))
-        } catch (ex) {
-            console.log(ex);
-        }
-    }
-}
+// const loadUsers = () => {
+//     return async (dispatch) => {
+//         try {
+//             const users = await apiGetUsers();
+//             dispatch(_loadUsers(users))
+//         } catch (ex) {
+//             console.log(ex);
+//         }
+//     }
+// }
 
 const editUser = (user) => {
     return async (dispatch) => {
@@ -81,15 +81,20 @@ const editUser = (user) => {
             const editedUser = response.data;
             dispatch(_editUser(editedUser));
         } catch (ex) {
-            if (ex.response.data.error.errors[0].validatorKey === 'isCreditCard') {
+            if (
+                ex.response.data.error.errors[0].validatorKey === 'isCreditCard'
+            ) {
                 alert('Invalid credit card number');
-            } else if (ex.response.data.error.errors[0].validatorKey === 'isEmail') {
+            } else if (
+                ex.response.data.error.errors[0].validatorKey === 'isEmail'
+            ) {
                 alert('Invalid email');
             } else {
                 alert('Invalid input');
             }
             console.log(ex);
         }
-    }
-}
-export { loadUser, loadUsers, editUser };
+    };
+};
+// export { loadUser, loadUsers, editUser };
+export { loadUser, editUser };

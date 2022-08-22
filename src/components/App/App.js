@@ -14,9 +14,9 @@ import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 import SignUp from '../Signup';
 import Checkout from '../Checkout';
-import AdmitPage from '../AdmitPage/AdmitPage';
-import AdmitPageUser from '../AdmitPage/AdmitPageUser';
-import AdmitPageProducts from '../AdmitPage/AdmitPageProducts';
+import AdminPage from '../AdminPage/AdminPage';
+import AdminPageUser from '../AdminPage/AdminPageUser';
+import AdminPageProducts from '../AdminPage/AdminPageProducts';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -67,11 +67,11 @@ function App() {
                     <Route path="/products/:productId" element={<Product />} />
                     <Route path="/cart/checkout" element={<Checkout />} />
                     <Route path="/signup" element={<SignUp />} />
-                    <Route path="/admin" element={<AdmitPage />}>
-                        <Route path="users" element={<AdmitPageUser />} />
+                    <Route path="/admin" element={<AdminPage />}>
+                        <Route path="users" element={<AdminPageUser />} />
                         <Route
                             path="products"
-                            element={<AdmitPageProducts />}
+                            element={<AdminPageProducts />}
                         />
                     </Route>
                 </Routes>
