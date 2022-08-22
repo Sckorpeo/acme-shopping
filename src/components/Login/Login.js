@@ -26,7 +26,11 @@ function Login() {
     return (
         <div className="login-wrapper">
             {auth.id ? (
-                <Navigate to="/" />
+                auth.isAdmin ? (
+                    <Navigate to="/admin" />
+                ) : (
+                    <Navigate to="/" />
+                )
             ) : (
                 <form onSubmit={handleSubmit}>
                     <label>Username</label>

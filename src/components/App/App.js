@@ -14,12 +14,14 @@ import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 import SignUp from '../Signup';
 import Checkout from '../Checkout';
+import AdmitPage from '../AdmitPage/AdmitPage';
+import AdmitPageUser from '../AdmitPage/AdmitPageUser';
+import AdmitPageProducts from '../AdmitPage/AdmitPageProducts';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
-
 
 function App() {
     const dispatch = useDispatch();
@@ -65,6 +67,13 @@ function App() {
                     <Route path="/products/:productId" element={<Product />} />
                     <Route path="/cart/checkout" element={<Checkout />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route path="/admin" element={<AdmitPage />}>
+                        <Route path="users" element={<AdmitPageUser />} />
+                        <Route
+                            path="products"
+                            element={<AdmitPageProducts />}
+                        />
+                    </Route>
                 </Routes>
                 <CartBubble>Hello World</CartBubble>
             </Elements>

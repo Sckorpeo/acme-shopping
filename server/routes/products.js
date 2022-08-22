@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Product, Rating, Category } = require('../db');
-const { isLoggedIn } = require('./middleware');
+const { isLoggedIn, isAdminUser } = require('./middleware');
 
 router.get('/', async (req, res, next) => {
     try {
@@ -52,6 +52,32 @@ router.post('/:productId/rating', isLoggedIn, async (req, res, next) => {
         const userId = req.user.id;
         console.log(req.user);
         res.status(201).send(await Rating.create(req.body));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+router.post('/', isAdminUser, async (req, res, next) => {
+    try {
+        res.status(201).send(await Product.create(req.body));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+router.delete('/:productId', isAdminUser, async (req, res, next) => {
+    try {
+        const product = await Product.findByPk(req.params.productId);
+        await product.destroy();
+        res.sendStatus(200);
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+router.put('/:productId', isAdminUser, async (req, res, next) => {
+    try {
+        await Product.update(req.body, { where: { id: req.params.productId } });
     } catch (ex) {
         next(ex);
     }

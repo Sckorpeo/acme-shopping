@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './UserNavBar.css';
 import { logout } from '../../state/actionCreators/authAC';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { emptyCart } from '../../state/actionCreators/cartAC';
 
 function UserNavBar() {
-    const dispatch = useDispatch();
+    const { auth } = useSelector((state) => state.auth);
     return (
         <nav className="user-nav-bar">
             <NavLink
@@ -35,6 +35,12 @@ function UserNavBar() {
             >
                 Past Orders
             </NavLink>
+            <hr className="splitter" />
+            {auth.isAdmin ? (
+                <NavLink className="neumorphism-btn" to="/admin">
+                    Admin Page
+                </NavLink>
+            ) : null}
             <hr className="splitter" />
             {/* <NavLink
                 className="neumorphism-with-border"
