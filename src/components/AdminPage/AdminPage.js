@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { exchangeToken } from '../../state/actionCreators/authAC';
+import './AdminPage.css';
 
 function AdmitPage() {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function AdmitPage() {
         console.log(1);
     }, []);
     return (
-        <div>
+        <div className="admin-page-wrapper">
             {auth.isAdmin ? (
                 <div>
                     <NavLink

@@ -1,0 +1,17 @@
+.admin-page-wrapper {
+    margin-left: 17rem;
+    margin-right: 17rem;
+}
+
+.admin-product-item {
+    display: flex;
+}
+
+.admin-product-item div {
+    border: 1px solid gray;
+    width: 15rem;
+}
+
+.admin-product-item div:first-child {
+    width: 30rem;
+}
