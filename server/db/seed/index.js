@@ -19,6 +19,6 @@ const syncAndSeed = async () => {
     }
 };
 
-syncAndSeed();
+// syncAndSeed();
 
 module.exports = syncAndSeed;

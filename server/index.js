@@ -3,7 +3,7 @@ const { conn, User, Product } = require('./db');
 const Category = require('./db/Category');
 const boardGameSeed = require('./db/seed/boardGameSeed');
 const ratingsSeed = require('./db/seed/ratingSeed');
-const syncAndSeed = require('./db/seed')
+const syncAndSeed = require('./db/seed');
 require('dotenv').config();
 
 const setUp = async () => {

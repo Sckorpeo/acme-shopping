@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { priceReducer, quantityReducer } from '../../util/reducers';
 import './CartSubtotal.css';
@@ -15,7 +16,10 @@ const CartSubtotal = () => {
                 Subtotal ({quantity} {quantity > 1 ? 'items' : 'item'}): $
                 {subtotal}
             </h2>
-            <button className="neumorphism-btn"> Proceed to Checkout </button>
+            <NavLink to="/cart/checkout" className="neumorphism-btn">
+                {' '}
+                Proceed to Checkout{' '}
+            </NavLink>
         </div>
     );
 };

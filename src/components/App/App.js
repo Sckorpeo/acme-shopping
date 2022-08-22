@@ -13,6 +13,13 @@ import User, { UserInfo, UserOrders, UserSecurity } from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 import SignUp from '../Signup';
+import Checkout from '../Checkout';
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
+
 
 function App() {
     const dispatch = useDispatch();
@@ -31,33 +38,36 @@ function App() {
     }, [auth]);
     return (
         <div id="app">
-            <Navbar auth={auth} cart={cart} />
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route
-                    path="/products/category/A"
-                    element={<Products categoryId="1" />}
-                />
-                <Route
-                    path="/products/category/B"
-                    element={<Products categoryId="2" />}
-                />
-                <Route
-                    path="/products/category/C"
-                    element={<Products categoryId="3" />}
-                />
-                <Route path="/user" element={<User />}>
-                    <Route index element={<UserInfo />} />
-                    <Route path="info" element={<UserInfo />} />
-                    <Route path="security" element={<UserSecurity />} />
-                    <Route path="orders" element={<UserOrders />} />
-                </Route>
-                <Route path="/login" element={<Login />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/products/:productId" element={<Product />} />
-            </Routes>
-            <CartBubble>Hello World</CartBubble>
+            <Elements stripe={stripePromise}>
+                <Navbar auth={auth} cart={cart} />
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route
+                        path="/products/category/A"
+                        element={<Products categoryId="1" />}
+                    />
+                    <Route
+                        path="/products/category/B"
+                        element={<Products categoryId="2" />}
+                    />
+                    <Route
+                        path="/products/category/C"
+                        element={<Products categoryId="3" />}
+                    />
+                    <Route path="/user" element={<User />}>
+                        <Route index element={<UserInfo />} />
+                        <Route path="info" element={<UserInfo />} />
+                        <Route path="security" element={<UserSecurity />} />
+                        <Route path="orders" element={<UserOrders />} />
+                    </Route>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/products/:productId" element={<Product />} />
+                    <Route path="/cart/checkout" element={<Checkout />} />
+                    <Route path="/signup" element={<SignUp />} />
+                </Routes>
+                <CartBubble>Hello World</CartBubble>
+            </Elements>
         </div>
     );
 }

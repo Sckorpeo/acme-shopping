@@ -92,6 +92,8 @@ User.prototype.addToCart = async function ({ product, quantity }) {
             await lineItem.save();
         } else {
             await lineItem.destroy();
+            console.log(lineItem);
+            console.log(lineItem);
         }
     } else {
         await conn.models.lineItem.create({
