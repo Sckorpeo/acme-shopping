@@ -10,10 +10,22 @@ const User = conn.define('user', {
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
     },
+    firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    lastName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    middleName: {
+        type: Sequelize.STRING,
+        allowNull: true,
+    },
     username: {
         type: Sequelize.STRING,
         unique: true,
-        allowNull: false
+        allowNull: false,
     },
     password: {
         type: Sequelize.STRING,
@@ -21,37 +33,37 @@ const User = conn.define('user', {
     },
     isAdmin: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
     },
     avatar: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: true,
     },
     email: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: true,
         validate: {
-            isEmail: true
-        }
+            isEmail: true,
+        },
     },
     phone: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: true,
-        is: ["^\d{3}-\d{3}-\d{4}"]
+        is: ['^d{3}-d{3}-d{4}'],
     },
     address: {
         type: Sequelize.TEXT,
-        allowNull: true
+        allowNull: true,
     },
     creditCard: {
         type: Sequelize.STRING,
         allowNull: true,
         validate: {
-            isCreditCard: true
-        }
-    }
+            isCreditCard: true,
+        },
+    },
 });
 
 User.addHook('beforeSave', async (user) => {

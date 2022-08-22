@@ -19,7 +19,7 @@
     margin-bottom: 10px;
 }
 
-.login-wrapper form input {
+.login-wrapper form input:first-of-type {
     margin-bottom: 1rem;
 }
 
@@ -28,8 +28,14 @@
 }
 
 .login-wrapper form button {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     height: 2.5rem;
+}
+
+.login-wrapper form a {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
 }
 
 .user-icon {

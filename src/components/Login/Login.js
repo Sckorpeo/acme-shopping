@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../state/actionCreators/authAC';
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import { exchangeToken } from '../../state/actionCreators/authAC';
 import { loadUser } from '../../state/actionCreators/usersAC';
 
@@ -41,6 +41,7 @@ function Login() {
                         value={password}
                         onChange={(ev) => setPassword(ev.target.value)}
                     />
+                    <NavLink to="/signup">Don't have a account?</NavLink>
                     <button className="neumorphism-btn">Login</button>
                 </form>
             )}

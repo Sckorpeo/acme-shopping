@@ -12,6 +12,7 @@ import Products from '../Products';
 import User, { UserInfo, UserOrders, UserSecurity } from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
+import SignUp from '../Signup';
 
 function App() {
     const dispatch = useDispatch();
@@ -24,9 +25,9 @@ function App() {
 
     useEffect(() => {
         if (auth.id) {
-            dispatch(fetchCart())
-            dispatch(loadUser())
-        };
+            dispatch(fetchCart());
+            dispatch(loadUser());
+        }
     }, [auth]);
     return (
         <div id="app">
@@ -47,12 +48,13 @@ function App() {
                 />
                 <Route path="/user" element={<User />}>
                     <Route index element={<UserInfo />} />
-                    <Route path='info' element={<UserInfo />} />
-                    <Route path='security' element={<UserSecurity />} />
-                    <Route path='orders' element={<UserOrders />} />
+                    <Route path="info" element={<UserInfo />} />
+                    <Route path="security" element={<UserSecurity />} />
+                    <Route path="orders" element={<UserOrders />} />
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route path="/products/:productId" element={<Product />} />
             </Routes>
             <CartBubble>Hello World</CartBubble>
