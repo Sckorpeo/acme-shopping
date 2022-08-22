@@ -6,7 +6,6 @@ function Carousel() {
     useEffect(() => {
         carouselHelper();
     }, []);
-    console.log(2);
     return (
         <div className="slider neumorphism">
             <div className="slide">

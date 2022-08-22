@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from '../ProductCard/ProductCard';
 import { fetchProduct } from '../../state/actionCreators/productsAC';
 import './Home.css';
+import { NavLink } from 'react-router-dom';
 
 function Home() {
     // For testing, might use in the future
