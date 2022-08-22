@@ -28,7 +28,7 @@ function AdminPageProducts() {
                 <div className="admin-product-item-wrapper">
                     <NavLink
                         className="admin-product-item"
-                        to={`products/${product.id}`}
+                        to={`${product.id}`}
                         key={product.id}
                     >
                         <div>{product.name}</div>

@@ -18,6 +18,15 @@ const apiAdminGetUsers = async () => {
     return res.data;
 };
 
+const apiAdminGetUser = async (userId) => {
+    const res = await axios.get(`/api/user/${userId}`, {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
+    return res.data;
+};
+
 const apiEditUser = async (user) => {
     const editedUser = await axios.put('/api/user', user, {
         headers: {
@@ -32,4 +41,10 @@ const apiCreateUser = async (user) => {
     return res;
 };
 
-export { apiGetUser, apiAdminGetUsers, apiEditUser, apiCreateUser };
+export {
+    apiGetUser,
+    apiAdminGetUsers,
+    apiAdminGetUser,
+    apiEditUser,
+    apiCreateUser,
+};

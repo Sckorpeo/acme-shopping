@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { apiAdminGetUsers } from '../../api/user';
+import { useParams } from 'react-router-dom';
+import { apiAdminGetUser } from '../../api/user';
 
 function AdminPageUser() {
-    const [users, setUsers] = useState([]);
+    const { userId } = useParams();
+    const [user, setUser] = useState({});
+
     const fetchData = async () => {
-        const response = await apiAdminGetUsers();
-        setUsers(response);
+        const response = await apiAdminGetUser(userId);
+        setUser(response);
     };
+
     useEffect(() => {
         fetchData();
-    }, []);
-    return (
-        <div>
-            {users.map((user) => (
-                <NavLink to={`users/${user.id}`}>{user.username}</NavLink>
-            ))}
-        </div>
-    );
+    });
+
+    return <p>{user.firstName}</p>;
 }
+
 export default AdminPageUser;
