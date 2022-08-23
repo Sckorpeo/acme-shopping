@@ -20,7 +20,6 @@ function AdminPageProducts() {
         setProducts(response.data);
     };
     useEffect(() => {
-        console.log('fetch');
         fetchData();
     }, []);
     return (

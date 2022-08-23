@@ -15,7 +15,17 @@ function AdminPageUser() {
         fetchData();
     });
 
-    return <p>{user.firstName}</p>;
+    return (
+        <div>
+            <p>First Name: {user.firstName}</p>
+            {user.middleName ? <p>Middle Name: {user.middleName}</p> : null}
+            <p>Last Name: {user.lastName}</p>
+            <p>username: {user.username}</p>
+            <p>Email: {user.email}</p>
+            {user.phone ? <p>Phone: {user.phone}</p> : null}
+            {user.address ? <p>Address: {user.address}</p> : null}
+        </div>
+    );
 }
 
 export default AdminPageUser;

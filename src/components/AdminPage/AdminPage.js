@@ -36,6 +36,16 @@ function AdmitPage() {
                     >
                         Products
                     </NavLink>
+                    <NavLink
+                        className={({ isActive }) =>
+                            isActive
+                                ? 'admin-nav-link-active'
+                                : 'neumorphism-btn'
+                        }
+                        to="products/add"
+                    >
+                        Add Product
+                    </NavLink>
                     <div>
                         <Outlet />
                     </div>
