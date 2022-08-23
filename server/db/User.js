@@ -127,6 +127,19 @@ User.prototype.getCart = async function () {
     return order;
 };
 
+User.prototype.getWishList = async function () {
+    const wishListItems = await conn.models.wishList.findAll({
+        where: {
+            userId: this.id
+        },
+        include: [
+            conn.models.product,
+            conn.models.user
+        ]
+    });
+    return wishListItems;
+};
+
 User.authenticate = async function (credentials) {
     const user = await this.findOne({
         where: {

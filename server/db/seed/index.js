@@ -3,6 +3,7 @@ const Category = require('../Category');
 const boardGameSeed = require('./boardGameSeed');
 const ratingsSeed = require('./ratingSeed');
 const seedUser = require('./userSeed');
+const wishListSeed = require('./wishListSeed');
 
 const syncAndSeed = async () => {
     try {
@@ -13,6 +14,7 @@ const syncAndSeed = async () => {
         const boardGames = await boardGameSeed();
         const users = await seedUser();
         await ratingsSeed(boardGames, users);
+        await wishListSeed(boardGames, users);
         console.log('seed successful !');
     } catch (ex) {
         console.log(ex);

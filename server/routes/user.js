@@ -21,14 +21,6 @@ router.get('/all', isAdminUser, async (req, res, next) => {
     }
 });
 
-router.get('/:userId', isAdminUser, async (req, res, next) => {
-    try {
-        res.status(200).send(await User.findByPk(req.params.userId));
-    } catch (ex) {
-        next(ex);
-    }
-});
-
 router.put('/', isLoggedIn, async (req, res, next) => {
     try {
         await req.user.update(req.body);
@@ -41,6 +33,22 @@ router.put('/', isLoggedIn, async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         res.status(201).send(await User.create(req.body));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+router.get('/wishlist', isLoggedIn, async (req,res,next) => {
+    try {
+        res.status(200).send(await req.user.getWishList());
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+router.get('/:userId', isAdminUser, async (req, res, next) => {
+    try {
+        res.status(200).send(await User.findByPk(req.params.userId));
     } catch (ex) {
         next(ex);
     }
