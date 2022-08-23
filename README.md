@@ -28,10 +28,10 @@ As a guest I should be able to add items in my cart which persist in local stora
 [X]upon login, the cart in local storage should be persisted to a database.
 
 As an administrator, I want to be able to:
-[]have full rights to make backend requests to add, edit, and remove products.
-[]No one else should have access.
-[]view user information.
-[]No one else should have access.
+[X]have full rights to make backend requests to add, edit, and remove products.
+[X]No one else should have access.
+[X]view user information.
+[X]No one else should have access.
 
 As a logged-in customer, I want to be able to:
 [X]see my order history so I can remember my previously purchased items.

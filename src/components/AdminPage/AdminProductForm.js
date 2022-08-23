@@ -8,15 +8,14 @@ import './AdminPage.css';
 
 function AdminProductForm(props) {
     const [name, setName] = useState('');
-    const [price, setPrice] = useState(0);
-    const [minPlayers, setMinPlayers] = useState(0);
-    const [maxPlayers, setMaxPlayers] = useState(0);
-    const [timeToPlay, setTimeToPlay] = useState(0);
+    const [price, setPrice] = useState();
+    const [minPlayers, setMinPlayers] = useState();
+    const [maxPlayers, setMaxPlayers] = useState();
+    const [timeToPlay, setTimeToPlay] = useState();
     const [img, setImage] = useState('');
     const productId = props.productId;
 
     const fetchData = async () => {
-        console.log(1);
         const response = await apiGetProduct(productId);
         setName(response.data.name);
         setPrice(response.data.price);

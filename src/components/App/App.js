@@ -9,7 +9,12 @@ import Cart from '../Cart';
 import Home from '../Home';
 import Login from '../Login';
 import Products from '../Products';
-import User, { UserInfo, UserOrders, UserSecurity, UserWishList } from '../User';
+import User, {
+    UserInfo,
+    UserOrders,
+    UserSecurity,
+    UserWishList,
+} from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 import SignUp from '../SignUp';
@@ -19,6 +24,7 @@ import AdminPageUsers from '../AdminPage/AdminPageUsers';
 import AdminPageProducts from '../AdminPage/AdminPageProducts';
 import AdminPageUser from '../AdminPage/AdminPageUser';
 import AdminPageProduct from '../AdminPage/AdminPageProduct';
+import AdminPageAddProduct from '../AdminPage/AdminPageAddProduct';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -83,6 +89,10 @@ function App() {
                         <Route
                             path="products/:productId"
                             element={<AdminPageProduct />}
+                        />
+                        <Route
+                            path="products/add"
+                            element={<AdminPageAddProduct />}
                         />
                     </Route>
                 </Routes>
