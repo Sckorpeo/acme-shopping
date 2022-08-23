@@ -38,7 +38,7 @@ As a logged-in customer, I want to be able to:
 [X]view and edit my user profile so I can update my information when necessary.
 
 Possible Additional Features
-[]allow users to upload an avatar which will display in login
+[X]allow users to upload an avatar which will display in login
 []allow customers to have wishlist for products they might buy in the future
 []allow customers to rank / review products which they have purchased (and show reviews with those products)
 []ability of customers to add multiple shipping addresses

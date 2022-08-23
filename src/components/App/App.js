@@ -12,7 +12,7 @@ import Products from '../Products';
 import User, { UserInfo, UserOrders, UserSecurity } from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
-import SignUp from '../Signup';
+import SignUp from '../SignUp';
 import Checkout from '../Checkout';
 import AdminPage from '../AdminPage/AdminPage';
 import AdminPageUsers from '../AdminPage/AdminPageUsers';

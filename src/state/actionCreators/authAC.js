@@ -2,14 +2,19 @@ import { apiGetAuth, apiSetAuth } from '../../api';
 
 const login = (credentials) => {
     return async (dispatch) => {
-        let response = await apiSetAuth(credentials);
-        const { token } = response.data;
-        window.localStorage.setItem('token', token);
-        response = await apiGetAuth(token);
-        console.log(response.data);
-        const auth = response.data;
-        dispatch({ type: 'SET_AUTH', auth: auth });
-    };
+        try {
+            let response = await apiSetAuth(credentials);
+            const {token} = response.data;
+            window.localStorage.setItem('token', token);
+            response = await apiGetAuth(token);
+            console.log(response.data);
+            const auth = response.data;
+            dispatch({type: 'SET_AUTH', auth: auth});
+        } catch (ex) {
+            alert('Invalid login information!')
+            console.log(ex);
+        }
+    }
 };
 
 const logout = () => {
