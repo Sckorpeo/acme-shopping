@@ -15,6 +15,7 @@ function ProductPageNumber(props) {
                         isActive ? 'neumorphism-inset' : undefined
                     }
                     to={`${props.pathname}${i}`}
+                    key={i}
                 >
                     {i}
                 </NavLink>

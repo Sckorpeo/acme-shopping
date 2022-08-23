@@ -35,4 +35,12 @@ router.get('/cart', isLoggedIn, async (req, res, next) => {
     }
 });
 
+router.get('/all', isLoggedIn, async (req, res, next) => {
+    try {
+        res.send(await req.user.getOrders());
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 module.exports = router;

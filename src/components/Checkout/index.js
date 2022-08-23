@@ -27,8 +27,9 @@ const Checkout = () => {
     };
 
     const onSuccessfulCheckout = () => {
-        dispatch(orderCreatedFromCart());
-        navigate('/user/orders');
+        dispatch(orderCreatedFromCart()).then((next) =>
+            navigate('/user/orders')
+        );
     };
 
     const handleFormSubmit = async (ev) => {
