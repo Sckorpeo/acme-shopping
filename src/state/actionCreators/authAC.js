@@ -13,6 +13,7 @@ const login = (credentials) => {
         } catch (ex) {
             alert('Invalid login information!')
             console.log(ex);
+            throw ex
         }
     }
 };
