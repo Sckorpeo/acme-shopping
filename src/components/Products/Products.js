@@ -1,33 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getProductBy } from '../../state/actionCreators/productsAC';
+import { Link, useParams, useLocation } from 'react-router-dom';
+import {
+    getProductBy,
+    fetchProduct,
+} from '../../state/actionCreators/productsAC';
 import { exchangeToken } from '../../state/actionCreators/authAC';
-import { addToCart } from '../../state/actionCreators/cartAC';
-import ProductCard from '../ProductCard';
+import ProductPages from './ProductPages';
+import ProductPageNumber from './ProductPageNumber';
 import './Products.css';
 
 function Products(props) {
+    const itemPerPage = 12;
     const dispatch = useDispatch();
-    const { auth } = useSelector((state) => state.auth);
-    const { products } = useSelector((state) => state.products);
-    const categoryId = props.categoryId;
+    console.log(props.pathname);
 
     useEffect(() => {
-        dispatch(exchangeToken());
-        dispatch(getProductBy(categoryId));
-    }, [props.categoryId]);
+        if (props.categoryId) {
+            const categoryId = props.categoryId;
+            dispatch(getProductBy(categoryId));
+        } else dispatch(fetchProduct());
+    }, [props]);
 
     return (
         <div className="product-list-wrapper">
-            <h1>Products</h1>
-            <div>
-                <div className="product-list">
-                    {products.map((product) => (
-                        <ProductCard product={product} key={product.id} />
-                    ))}
-                </div>
-            </div>
+            <ProductPages itemPerPage={itemPerPage} />
+            <ProductPageNumber
+                pathname={props.pathname}
+                itemPerPage={itemPerPage}
+            />
         </div>
     );
 }

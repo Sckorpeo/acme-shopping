@@ -53,16 +53,35 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route
-                        path="/products/category/A"
-                        element={<Products categoryId="1" />}
+                        path="/products/all/:page"
+                        element={<Products pathname="/products/all/" />}
                     />
                     <Route
-                        path="/products/category/B"
-                        element={<Products categoryId="2" />}
+                        path="/products/category/A/:page"
+                        element={
+                            <Products
+                                pathname="/products/category/A/"
+                                categoryId="1"
+                            />
+                        }
                     />
                     <Route
-                        path="/products/category/C"
-                        element={<Products categoryId="3" />}
+                        path="/products/category/B/:page"
+                        element={
+                            <Products
+                                pathname="/products/category/B/"
+                                categoryId="2"
+                            />
+                        }
+                    />
+                    <Route
+                        path="/products/category/C/:page"
+                        element={
+                            <Products
+                                pathname="/products/category/C/"
+                                categoryId="3"
+                            />
+                        }
                     />
                     <Route path="/user" element={<User />}>
                         <Route index element={<UserInfo />} />
