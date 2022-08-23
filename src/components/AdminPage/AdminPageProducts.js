@@ -20,16 +20,16 @@ function AdminPageProducts() {
         setProducts(response.data);
     };
     useEffect(() => {
+        console.log('fetch');
         fetchData();
     }, []);
     return (
         <div>
             {products.map((product) => (
-                <div className="admin-product-item-wrapper">
+                <div className="admin-product-item-wrapper" key={product.id}>
                     <NavLink
                         className="admin-product-item"
                         to={`${product.id}`}
-                        key={product.id}
                     >
                         <div>{product.name}</div>
                         <div>price: {product.price}</div>

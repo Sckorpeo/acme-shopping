@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { apiGetProduct } from '../../api/products';
+import './AdminPage.css';
+import AdminProductForm from './AdminProductForm';
 
 function AdminPageProduct() {
     const { productId } = useParams();
-    const [product, setProduct] = useState({});
 
-    const fetchData = async () => {
-        const response = await apiGetProduct(productId);
-        setProduct(response.data);
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    return <p>{product.name}</p>;
+    return (
+        <div>
+            <AdminProductForm productId={productId} />
+        </div>
+    );
 }
 
 export default AdminPageProduct;
