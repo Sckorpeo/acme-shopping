@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import BillingDetails from './BillingDetails';
 import CardElementContainer from './CardElementContainer';
+import { orderCreatedFromCart } from '../../state/actionCreators/cartAC';
 import { priceReducer } from '../../util/reducers';
 import axios from 'axios';
 
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './Checkout.css';
 
-const Checkout = ({ onSuccessfulCheckout }) => {
+const Checkout = () => {
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
+    const navigate = useNavigate();
 
+    const dispatch = useDispatch();
     const { cart } = useSelector((state) => state.cart);
     let price = priceReducer(cart);
 
@@ -20,6 +24,11 @@ const Checkout = ({ onSuccessfulCheckout }) => {
 
     const handleCardDetailsChange = (ev) => {
         ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
+    };
+
+    const onSuccessfulCheckout = () => {
+        dispatch(orderCreatedFromCart());
+        navigate('/user/orders');
     };
 
     const handleFormSubmit = async (ev) => {

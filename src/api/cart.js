@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require('axios');
 
 const apiGetCart = () => {
     return axios.get('/api/orders/cart', {
@@ -16,7 +16,12 @@ const apiAddToCart = (productInfo) => {
     });
 };
 
-export {
-    apiGetCart,
-    apiAddToCart,
+const apiOrderSuccess = () => {
+    return axios.get('/api/orders/success', {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
 };
+
+export { apiGetCart, apiAddToCart, apiOrderSuccess };

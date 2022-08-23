@@ -4,7 +4,7 @@ import {
     apiGetProduct,
     apiGetProductCategory,
 } from './products';
-import { apiGetCart, apiAddToCart } from './cart';
+import { apiGetCart, apiAddToCart, apiOrderSuccess } from './cart';
 import { apiGetUser, apiAdminGetUsers, apiEditUser } from './user';
 import { apiGetWishList } from './wishList';
 
@@ -19,5 +19,6 @@ export {
     apiGetUser,
     apiAdminGetUsers,
     apiEditUser,
-    apiGetWishList
+    apiGetWishList,
+    apiOrderSuccess,
 };

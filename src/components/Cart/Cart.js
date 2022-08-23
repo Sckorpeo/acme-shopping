@@ -18,19 +18,21 @@ function Cart() {
         if (auth.id) dispatch(fetchCart());
     }, [auth]);
 
+    const content = cart.length
+        ? cart.map((item) => (
+              <CartItem
+                  product={item.product}
+                  key={item.id}
+                  quantity={item.quantity}
+                  lineItem={item}
+              />
+          ))
+        : 'Cart Empty';
+
     return (
         <>
             <div className="Cart-page">
-                <div className="Cart-content">
-                    {cart.map((item) => (
-                        <CartItem
-                            product={item.product}
-                            key={item.id}
-                            quantity={item.quantity}
-                            lineItem={item}
-                        />
-                    ))}
-                </div>
+                <div className="Cart-content">{content}</div>
                 <div className="Cart-sidebar">
                     <CartSubtotal />
                 </div>

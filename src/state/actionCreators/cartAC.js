@@ -1,8 +1,18 @@
-import { apiGetCart, apiAddToCart } from '../../api';
+import { apiGetCart, apiAddToCart, apiOrderSuccess } from '../../api';
 
 const fetchCart = () => {
     return async (dispatch) => {
         const response = await apiGetCart();
+        dispatch({
+            type: 'SET_CART',
+            cart: response.data,
+        });
+    };
+};
+
+const orderCreatedFromCart = () => {
+    return async (dispatch) => {
+        const response = await apiOrderSuccess();
         dispatch({
             type: 'SET_CART',
             cart: response.data,
@@ -26,4 +36,4 @@ const emptyCart = () => {
     };
 };
 
-export { fetchCart, addToCart, emptyCart };
+export { fetchCart, addToCart, emptyCart, orderCreatedFromCart };
