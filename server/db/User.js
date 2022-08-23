@@ -92,8 +92,6 @@ User.prototype.addToCart = async function ({ product, quantity }) {
             await lineItem.save();
         } else {
             await lineItem.destroy();
-            console.log(lineItem);
-            console.log(lineItem);
         }
     } else {
         await conn.models.lineItem.create({
@@ -127,15 +125,29 @@ User.prototype.getCart = async function () {
     return order;
 };
 
+User.prototype.getOrders = async function () {
+    let allOrders = await conn.models.order.findAll({
+        where: {
+            userId: this.id,
+            isCart: false,
+        },
+        include: [
+            {
+                model: conn.models.lineItem,
+                include: [conn.models.product],
+            },
+        ],
+    });
+
+    return allOrders;
+};
+
 User.prototype.getWishList = async function () {
     const wishListItems = await conn.models.wishList.findAll({
         where: {
-            userId: this.id
+            userId: this.id,
         },
-        include: [
-            conn.models.product,
-            conn.models.user
-        ]
+        include: [conn.models.product, conn.models.user],
     });
     return wishListItems;
 };
