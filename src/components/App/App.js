@@ -9,7 +9,7 @@ import Cart from '../Cart';
 import Home from '../Home';
 import Login from '../Login';
 import Products from '../Products';
-import User, { UserInfo, UserOrders, UserSecurity } from '../User';
+import User, { UserInfo, UserOrders, UserSecurity, UserWishList } from '../User';
 import Product from '../Product';
 import CartBubble from '../Cart/CartBubble';
 import SignUp from '../SignUp';
@@ -63,6 +63,7 @@ function App() {
                         <Route path="info" element={<UserInfo />} />
                         <Route path="security" element={<UserSecurity />} />
                         <Route path="orders" element={<UserOrders />} />
+                        <Route path="wishlist" element={<UserWishList />} />
                     </Route>
                     <Route path="/login" element={<Login />} />
                     <Route path="/cart" element={<Cart />} />

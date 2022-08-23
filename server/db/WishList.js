@@ -1,7 +1,7 @@
 const conn = require('./conn');
 const { Sequelize } = conn;
 
-const LineItem = conn.define('lineItem', {
+const WishList = conn.define('wishList', {
     id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
@@ -13,8 +13,7 @@ const LineItem = conn.define('lineItem', {
         validate: {
             min: 1,
         },
-    },
+    }
 });
 
-module.exports = LineItem;
-
+module.exports = WishList;

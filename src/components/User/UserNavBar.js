@@ -36,6 +36,15 @@ function UserNavBar() {
                 Past Orders
             </NavLink>
             <hr className="splitter" />
+            <NavLink
+                className={({ isActive }) =>
+                    isActive ? 'user-link-active' : 'neumorphism-btn'
+                }
+                to="wishlist"
+            >
+                Wish List
+            </NavLink>
+            <hr className="splitter" />
             {auth.isAdmin ? (
                 <NavLink className="neumorphism-btn" to="/admin/users">
                     Admin Page

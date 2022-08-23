@@ -59,7 +59,7 @@ function LoginButton() {
                     >
                         <ul>
                             <li>
-                                <NavLink to="/user">Wishlist</NavLink>
+                                <NavLink to="/user/wishlist">Wishlist</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/user">Account</NavLink>

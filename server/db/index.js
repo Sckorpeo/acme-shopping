@@ -5,6 +5,7 @@ const LineItem = require('./LineItem');
 const Order = require('./Order');
 const Rating = require('./Rating');
 const Category = require('./Category');
+const WishList = require('./WishList');
 
 User.hasMany(Order);
 Order.hasMany(LineItem);
@@ -12,6 +13,8 @@ LineItem.belongsTo(Product);
 Rating.belongsTo(Product);
 Rating.belongsTo(User);
 Product.belongsTo(Category);
+WishList.belongsTo(Product);
+WishList.belongsTo(User);
 
 module.exports = {
     conn,
@@ -20,4 +23,5 @@ module.exports = {
     LineItem,
     Order,
     Rating,
+    WishList
 };
