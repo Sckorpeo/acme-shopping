@@ -21,14 +21,18 @@ function UserSecurity(){
             setNewPassword(ev.target.value)
         }
     };
-    const handleSubmit = (ev) => {
+    const handleSubmit = async (ev) => {
         ev.preventDefault();
         const oldCredentials = {username:auth.username, password:oldPassword}
         const newCredentials = {...auth, username:auth.username, password:newPassword}
-        dispatch(login(oldCredentials));
-        dispatch(editUser(newCredentials));
-        alert('Password changed!')
-        navigate('/user/info')
+        try {
+            await dispatch(login(oldCredentials));
+            await dispatch(editUser(newCredentials));
+            alert('Password changed!')
+            navigate('/user/info')
+        } catch (ex) {
+            console.log('User typed in bad credentials')
+        }
     }
     const handleClear = () => {
         setOldPassword('');
@@ -37,9 +41,14 @@ function UserSecurity(){
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label>Old Password</label>
-                <input type='text' id='oldPassword' name='oldPassword' value={oldPassword} onChange={handleChange}/>
-                <input type='text' id='newPassword' name='newPassword' value={newPassword} onChange={handleChange}/>
+                <div>
+                    <label htmlFor='oldPassword'>Old Password</label>
+                    <input type='text' id='oldPassword' name='oldPassword' value={oldPassword} onChange={handleChange}/>
+                </div>
+                <div>
+                    <label htmlFor='newPassword'>New Password</label>
+                    <input type='text' id='newPassword' name='newPassword' value={newPassword} onChange={handleChange}/>
+                </div>
                 <button type='submit' onClick={handleSubmit}>Save</button>
                 <button type='button' onClick={handleClear}>Clear</button>
             </form>
