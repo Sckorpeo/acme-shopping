@@ -33,7 +33,7 @@ const apiAdminDeleteProduct = (productId) => {
 };
 
 const apiAdminEditProduct = (productId, params) => {
-    return axios.put(`api/products/${productId}`, params, {
+    return axios.put(`/api/products/${productId}`, params, {
         headers: {
             authorization: window.localStorage.getItem('token'),
         },
