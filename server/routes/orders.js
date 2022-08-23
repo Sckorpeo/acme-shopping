@@ -18,6 +18,15 @@ router.put('/cart', isLoggedIn, async (req, res, next) => {
     }
 });
 
+router.get('/success', isLoggedIn, async (req, res, next) => {
+    try {
+        await req.user.createOrderFromCart();
+        res.send(await req.user.getCart());
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 router.get('/cart', isLoggedIn, async (req, res, next) => {
     try {
         res.send(await req.user.getCart());

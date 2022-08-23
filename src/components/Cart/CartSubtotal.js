@@ -16,10 +16,14 @@ const CartSubtotal = () => {
                 Subtotal ({quantity} {quantity > 1 ? 'items' : 'item'}): $
                 {subtotal}
             </h2>
-            <NavLink to="/cart/checkout" className="neumorphism-btn">
-                {' '}
-                Proceed to Checkout{' '}
-            </NavLink>
+            {quantity ? (
+                <NavLink to="/cart/checkout" className="neumorphism-btn">
+                    {' '}
+                    Proceed to Checkout{' '}
+                </NavLink>
+            ) : (
+                'No Items To Checkout'
+            )}
         </div>
     );
 };
