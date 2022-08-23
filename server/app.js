@@ -10,6 +10,7 @@ app.use('/api/user', require('./routes/user'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/sessions', require('./routes/sessions'));
 app.use('/api/products', require('./routes/products'));
+app.use('/api/payment_intents', require('./routes/payments'));
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
