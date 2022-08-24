@@ -5,6 +5,7 @@ import { apiGetProduct, apiGetProductRatings } from '../../api/products';
 import { addToCart } from '../../state/actionCreators/cartAC';
 import './Product.css';
 import StarRatingReadOnly from '../StarRating/StarRatingReadOnly';
+import UserRate from './UserRate';
 
 function Product() {
     const { productId } = useParams();
@@ -77,7 +78,12 @@ function Product() {
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
             </div>
-            <div className="rating-wrapper"></div>
+            <div className="rating-wrapper neumorphism">
+                <h2>Comments</h2>
+                {ratings.map((rate) => (
+                    <UserRate rate={rate} />
+                ))}
+            </div>
         </div>
     );
 }

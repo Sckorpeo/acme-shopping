@@ -9,6 +9,10 @@ const apiGetUser = async () => {
     return res.data;
 };
 
+const apiGetUserIconUsername = async (userId) => {
+    return await axios.get(`/api/user/iconAndUsername/${userId}`);
+};
+
 const apiAdminGetUsers = async () => {
     const res = await axios.get('/api/user/all', {
         headers: {
@@ -47,4 +51,5 @@ export {
     apiAdminGetUser,
     apiEditUser,
     apiCreateUser,
+    apiGetUserIconUsername,
 };

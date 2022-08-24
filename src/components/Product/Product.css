@@ -2,6 +2,7 @@
     margin-left: 17rem;
     margin-right: 17rem;
     display: flex;
+    flex-direction: column;
 }
 
 .product-product-wrapper {
@@ -59,4 +60,49 @@
     font-size: 4rem;
     font-weight: 800;
     height: 10rem;
+}
+
+.rating-wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-rating {
+    width: 90%;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0.0625rem solid transparent;
+    border-color: #d1d9e6;
+}
+
+.user-rating img {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+}
+
+.user-rating-user-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-rating-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.user-rating-content p {
+    margin: 0;
+    margin-bottom: 10px;
 }

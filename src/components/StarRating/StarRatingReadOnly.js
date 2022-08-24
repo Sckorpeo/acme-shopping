@@ -3,7 +3,6 @@ import './StarRating.css';
 
 function StarRatingReadOnly(props) {
     const rate = props.rate;
-    const rateCount = props.rateCount;
     return (
         <div className="star-read-only">
             <span
@@ -21,7 +20,13 @@ function StarRatingReadOnly(props) {
             <span
                 className={rate >= 5 ? 'fa fa-star checked' : 'fa fa-star'}
             ></span>
-            {rateCount > 0 ? <p>{`(${rateCount})`}</p> : ''}
+            {props.rateCount ? (
+                props.rateCount > 0 ? (
+                    <p>{`(${props.rateCount})`}</p>
+                ) : (
+                    ''
+                )
+            ) : null}
         </div>
     );
 }
