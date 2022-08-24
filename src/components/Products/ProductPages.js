@@ -10,7 +10,6 @@ function ProductPages(props) {
         (page - 1) * itemPerPage,
         page * itemPerPage
     );
-    console.log(currProducts);
     return (
         <div>
             <div>
