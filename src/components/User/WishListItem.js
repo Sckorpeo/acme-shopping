@@ -1,12 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../state/actionCreators/cartAC';
+import {useDispatch} from 'react-redux';
+import { addToWishList } from '../../state/actionCreators/wishListAC';
 import './WishListItem.css';
 
-const CartItem = ({ product, quantity }) => {
+const WishListItem = ({ product, quantity}) => {
     const dispatch = useDispatch();
-    const handleIncrement = (product, value) => {
-        // dispatch(addToCart({ product, quantity: value }));
+    const handleIncrement = (product, incrementBy) => {
+        dispatch(addToWishList(product, incrementBy));
     };
     return (
         <>
@@ -38,4 +38,4 @@ const CartItem = ({ product, quantity }) => {
     );
 };
 
-export default CartItem;
+export default WishListItem;

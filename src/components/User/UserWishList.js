@@ -4,35 +4,22 @@ import {loadWishList} from '../../state/actionCreators/wishListAC';
 import WishListItem from "./WishListItem";
 function UserWishList() {
     const dispatch = useDispatch();
-    const { auth } = useSelector(state => state.auth);
     const { wishList } = useSelector(state=>state.wishList)
-
     useEffect(()=>{
-        dispatch(loadWishList(auth))
+        dispatch(loadWishList())
     }, [])
     return (
-        // <ul>
-
-            <div className="">
-                {wishList.map((item) => (
-                    <WishListItem
-                        product={item.product}
-                        key={item.id}
-                        quantity={item.quantity}
-                        lineItem={item}
-                    />
-                ))}
-            </div>
-
+        <div className="">
+            {wishList.map((item) => (
+                <WishListItem
+                    product={item.product}
+                    key={item.id}
+                    quantity={item.quantity}
+                />
+            ))}
+        </div>
     )
 };
 
 export default UserWishList
 
-
-
-{/*{wishList.map((item,idx)=>{*/}
-{/*    return (*/}
-{/*    <li key={idx}>{item.product.name}</li>*/}
-{/*)})}*/}
-{/*</ul>*/}
