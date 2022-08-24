@@ -13,7 +13,6 @@ import './Products.css';
 function Products(props) {
     const itemPerPage = 12;
     const dispatch = useDispatch();
-    console.log(props.pathname);
 
     useEffect(() => {
         if (props.categoryId) {

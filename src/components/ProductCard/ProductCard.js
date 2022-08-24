@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.css';
-import StarRating from '../StarRating';
+import StarRatingReadOnly from '../StarRating/StarRatingReadOnly';
 import { apiGetProductRatings, apiGetProduct } from '../../api/products';
 
 function ProductCard(props) {
@@ -35,34 +35,7 @@ function ProductCard(props) {
             <img className="neumorphism-inset" src={product.imageUrl} />
             <div className="product-card-content">
                 <p className="product-name">{product.name}</p>
-                <div className="star-read-only">
-                    <span
-                        className={
-                            rate >= 1 ? 'fa fa-star checked' : 'fa fa-star'
-                        }
-                    ></span>
-                    <span
-                        className={
-                            rate >= 2 ? 'fa fa-star checked' : 'fa fa-star'
-                        }
-                    ></span>
-                    <span
-                        className={
-                            rate >= 3 ? 'fa fa-star checked' : 'fa fa-star'
-                        }
-                    ></span>
-                    <span
-                        className={
-                            rate >= 4 ? 'fa fa-star checked' : 'fa fa-star'
-                        }
-                    ></span>
-                    <span
-                        className={
-                            rate >= 5 ? 'fa fa-star checked' : 'fa fa-star'
-                        }
-                    ></span>
-                    {rateCount > 0 ? <p>{`(${rateCount})`}</p> : ''}
-                </div>
+                <StarRatingReadOnly rate={rate} rateCount={rateCount} />
             </div>
             <link
                 rel="stylesheet"
