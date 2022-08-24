@@ -38,6 +38,14 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.put('/wishlist', isLoggedIn, async (req,res,next) => {
+    try {
+        res.status(201).send(await req.user.addToWishList(req.body));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 router.get('/wishlist', isLoggedIn, async (req,res,next) => {
     try {
         res.status(200).send(await req.user.getWishList());

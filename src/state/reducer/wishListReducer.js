@@ -3,7 +3,9 @@ const reducer = (state = { wishList: [] }, action) => {
         case 'LOAD_WISH_LIST':
             return { ...state, wishList: action.payload };
         case 'EDIT_WISH_LIST':
-            return {...state, wishList: state.wishList.map(item=> item.id===action.payload.id ? action.payload: item)};
+            return {...state, wishList: action.payload };
+        case 'EMPTY_WISH_LIST':
+            return {...state, wishlist: []}
         default:
             return state;
     }

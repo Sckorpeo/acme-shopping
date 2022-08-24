@@ -103,6 +103,29 @@ User.prototype.addToCart = async function ({ product, quantity }) {
     return this.getCart();
 };
 
+User.prototype.addToWishList = async function ({product, incrementBy }) {
+    const wishListItem = await conn.models.wishList.findOne({
+        where: {
+            productId: product.id
+        }
+    })
+    if (wishListItem) {
+        wishListItem.quantity += incrementBy;
+        if (wishListItem.quantity != 0) {
+            await wishListItem.save();
+        } else {
+            await wishListItem.destroy();
+        }
+    } else {
+        await conn.models.wishList.create({
+            productId: product.id,
+            quantity: 1,
+            userId: this.id
+        })
+    }
+    return this.getWishList();
+}
+
 User.prototype.getCart = async function () {
     let order = await conn.models.order.findOne({
         where: {
