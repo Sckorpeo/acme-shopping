@@ -64,11 +64,6 @@ a:visited {
     color: #44476a;
 }
 
-.neumorphism-small {
-    background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
-    box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
-}
-
 /* use this with <hr/> for a splitter */
 .splitter {
     border-radius: 10px;

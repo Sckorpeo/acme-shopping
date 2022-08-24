@@ -13,40 +13,42 @@ function AdmitPage() {
         console.log(1);
     }, []);
     return (
-        <div className="admin-page-wrapper">
+        <div>
             {auth.isAdmin ? (
-                <div>
-                    <NavLink
-                        className={({ isActive }) =>
-                            isActive
-                                ? 'admin-nav-link-active'
-                                : 'neumorphism-btn'
-                        }
-                        to="users"
-                    >
-                        Users
-                    </NavLink>
-                    <NavLink
-                        className={({ isActive }) =>
-                            isActive
-                                ? 'admin-nav-link-active'
-                                : 'neumorphism-btn'
-                        }
-                        to="products"
-                    >
-                        Products
-                    </NavLink>
-                    <NavLink
-                        className={({ isActive }) =>
-                            isActive
-                                ? 'admin-nav-link-active'
-                                : 'neumorphism-btn'
-                        }
-                        to="products/add"
-                    >
-                        Add Product
-                    </NavLink>
-                    <div>
+                <div className="admin-page-wrapper">
+                    <div className="admin-page-navbar">
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'admin-nav-link-active'
+                                    : 'neumorphism-btn'
+                            }
+                            to="users"
+                        >
+                            Users
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'admin-nav-link-active'
+                                    : 'neumorphism-btn'
+                            }
+                            to="products"
+                        >
+                            Products
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive
+                                    ? 'admin-nav-link-active'
+                                    : 'neumorphism-btn'
+                            }
+                            to="addProduct"
+                        >
+                            Add Product
+                        </NavLink>
+                    </div>
+                    <div className="admin-page-content">
                         <Outlet />
                     </div>
                 </div>

@@ -25,7 +25,7 @@ As a logged-in customer, I want to be able to:
 [X]No one else should be able to edit my cart except me.
 
 As a guest I should be able to add items in my cart which persist in local storage:
-[X]upon login, the cart in local storage should be persisted to a database.
+[]upon login, the cart in local storage should be persisted to a database.
 
 As an administrator, I want to be able to:
 [X]have full rights to make backend requests to add, edit, and remove products.
