@@ -21,6 +21,18 @@ router.get('/all', isAdminUser, async (req, res, next) => {
     }
 });
 
+router.get('/iconAndUsername/:userId', async (req, res, next) => {
+    try {
+        res.status(200).send(
+            await User.findByPk(req.params.userId, {
+                attributes: ['username', 'avatar'],
+            })
+        );
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 router.put('/', isLoggedIn, async (req, res, next) => {
     try {
         await req.user.update(req.body);
@@ -38,7 +50,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.put('/wishlist', isLoggedIn, async (req,res,next) => {
+router.put('/wishlist', isLoggedIn, async (req, res, next) => {
     try {
         res.status(201).send(await req.user.addToWishList(req.body));
     } catch (ex) {
@@ -46,7 +58,7 @@ router.put('/wishlist', isLoggedIn, async (req,res,next) => {
     }
 });
 
-router.get('/wishlist', isLoggedIn, async (req,res,next) => {
+router.get('/wishlist', isLoggedIn, async (req, res, next) => {
     try {
         res.status(200).send(await req.user.getWishList());
     } catch (ex) {
