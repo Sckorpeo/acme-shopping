@@ -110,7 +110,7 @@ function App() {
                             element={<AdminPageProduct />}
                         />
                         <Route
-                            path="products/add"
+                            path="addProduct"
                             element={<AdminPageAddProduct />}
                         />
                     </Route>

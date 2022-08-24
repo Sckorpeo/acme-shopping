@@ -23,7 +23,7 @@ function AdminPageProducts() {
         fetchData();
     }, []);
     return (
-        <div>
+        <div className="admin-product-list">
             {products.map((product) => (
                 <div className="admin-product-item-wrapper" key={product.id}>
                     <NavLink

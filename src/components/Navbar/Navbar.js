@@ -43,11 +43,6 @@ function Navbar({ auth, cart }) {
                     >
                         Drafting
                     </NavLink>
-                    {auth.id ? (
-                        <NavLink to="/cart">{`Cart(${cart.length})`}</NavLink>
-                    ) : (
-                        ''
-                    )}
                 </div>
                 <LoginButton auth={auth} />
             </div>

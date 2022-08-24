@@ -12,9 +12,17 @@ function AdminPageUsers() {
         fetchData();
     }, []);
     return (
-        <div>
+        <div className="admin-page-users">
             {users.map((user) => (
-                <NavLink to={`${user.id}`}>{user.username}</NavLink>
+                <NavLink
+                    className="admin-page-user-item-wrapper neumorphism-btn"
+                    to={`${user.id}`}
+                >
+                    <div>
+                        <img src={user.avatar} />
+                        <p>{user.username}</p>
+                    </div>
+                </NavLink>
             ))}
         </div>
     );

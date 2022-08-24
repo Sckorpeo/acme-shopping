@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     apiGetProduct,
     apiAdminEditProduct,
@@ -14,6 +14,7 @@ function AdminProductForm(props) {
     const [timeToPlay, setTimeToPlay] = useState();
     const [img, setImage] = useState('');
     const productId = props.productId;
+    const picRef = useRef(null);
 
     const fetchData = async () => {
         const response = await apiGetProduct(productId);
@@ -34,6 +35,14 @@ function AdminProductForm(props) {
             timeToPlay: timeToPlay,
             imageUrl: img,
         };
+        // if (ev.target.avatar.files[0]) {
+        //     const file = ev.target.productImage.files[0];
+        //     const reader = new FileReader();
+        //     reader.readAsDataURL(file);
+        //     reader.addEventListener('load', () => {
+        //         payload.imageUrl = reader.result;
+        //     });
+        // }
         const update = async () => {
             await apiAdminEditProduct(productId, payload);
         };
@@ -51,14 +60,29 @@ function AdminProductForm(props) {
     }, []);
 
     return (
-        <div>
-            {props.productId ? <img src={img}></img> : ''}
+        <div className="admin-page-form neumorphism">
+            {props.productId ? (
+                <img className="neumorphism-inset" src={img}></img>
+            ) : (
+                ''
+            )}
             <form onSubmit={handleSubmit}>
+                <div>
+                    <label>Product Image: </label>
+                    <input
+                        id="productImage"
+                        name="productImage"
+                        type="file"
+                        ref={picRef}
+                        onChange={(e) => setImage(e.target.value)}
+                    ></input>
+                </div>
                 <div>
                     <label>Name: </label>
                     <input
                         type="text"
                         value={name}
+                        className="neumorphism-input"
                         onChange={(e) => setName(e.target.value)}
                     ></input>
                 </div>
@@ -67,6 +91,7 @@ function AdminProductForm(props) {
                     <input
                         type="number"
                         value={price}
+                        className="neumorphism-input"
                         onChange={(e) => setPrice(e.target.value)}
                     ></input>
                 </div>
@@ -75,26 +100,40 @@ function AdminProductForm(props) {
                     <input
                         type="number"
                         value={minPlayers}
+                        className="neumorphism-input"
                         onChange={(e) => setMinPlayers(e.target.value)}
                     ></input>
                 </div>
                 <div>
-                    <label>Max Players</label>
+                    <label>Max Players: </label>
                     <input
                         type="number"
                         value={maxPlayers}
+                        className="neumorphism-input"
                         onChange={(e) => setMaxPlayers(e.target.value)}
                     ></input>
                 </div>
                 <div>
-                    <label>Time to Play</label>
+                    <label>Time to Play: </label>
                     <input
                         type="number"
                         value={timeToPlay}
+                        className="neumorphism-input"
                         onChange={(e) => setTimeToPlay(e.target.value)}
                     ></input>
                 </div>
-                <button>Submit</button>
+                <button
+                    className="neumorphism-btn"
+                    disabled={
+                        !name ||
+                        !price ||
+                        !minPlayers ||
+                        !maxPlayers ||
+                        !timeToPlay
+                    }
+                >
+                    Submit
+                </button>
             </form>
         </div>
     );
