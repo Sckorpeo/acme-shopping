@@ -25,18 +25,3 @@
     margin-top: 15px;
     margin-bottom: 5px;
 }
-
-.star-read-only {
-    display: flex;
-    align-items: center;
-    height: 10px;
-}
-
-.star-read-only span {
-    margin-left: 1px;
-    margin-right: 1px;
-}
-
-.checked {
-    color: #ffcc00;
-}
