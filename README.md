@@ -38,14 +38,21 @@ As a logged-in customer, I want to be able to:
 [X]view and edit my user profile so I can update my information when necessary.
 
 Possible Additional Features
+
+Almost done
 [X]allow users to upload an avatar which will display in login
 []allow customers to have wishlist for products they might buy in the future
 []allow customers to rank / review products which they have purchased (and show reviews with those products)
-[]ability of customers to add multiple shipping addresses
+
 []ability to pay for purchases using stripe
 []ability of an administrator to setup coupon codes which offer discounts to customers on orders
+
+I can take a look at this(Kaiyuan)
 []email confirmations for customers orders
 []real time notification to end users for the best selling product
+
+After going through google complete for addresses
+[]ability of customers to add multiple shipping addresses
 []allow administrators to view data graphically
 this might be a geographical map with markers for customer addresses
 this might be sales data for some time period

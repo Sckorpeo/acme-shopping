@@ -10,7 +10,7 @@ function Carousel() {
         <div className="slider neumorphism">
             <div className="slide">
                 <img
-                    src="https://source.unsplash.com/random?landscape,mountain"
+                    src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559257233302-61jnMOuRWsL.jpg"
                     alt=""
                 />
             </div>
