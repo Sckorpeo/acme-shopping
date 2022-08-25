@@ -1,12 +1,17 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import { addToWishList } from '../../state/actionCreators/wishListAC';
+import { addToCart } from '../../state/actionCreators/cartAC';
 import './WishListItem.css';
 
 const WishListItem = ({ product, quantity}) => {
     const dispatch = useDispatch();
     const handleIncrement = (product, incrementBy) => {
         dispatch(addToWishList(product, incrementBy));
+    };
+    const moveToCart = () => {
+        dispatch(addToCart({ product, quantity: quantity }));
+        dispatch(addToWishList( product, -quantity));
     };
     return (
         <>
@@ -26,9 +31,12 @@ const WishListItem = ({ product, quantity}) => {
                             +
                         </button>
                     </div>
-                    <a onClick={() => handleIncrement(product, -quantity)}>
+                    <button onClick={() => handleIncrement(product, -quantity)}>
                         X remove from wish list
-                    </a>
+                    </button>
+                    <button onClick={moveToCart}>
+                        -> move to cart
+                    </button>
                 </div>
                 <div className="CartItem-price">
                     <p>${product.price}</p>
