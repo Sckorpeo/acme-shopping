@@ -85,7 +85,6 @@ function App() {
                         }
                     />
                     <Route path="/user" element={<User />}>
-                        <Route index element={<UserInfo />} />
                         <Route path="info" element={<UserInfo />} />
                         <Route path="security" element={<UserSecurity />} />
                         <Route path="orders" element={<UserOrders />} />

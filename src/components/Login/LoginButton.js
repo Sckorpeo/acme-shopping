@@ -62,7 +62,7 @@ function LoginButton() {
                                 <NavLink to="/user/wishlist">Wishlist</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/user">Account</NavLink>
+                                <NavLink to="/user/info">Account</NavLink>
                             </li>
                             <li>
                                 <NavLink
