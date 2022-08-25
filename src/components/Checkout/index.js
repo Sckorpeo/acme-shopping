@@ -26,10 +26,17 @@ const Checkout = () => {
         ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
     };
 
+    const windowAlert = () => {
+        window.alert(checkoutError);
+    };
+
     const onSuccessfulCheckout = () => {
-        dispatch(orderCreatedFromCart()).then((next) =>
-            navigate('/user/orders')
-        );
+        dispatch(orderCreatedFromCart()).then((next) => {
+            navigate('/cart/checkout/success');
+            setTimeout(() => {
+                navigate('/products/all/1');
+            }, 5000);
+        });
     };
 
     const handleFormSubmit = async (ev) => {
@@ -76,6 +83,7 @@ const Checkout = () => {
 
             if (error) {
                 setCheckoutError(error.message);
+                windowAlert(checkoutError);
                 setProcessingTo(false);
                 return;
             }
@@ -99,7 +107,11 @@ const Checkout = () => {
                 />
             </CardElementContainer>
             <div>{checkoutError ? checkoutError : ''}</div>
-            <button disabled={isProcessing || !stripe}>
+            <button
+                id="Checkout-button"
+                className="Checkout-button"
+                disabled={isProcessing || !stripe}
+            >
                 {isProcessing ? 'Processing...' : `Pay $${price}`}
             </button>
         </form>
