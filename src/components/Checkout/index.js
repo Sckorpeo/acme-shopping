@@ -26,6 +26,10 @@ const Checkout = () => {
         ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
     };
 
+    const windowAlert = () => {
+        window.alert(checkoutError);
+    };
+
     const onSuccessfulCheckout = () => {
         dispatch(orderCreatedFromCart()).then((next) => {
             navigate('/cart/checkout/success');
@@ -79,6 +83,7 @@ const Checkout = () => {
 
             if (error) {
                 setCheckoutError(error.message);
+                windowAlert(checkoutError);
                 setProcessingTo(false);
                 return;
             }
