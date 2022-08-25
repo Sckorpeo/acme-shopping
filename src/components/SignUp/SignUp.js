@@ -32,10 +32,11 @@ function SignUp() {
     };
     return (
         <div className="sign-up-wrapper">
-            <form onSubmit={handleSubmit}>
+            <form className="neumorphism" onSubmit={handleSubmit}>
                 <div>
                     <label>First Name*</label>
                     <input
+                        className="neumorphism-input"
                         value={firstName}
                         onChange={(ev) => setFirstName(ev.target.value)}
                     />
@@ -43,6 +44,7 @@ function SignUp() {
                 <div>
                     <label>Last Name*</label>
                     <input
+                        className="neumorphism-input"
                         value={lastName}
                         onChange={(ev) => setLastName(ev.target.value)}
                     />
@@ -50,6 +52,7 @@ function SignUp() {
                 <div>
                     <label>Middle Name</label>
                     <input
+                        className="neumorphism-input"
                         value={middleName}
                         onChange={(ev) => setMiddleName(ev.target.value)}
                     />
@@ -57,6 +60,7 @@ function SignUp() {
                 <div>
                     <label>Username*</label>
                     <input
+                        className="neumorphism-input"
                         value={username}
                         onChange={(ev) => setUsername(ev.target.value)}
                     />
@@ -64,6 +68,7 @@ function SignUp() {
                 <div>
                     <label>Password*</label>
                     <input
+                        className="neumorphism-input"
                         value={password}
                         onChange={(ev) => setPassword(ev.target.value)}
                     />
@@ -71,6 +76,7 @@ function SignUp() {
                 <div>
                     <label>Email*</label>
                     <input
+                        className="neumorphism-input"
                         value={email}
                         onChange={(ev) => setEmail(ev.target.value)}
                     />
@@ -78,6 +84,7 @@ function SignUp() {
                 <div>
                     <label>Address</label>
                     <input
+                        className="neumorphism-input"
                         value={address}
                         onChange={(ev) => setAddress(ev.target.value)}
                     />
@@ -85,11 +92,23 @@ function SignUp() {
                 <div>
                     <label>Phone</label>
                     <input
+                        className="neumorphism-input"
                         value={phone}
                         onChange={(ev) => setPhone(ev.target.value)}
                     />
                 </div>
-                <button>Sign Up</button>
+                <button
+                    className="neumorphism-btn"
+                    disabled={
+                        !firstName ||
+                        !lastName ||
+                        !username ||
+                        !password ||
+                        !email
+                    }
+                >
+                    Sign Up
+                </button>
             </form>
         </div>
     );

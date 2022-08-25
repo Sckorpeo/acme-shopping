@@ -35,14 +35,14 @@ function AdminProductForm(props) {
             timeToPlay: timeToPlay,
             imageUrl: img,
         };
-        // if (ev.target.avatar.files[0]) {
-        //     const file = ev.target.productImage.files[0];
-        //     const reader = new FileReader();
-        //     reader.readAsDataURL(file);
-        //     reader.addEventListener('load', () => {
-        //         payload.imageUrl = reader.result;
-        //     });
-        // }
+        if (ev.target.avatar.files[0]) {
+            const file = ev.target.productImage.files[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener('load', () => {
+                payload.imageUrl = reader.result;
+            });
+        }
         const update = async () => {
             await apiAdminEditProduct(productId, payload);
         };

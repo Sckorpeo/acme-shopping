@@ -13,7 +13,7 @@ function AdminPageUser() {
 
     useEffect(() => {
         fetchData();
-    });
+    }, []);
 
     return (
         <div>

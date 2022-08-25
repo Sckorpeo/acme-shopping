@@ -1,10 +1,39 @@
 .user-info-header {
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 20rem;
+    gap: 10px;
 }
 
 .user-info-header-title {
     font-size: 20px;
+}
+
+.user-edit-image-wrapper {
+    display: flex;
+}
+
+.user-edit-form {
+    width: 20rem;
+}
+
+.user-change-password-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-change-password-form button {
+    height: 2.5rem;
+    width: 5rem;
+    margin-top: 15px;
+    border-radius: 10px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.user-change-password-buttons {
+    display: flex;
+    justify-content: center;
 }
