@@ -10,9 +10,9 @@ const CartItem = ({ product, quantity }) => {
         dispatch(addToCart({ product, quantity: value }));
     };
     const moveToWishList = () => {
-        dispatch(addToWishList( product, quantity));
+        dispatch(addToWishList(product, quantity));
         dispatch(addToCart({ product, quantity: -quantity }));
-    }
+    };
     return (
         <>
             <div className="CartItem neumorphism-with-border">
@@ -35,7 +35,7 @@ const CartItem = ({ product, quantity }) => {
                         X remove from cart
                     </button>
                     <button onClick={moveToWishList}>
-                        -> move to wish list
+                        {'-> move to wish list'}
                     </button>
                 </div>
                 <div className="CartItem-price">
