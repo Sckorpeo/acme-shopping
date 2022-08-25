@@ -50,7 +50,7 @@ router.get('/:productId/rating', async (req, res, next) => {
 router.post('/:productId/rating', isLoggedIn, async (req, res, next) => {
     try {
         const userId = req.user.id;
-        console.log(req.user);
+        // console.log(req.user);
         res.status(201).send(await Rating.create(req.body));
     } catch (ex) {
         next(ex);

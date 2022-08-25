@@ -12,7 +12,7 @@ function AdminProductForm(props) {
     const [minPlayers, setMinPlayers] = useState();
     const [maxPlayers, setMaxPlayers] = useState();
     const [timeToPlay, setTimeToPlay] = useState();
-    const [img, setImage] = useState('');
+    const [productImage, setImage] = useState('');
     const productId = props.productId;
     const picRef = useRef(null);
 
@@ -25,24 +25,38 @@ function AdminProductForm(props) {
         setTimeToPlay(response.data.timeToPlay);
         setImage(response.data.imageUrl);
     };
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
 
-    const handleSubmit = (ev) => {
+    const handleSubmit = async (ev) => {
+        ev.preventDefault();
         const payload = {
             name: name,
             price: price,
             minPlayers: minPlayers,
             maxPlayers: maxPlayers,
             timeToPlay: timeToPlay,
-            imageUrl: img,
+            imageUrl: productImage,
         };
-        // if (ev.target.avatar.files[0]) {
-        //     const file = ev.target.productImage.files[0];
-        //     const reader = new FileReader();
-        //     reader.readAsDataURL(file);
-        //     reader.addEventListener('load', () => {
-        //         payload.imageUrl = reader.result;
-        //     });
-        // }
+        if (ev.target.productImage.files[0]) {
+            const file = ev.target.productImage.files[0];
+            try {
+                const result = await toBase64(file)
+                payload.imageUrl=result
+            } catch (ex) {
+                console.log(error);
+            }
+            // THE FOLLOWING DOES NOT ENFORCE BASE64 ENCODING!
+            // const reader = new FileReader();
+            // reader.readAsDataURL(file);
+            // reader.addEventListener('load', () => {
+            //     payload.imageUrl=reader.result
+            // });
+        }
         const update = async () => {
             await apiAdminEditProduct(productId, payload);
         };
@@ -62,7 +76,7 @@ function AdminProductForm(props) {
     return (
         <div className="admin-page-form neumorphism">
             {props.productId ? (
-                <img className="neumorphism-inset" src={img}></img>
+                <img className="neumorphism-inset" src={productImage}></img>
             ) : (
                 ''
             )}
