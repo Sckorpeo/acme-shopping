@@ -33,7 +33,7 @@ function AdminProductForm(props) {
     });
 
     const handleSubmit = async (ev) => {
-        ev.preventDefault();
+        // ev.preventDefault();
         const payload = {
             name: name,
             price: price,
