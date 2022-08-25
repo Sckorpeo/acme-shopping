@@ -9,3 +9,26 @@
     justify-content: space-around;
     flex-direction: column;
 }
+
+.Checkout-button {
+    border-radius: 20px;
+    width: 12rem;
+    align-self: center;
+    padding: 1rem;
+    font-weight: bold;
+    background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
+    box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff !important;
+    transition: 0.2s;
+    border: 0.0625rem solid transparent;
+    border-color: #d1d9e6;
+}
+
+.Checkout-button:hover {
+    cursor: pointer;
+}
+
+#Checkout-button:disabled {
+    cursor: default;
+    box-shadow: none !important;
+    color: red;
+}

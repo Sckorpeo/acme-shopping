@@ -25,6 +25,7 @@ import AdminPageProducts from '../AdminPage/AdminPageProducts';
 import AdminPageUser from '../AdminPage/AdminPageUser';
 import AdminPageProduct from '../AdminPage/AdminPageProduct';
 import AdminPageAddProduct from '../AdminPage/AdminPageAddProduct';
+import Success from '../Checkout/Success';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -94,6 +95,10 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/products/:productId" element={<Product />} />
                     <Route path="/cart/checkout" element={<Checkout />} />
+                    <Route
+                        path="/cart/checkout/success"
+                        element={<Success />}
+                    />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/admin" element={<AdminPage />}>
                         <Route path="users" element={<AdminPageUsers />} />

@@ -1,0 +1,7 @@
+.Success {
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
