@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { apiGetProduct, apiGetProductRatings } from '../../api/products';
 import { addToCart } from '../../state/actionCreators/cartAC';
 import './Product.css';
@@ -12,6 +12,7 @@ function Product() {
     const [product, setProduct] = useState({});
     const [ratings, setRatings] = useState([]);
     const [rate, setRate] = useState(0);
+    const { auth } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     async function fetchData() {
         let response = await apiGetProduct(productId);
@@ -30,8 +31,40 @@ function Product() {
     useEffect(() => {
         fetchData();
     }, []);
-    const handleClick = () => {
-        dispatch(addToCart({ product, quantity: 1 }));
+    const handleClick = (product) => {
+        if (Object.keys(auth).length > 0) {
+            return dispatch(addToCart({ product, quantity: 1 }));
+        }
+        const cart = JSON.parse(window.localStorage.getItem('cart'));
+        if (!cart) {
+            const stringData = JSON.stringify([{ product, quantity: 1 }]);
+            return window.localStorage.setItem('cart', stringData);
+        }
+
+        console.log(cart);
+
+        const productAlreadyInCart = cart.reduce((prev, next) => {
+            if (next.product.id === product.id) {
+                return prev + 1;
+            } else {
+                return prev;
+            }
+        }, 0);
+
+        if (productAlreadyInCart) {
+            const newCart = cart.map((item) => {
+                if (item.product.id === product.id) {
+                    return { product, quantity: item.quantity + 1 };
+                } else {
+                    return item;
+                }
+            });
+            window.localStorage.setItem('cart', JSON.stringify(newCart));
+        } else {
+            const newCart = [...cart, { product, quantity: 1 }];
+            console.log(newCart);
+            window.localStorage.setItem('cart', JSON.stringify(newCart));
+        }
     };
     return (
         <div className="product-page">
@@ -69,7 +102,10 @@ function Product() {
                     <p>Minimum Players: {product.minPlayers}</p>
                     <p>Maximum Players: {product.maxPlayers}</p>
                     <p>Estimate Play Time: {product.timeToPlay} min</p>
-                    <button className="neumorphism-btn" onClick={handleClick}>
+                    <button
+                        className="neumorphism-btn"
+                        onClick={() => handleClick(product)}
+                    >
                         Add To Cart
                     </button>
                 </div>
@@ -81,7 +117,7 @@ function Product() {
             <div className="rating-wrapper neumorphism">
                 <h2>Comments</h2>
                 {ratings.map((rate) => (
-                    <UserRate rate={rate} />
+                    <UserRate rate={rate} key={rate.id} />
                 ))}
             </div>
         </div>
