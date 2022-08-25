@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../state/actionCreators/cartAC';
+import { addToWishList } from '../../state/actionCreators/wishListAC';
 import './CartItem.css';
 
 const CartItem = ({ product, quantity }) => {
@@ -8,6 +9,10 @@ const CartItem = ({ product, quantity }) => {
     const handleIncrement = (product, value) => {
         dispatch(addToCart({ product, quantity: value }));
     };
+    const moveToWishList = () => {
+        dispatch(addToWishList( product, quantity));
+        dispatch(addToCart({ product, quantity: -quantity }));
+    }
     return (
         <>
             <div className="CartItem neumorphism-with-border">
@@ -26,9 +31,12 @@ const CartItem = ({ product, quantity }) => {
                             +
                         </button>
                     </div>
-                    <a onClick={() => handleIncrement(product, -quantity)}>
+                    <button onClick={() => handleIncrement(product, -quantity)}>
                         X remove from cart
-                    </a>
+                    </button>
+                    <button onClick={moveToWishList}>
+                        -> move to wish list
+                    </button>
                 </div>
                 <div className="CartItem-price">
                     <p>${product.price}</p>

@@ -106,7 +106,8 @@ User.prototype.addToCart = async function ({ product, quantity }) {
 User.prototype.addToWishList = async function ({product, incrementBy }) {
     const wishListItem = await conn.models.wishList.findOne({
         where: {
-            productId: product.id
+            productId: product.id,
+            userId: this.id
         }
     })
     if (wishListItem) {
