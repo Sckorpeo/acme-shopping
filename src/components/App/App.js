@@ -118,6 +118,7 @@ function App() {
                             element={<AdminPageAddProduct />}
                         />
                     </Route>
+                    {/*<Route path="*" element={<NotFound />}*/}
                 </Routes>
                 <CartBubble>Hello World</CartBubble>
             </Elements>
