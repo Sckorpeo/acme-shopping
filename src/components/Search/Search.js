@@ -16,6 +16,9 @@ function Search () {
             console.log(ev)
             if (ev.path[0] !== searchBar.current) {
                 setIsActive(false)
+            } else if (ev.path[0] === searchBar.current) {
+                // remove if you want to be able to collapse the menu by clicking on the menu
+                setIsActive(true)
             }
         };
         window.addEventListener('click', closeDropDown);
