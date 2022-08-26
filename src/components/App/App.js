@@ -25,12 +25,14 @@ import AdminPageProducts from '../AdminPage/AdminPageProducts';
 import AdminPageUser from '../AdminPage/AdminPageUser';
 import AdminPageProduct from '../AdminPage/AdminPageProduct';
 import AdminPageAddProduct from '../AdminPage/AdminPageAddProduct';
+import AdminPageCoupons from '../AdminPage/AdminPageCoupons';
 import Success from '../Checkout/Success';
 import { SearchPage } from '../Search';
 import NotFound from '../NotFound';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { fetchCoupons } from '../../state/actionCreators/couponAC';
 
 const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
 
@@ -47,6 +49,7 @@ function App() {
         if (auth.id) {
             dispatch(fetchCart());
             dispatch(loadUser());
+            dispatch(fetchCoupons());
         }
     }, [auth]);
     return (
@@ -119,8 +122,9 @@ function App() {
                             path="addProduct"
                             element={<AdminPageAddProduct />}
                         />
+                        <Route path="coupons" element={<AdminPageCoupons />} />
                     </Route>
-                    <Route path='/search/*' element={<SearchPage />} />
+                    <Route path="/search/*" element={<SearchPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <CartBubble>Hello World</CartBubble>

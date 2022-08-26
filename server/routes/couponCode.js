@@ -15,7 +15,7 @@ router.get('/', isAdminUser, async (req, res, next) => {
 router.delete('/:couponId', isAdminUser, async (req, res, next) => {
     try {
         const coupon = await CouponCode.findByPk(req.params.couponId);
-        await CouponCode.destroy();
+        await coupon.destroy();
     } catch (ex) {
         next(ex);
     }
@@ -23,7 +23,7 @@ router.delete('/:couponId', isAdminUser, async (req, res, next) => {
 
 router.post('/', isAdminUser, async (req, res, next) => {
     try {
-        await CouponCode.create(req.body);
+        res.send(await CouponCode.create(req.body));
     } catch (ex) {
         next(ex);
     }
