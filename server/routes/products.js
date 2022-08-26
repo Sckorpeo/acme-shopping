@@ -7,7 +7,6 @@ const { isLoggedIn, isAdminUser } = require('./middleware');
 
 router.get('/', async (req, res, next) => {
     try {
-        console.log(req.query)
         if (req.query.key) {
             res.send(await Product.findAll({
                 where: {
