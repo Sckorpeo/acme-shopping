@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { LoginButton } from '../Login';
+import Search from '../Search';
 import './Navbar.css';
 
 function Navbar({ auth, cart }) {
@@ -44,7 +45,10 @@ function Navbar({ auth, cart }) {
                         Drafting
                     </NavLink>
                 </div>
-                <LoginButton auth={auth} />
+                <div className='nav-top-right-menu'>
+                    <Search />
+                    <LoginButton auth={auth} />
+                </div>
             </div>
             <hr className="splitter" />
         </div>

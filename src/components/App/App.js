@@ -26,6 +26,8 @@ import AdminPageUser from '../AdminPage/AdminPageUser';
 import AdminPageProduct from '../AdminPage/AdminPageProduct';
 import AdminPageAddProduct from '../AdminPage/AdminPageAddProduct';
 import Success from '../Checkout/Success';
+import { SearchPage } from '../Search';
+import NotFound from '../NotFound';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -118,6 +120,8 @@ function App() {
                             element={<AdminPageAddProduct />}
                         />
                     </Route>
+                    <Route path='/search/*' element={<SearchPage />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
                 <CartBubble>Hello World</CartBubble>
             </Elements>

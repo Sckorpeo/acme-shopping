@@ -52,7 +52,7 @@ function UserSecurity() {
                     <label htmlFor="oldPassword">Old Password</label>
                     <input
                         className="neumorphism-input"
-                        type="text"
+                        type="password"
                         id="oldPassword"
                         name="oldPassword"
                         value={oldPassword}
@@ -63,7 +63,7 @@ function UserSecurity() {
                     <label htmlFor="newPassword">New Password</label>
                     <input
                         className="neumorphism-input"
-                        type="text"
+                        type="password"
                         id="newPassword"
                         name="newPassword"
                         value={newPassword}

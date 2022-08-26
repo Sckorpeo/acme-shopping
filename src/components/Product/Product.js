@@ -30,7 +30,7 @@ function Product() {
     }
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [productId]);
     const handleClick = (product) => {
         if (Object.keys(auth).length > 0) {
             return dispatch(addToCart({ product, quantity: 1 }));

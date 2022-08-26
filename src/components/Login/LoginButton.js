@@ -29,6 +29,10 @@ function LoginButton() {
         if (isActive) {
             window.addEventListener('click', pageClickEvent);
         }
+        // When the item is closed, make sure clickMenuRef is false (initial state)
+        if (!isActive && clickMenuRef.current) {
+            clickMenuRef.current = false;
+        }
         return () => {
             window.removeEventListener('click', pageClickEvent);
         };
