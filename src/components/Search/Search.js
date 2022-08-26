@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Search.css'
 
@@ -8,7 +8,6 @@ function Search () {
     const clearIcon = useRef(null);
     const [searchResult, setSearchResult] = useState([]);
     const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams()
     const [searchKey, setSearchKey] = useState('');
 
     useEffect(() => {
