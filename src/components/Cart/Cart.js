@@ -10,11 +10,11 @@ function Cart() {
     const dispatch = useDispatch();
     let { cart } = useSelector((state) => state.cart);
     const { auth } = useSelector((state) => state.auth);
-    const guestBasket = JSON.parse(window.localStorage.getItem('cart'));
+    // const guestBasket = JSON.parse(window.localStorage.getItem('cart'));
 
-    if (guestBasket.length > 0 && Object.keys(auth).length < 1) {
-        cart = guestBasket;
-    }
+    // if (guestBasket.length > 0 && Object.keys(auth).length < 1) {
+    //     cart = guestBasket;
+    // }
 
     useEffect(() => {
         dispatch(exchangeToken());

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { apiGetProduct, apiGetProductRatings } from '../../api/products';
-import { addToCart } from '../../state/actionCreators/cartAC';
+import { addToCart, guestAddToCart } from '../../state/actionCreators/cartAC';
 import './Product.css';
 import StarRatingReadOnly from '../StarRating/StarRatingReadOnly';
 import UserRate from './UserRate';
@@ -35,36 +35,7 @@ function Product() {
         if (Object.keys(auth).length > 0) {
             return dispatch(addToCart({ product, quantity: 1 }));
         }
-
-        const cart = JSON.parse(window.localStorage.getItem('cart'));
-
-        if (!cart) {
-            const stringData = JSON.stringify([{ product, quantity: 1 }]);
-            return window.localStorage.setItem('cart', stringData);
-        }
-
-        const productAlreadyInCart = cart.reduce((prev, next) => {
-            if (next.product.id === product.id) {
-                return prev + 1;
-            } else {
-                return prev;
-            }
-        }, 0);
-
-        if (productAlreadyInCart) {
-            const newCart = cart.map((item) => {
-                if (item.product.id === product.id) {
-                    return { product, quantity: item.quantity + 1 };
-                } else {
-                    return item;
-                }
-            });
-            window.localStorage.setItem('cart', JSON.stringify(newCart));
-        } else {
-            const newCart = [...cart, { product, quantity: 1 }];
-            console.log(newCart);
-            window.localStorage.setItem('cart', JSON.stringify(newCart));
-        }
+        return dispatch(guestAddToCart({ product, quantity: 1 }));
     };
     return (
         <div className="product-page">
