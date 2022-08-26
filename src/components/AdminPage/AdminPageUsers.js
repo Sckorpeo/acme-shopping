@@ -17,6 +17,7 @@ function AdminPageUsers() {
                 <NavLink
                     className="admin-page-user-item-wrapper neumorphism-btn"
                     to={`${user.id}`}
+                    key={user.id}
                 >
                     <div>
                         <img src={user.avatar} />

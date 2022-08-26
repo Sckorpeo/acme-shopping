@@ -3,7 +3,7 @@ const { Sequelize } = conn;
 const { STRING } = conn.Sequelize;
 const { INTEGER } = conn.Sequelize;
 
-const CouponCode = conn.define('category', {
+const CouponCode = conn.define('coupon', {
     id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,

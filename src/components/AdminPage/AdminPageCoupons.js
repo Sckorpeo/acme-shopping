@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { getAllCoupons, deleteCoupon, addCoupon } from '../../api/coupon';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import CouponForm from '../Coupon/CouponForm';
 
 function AdminProductForm() {
-    const [coupons, couponsCoupons] = useState([]);
-    const fetchData = async () => {
-        const response = await getAllCoupons();
-        setCoupons(response.data);
-    };
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const { coupons } = useSelector((state) => state.coupons);
     return (
         <div>
+            <CouponForm />
             {coupons.map((coupon) => (
-                <div>
+                <div key={coupon.id}>
                     <p>{coupon.name}</p>
                     <p>{coupon.rate}</p>
                 </div>

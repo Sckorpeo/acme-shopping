@@ -12,12 +12,16 @@ const deleteCoupon = (couponId) => {
     return axios.delete(`/api/coupon/${couponId}`);
 };
 
-const addCoupon = (coupon) => {
-    return axios.post('/api/coupon', coupon);
+const apiAddCoupon = (coupon) => {
+    return axios.post('/api/coupon', coupon, {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
 };
 
 const getCoupon = (name) => {
     return axios.get(`/api/coupon/${name}`);
 };
 
-export { getAllCoupons, deleteCoupon, addCoupon, getCoupon };
+export { getAllCoupons, deleteCoupon, apiAddCoupon, getCoupon };
