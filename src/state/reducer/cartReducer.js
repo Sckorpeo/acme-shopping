@@ -5,6 +5,7 @@ const reducer = (state = { cart: [] }, action) => {
         case 'MODIFY_ITEM':
             return { ...state, cart: action.cart.lineItems };
         case 'EMPTY_CART':
+            Object.assign(state.cart);
             return { ...state, cart: [] };
         default:
             return state;

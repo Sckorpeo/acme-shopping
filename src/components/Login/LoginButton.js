@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../state/actionCreators/authAC';
+import { emptyCart } from '../../state/actionCreators/cartAC';
 import './Login.css';
 
 function LoginButton() {
@@ -68,6 +69,7 @@ function LoginButton() {
                                 <NavLink
                                     onClick={() => {
                                         dispatch(logout());
+                                        dispatch(emptyCart());
                                     }}
                                     to="/"
                                 >

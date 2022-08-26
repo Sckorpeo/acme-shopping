@@ -36,4 +36,19 @@ const emptyCart = () => {
     };
 };
 
-export { fetchCart, addToCart, emptyCart, orderCreatedFromCart };
+const guestAddToCart = (lineItem) => {
+    return (dispatch) => {
+        dispatch({
+            type: 'MODIFY_ITEM',
+            cart: lineItem,
+        });
+    };
+};
+
+export {
+    fetchCart,
+    addToCart,
+    emptyCart,
+    orderCreatedFromCart,
+    guestAddToCart,
+};
