@@ -59,3 +59,8 @@
     color: red;
     cursor: pointer;
 }
+
+.CartItem-content button {
+    margin-left: 10px;
+    margin-right: 10px;
+}

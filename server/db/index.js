@@ -6,6 +6,7 @@ const Order = require('./Order');
 const Rating = require('./Rating');
 const Category = require('./Category');
 const WishList = require('./WishList');
+const CouponCode = require('./CouponCode.js');
 
 User.hasMany(Order);
 Order.hasMany(LineItem);
@@ -23,5 +24,6 @@ module.exports = {
     LineItem,
     Order,
     Rating,
-    WishList
+    WishList,
+    CouponCode,
 };

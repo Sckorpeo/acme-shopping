@@ -31,11 +31,18 @@ const CartItem = ({ product, quantity }) => {
                             +
                         </button>
                     </div>
-                    <button onClick={() => handleIncrement(product, -quantity)}>
-                        X remove from cart
+                    <button
+                        className="neumorphism-btn"
+                        onClick={() => handleIncrement(product, -quantity)}
+                    >
+                        remove from cart
                     </button>
-                    <button onClick={moveToWishList}>
-                        {'-> move to wish list'}
+                    <button
+                        className="neumorphism-btn"
+                        onClick={moveToWishList}
+                    >
+                        move to wish list
+
                     </button>
                 </div>
                 <div className="CartItem-price">

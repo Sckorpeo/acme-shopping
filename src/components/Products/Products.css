@@ -35,3 +35,8 @@
     margin-left: 2rem;
     margin-right: 2rem;
 }
+
+.product-list-wrapper a {
+    transition-duration: 0.3s;
+    border-radius: 10px;
+}
