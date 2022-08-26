@@ -42,6 +42,7 @@ const CartItem = ({ product, quantity }) => {
                         onClick={moveToWishList}
                     >
                         move to wish list
+
                     </button>
                 </div>
                 <div className="CartItem-price">
