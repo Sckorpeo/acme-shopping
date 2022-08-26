@@ -2,10 +2,13 @@ import { apiGetCart, apiAddToCart, apiOrderSuccess } from '../../api';
 
 const fetchCart = () => {
     if (!window.localStorage.getItem('token')) {
+        console.log('In here');
         return (dispatch) => {
             dispatch({
                 type: 'SET_CART',
-                cart: JSON.parse(window.localStorage.getItem('cart')),
+                cart: {
+                    lineItems: JSON.parse(window.localStorage.getItem('cart')),
+                },
             });
         };
     }

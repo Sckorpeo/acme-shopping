@@ -46,8 +46,8 @@ function App() {
     }, []);
 
     useEffect(() => {
+        dispatch(fetchCart());
         if (auth.id) {
-            dispatch(fetchCart());
             dispatch(loadUser());
             dispatch(fetchCoupons());
         }
