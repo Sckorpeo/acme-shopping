@@ -57,3 +57,12 @@
     border-radius: 10px;
     margin-right: 20px;
 }
+
+.nav-top-right-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    gap: 10px;
+}

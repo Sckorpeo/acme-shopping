@@ -1,11 +1,23 @@
 const express = require('express');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const router = express.Router();
 const { Product, Rating, Category, LineItem } = require('../db');
 const { isLoggedIn, isAdminUser } = require('./middleware');
 
 router.get('/', async (req, res, next) => {
     try {
-        res.send(await Product.findAll());
+        console.log(req.query)
+        if (req.query.key) {
+            res.send(await Product.findAll({
+                where: {
+                    name: {[Op.iLike]:`%${req.query.key}%`}
+                },
+                limit: req.query.limit
+            }));
+        } else {
+            res.send(await Product.findAll());
+        }
     } catch (ex) {
         next(ex);
     }
