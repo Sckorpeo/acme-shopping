@@ -35,13 +35,13 @@ function Product() {
         if (Object.keys(auth).length > 0) {
             return dispatch(addToCart({ product, quantity: 1 }));
         }
+
         const cart = JSON.parse(window.localStorage.getItem('cart'));
+
         if (!cart) {
             const stringData = JSON.stringify([{ product, quantity: 1 }]);
             return window.localStorage.setItem('cart', stringData);
         }
-
-        console.log(cart);
 
         const productAlreadyInCart = cart.reduce((prev, next) => {
             if (next.product.id === product.id) {
