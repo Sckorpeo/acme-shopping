@@ -41,6 +41,7 @@ function Login() {
                     />
                     <label>Password</label>
                     <input
+                        type='password'
                         className="neumorphism-input"
                         value={password}
                         onChange={(ev) => setPassword(ev.target.value)}
