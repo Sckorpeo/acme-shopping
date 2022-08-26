@@ -9,7 +9,11 @@ const getAllCoupons = () => {
 };
 
 const deleteCoupon = (couponId) => {
-    return axios.delete(`/api/coupon/${couponId}`);
+    return axios.delete(`/api/coupon/${couponId}`, {
+        headers: {
+            authorization: window.localStorage.getItem('token'),
+        },
+    });
 };
 
 const apiAddCoupon = (coupon) => {
