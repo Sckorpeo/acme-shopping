@@ -17,7 +17,6 @@ function UserOrders() {
     useEffect(() => {
         apiCall().then((data) => {
             setData(data);
-            console.log(data);
         });
     }, []);
 
