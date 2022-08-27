@@ -35,7 +35,6 @@ function Home() {
     useEffect(() => {
         fetchData();
     }, []);
-    console.log(products);
 
     return (
         <div className="home">
