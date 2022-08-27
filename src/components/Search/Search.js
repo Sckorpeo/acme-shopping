@@ -13,7 +13,6 @@ function Search () {
 
     useEffect(() => {
         const closeDropDown = (ev) => {
-            console.log(ev)
             if (ev.path[0] !== searchBar.current) {
                 setIsActive(false)
             } else if (ev.path[0] === searchBar.current) {
