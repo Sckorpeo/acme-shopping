@@ -17,7 +17,14 @@ const Checkout = () => {
 
     const dispatch = useDispatch();
     const { cart } = useSelector((state) => state.cart);
+    const { selectedCoupon } = useSelector((state) => state.coupons);
     let price = priceReducer(cart);
+
+    if (selectedCoupon.rate) {
+        price = Number.parseFloat(
+            ((100 - selectedCoupon.rate) * priceReducer(cart)) / 100
+        ).toFixed(2);
+    }
 
     const stripe = useStripe();
     const elements = useElements();

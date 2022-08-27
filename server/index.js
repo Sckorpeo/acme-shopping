@@ -4,9 +4,7 @@ const Category = require('./db/Category');
 const boardGameSeed = require('./db/seed/boardGameSeed');
 const ratingsSeed = require('./db/seed/ratingSeed');
 const syncAndSeed = require('./db/seed');
-if (process.env.NODE_ENV === 'development') {
-    require('dotenv').config();
-}
+require('dotenv').config();
 
 const setUp = async () => {
     try {
