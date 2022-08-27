@@ -58,6 +58,7 @@ function AdminProductForm(props) {
             // });
         }
         const update = async () => {
+            console.log(price)
             await apiAdminEditProduct(productId, payload);
         };
         const submit = async () => {
@@ -69,7 +70,7 @@ function AdminProductForm(props) {
     };
 
     useEffect(() => {
-        console.log(props);
+        // console.log(props);
         if (props.productId) fetchData();
     }, []);
 
@@ -104,6 +105,8 @@ function AdminProductForm(props) {
                     <label>Price: </label>
                     <input
                         type="number"
+                        step="any"
+                        min="0"
                         value={price}
                         className="neumorphism-input"
                         onChange={(e) => setPrice(e.target.value)}
