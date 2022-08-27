@@ -1,21 +1,25 @@
 .product-list-wrapper {
-    margin-left: 17rem;
-    margin-right: 17rem;
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .product-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4.18rem;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, max-content));
+    align-items: start;
+    grid-gap: 7rem;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
 }
 
 .product-list-item {
     border-radius: 10px;
-    width: 20rem;
+    width: 10%;
     margin-top: 1rem;
     padding: 10px;
 }
