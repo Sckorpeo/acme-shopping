@@ -45,7 +45,7 @@ function Navbar({ auth, cart }) {
                         Drafting
                     </NavLink>
                 </div>
-                <div className='nav-top-right-menu'>
+                <div className="nav-top-right-menu">
                     <Search />
                     <LoginButton auth={auth} />
                 </div>
