@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { priceReducer, quantityReducer } from '../../util/reducers';
+import CouponCart from '../Coupon/CouponCart';
 import './CartSubtotal.css';
 
 const CartSubtotal = () => {
@@ -28,6 +29,7 @@ const CartSubtotal = () => {
                 Subtotal ({quantity} {quantity > 1 ? 'items' : 'item'}): $
                 {subtotal}
             </h2>
+            {auth.id ? <CouponCart /> : ''}
             {button}
         </div>
     );

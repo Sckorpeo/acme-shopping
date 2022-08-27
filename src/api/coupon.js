@@ -24,8 +24,8 @@ const apiAddCoupon = (coupon) => {
     });
 };
 
-const getCoupon = (name) => {
+const apiGetCoupon = (name) => {
     return axios.get(`/api/coupon/${name}`);
 };
 
-export { getAllCoupons, deleteCoupon, apiAddCoupon, getCoupon };
+export { getAllCoupons, deleteCoupon, apiAddCoupon, apiGetCoupon };

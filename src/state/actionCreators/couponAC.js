@@ -1,4 +1,4 @@
-import { getAllCoupons, apiAddCoupon } from '../../api/coupon';
+import { getAllCoupons, apiAddCoupon, apiGetCoupon } from '../../api/coupon';
 
 const fetchCoupons = () => {
     return async (dispatch) => {
@@ -20,4 +20,14 @@ const addCoupon = (coupon) => {
     };
 };
 
-export { fetchCoupons, addCoupon };
+const getCoupon = (couponName) => {
+    return async (disptach) => {
+        const { data } = (await apiGetCoupon(couponName)) || {};
+        disptach({
+            type: 'GET_COUPON',
+            coupon: data,
+        });
+    };
+};
+
+export { fetchCoupons, addCoupon, getCoupon };
