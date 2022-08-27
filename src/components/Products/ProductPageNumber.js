@@ -6,11 +6,15 @@ import './Products.css';
 function ProductPageNumber(props) {
     const { products } = useSelector((state) => state.products);
     const totalPage = Math.ceil(products.length / props.itemPerPage);
+    const handleClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     const getNavContent = () => {
         let content = [];
         for (let i = 1; i <= totalPage; i++) {
             content.push(
                 <NavLink
+                    onClick={handleClick}
                     className={({ isActive }) =>
                         isActive ? 'neumorphism-inset' : undefined
                     }
