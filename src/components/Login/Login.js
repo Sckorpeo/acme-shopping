@@ -13,8 +13,10 @@ function Login() {
     const { auth } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        dispatch(exchangeToken());
-        dispatch(loadUser());
+        if (auth.id) {
+            dispatch(exchangeToken());
+            dispatch(loadUser());
+        }
     }, [auth.id]);
 
     const handleSubmit = (ev) => {

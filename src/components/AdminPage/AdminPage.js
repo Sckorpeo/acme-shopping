@@ -10,7 +10,6 @@ function AdmitPage() {
     const { auth } = useSelector((state) => state.auth);
     useEffect(() => {
         dispatch(exchangeToken());
-        console.log(1);
     }, []);
     return (
         <div className="admin-page">

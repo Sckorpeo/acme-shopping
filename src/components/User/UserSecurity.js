@@ -14,7 +14,6 @@ function UserSecurity() {
         dispatch(exchangeToken());
     }, []);
     const handleChange = (ev) => {
-        console.log(ev.target);
         if (ev.target.name === 'oldPassword') {
             setOldPassword(ev.target.value);
         } else if (ev.target.name === 'newPassword') {

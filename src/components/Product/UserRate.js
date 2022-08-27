@@ -8,7 +8,6 @@ function UserRate(props) {
 
     const fetchData = async () => {
         const response = await apiGetUserIconUsername(rate.userId);
-        console.log(response);
         setUser(response.data);
     };
 
