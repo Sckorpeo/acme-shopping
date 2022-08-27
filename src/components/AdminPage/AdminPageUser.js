@@ -18,21 +18,16 @@ function AdminPageUser() {
     }, []);
 
     return (
-        <div className="admin-page-user-wrapper">
-            <button onClick={() => navigate(-1)}>Go Back</button>
-            <div className="admin-page-user-card neumorphism">
-                <img src={user.avatar} />
-                <div>
-                    <p>First Name: {user.firstName}</p>
-                    {user.middleName ? (
-                        <p>Middle Name: {user.middleName}</p>
-                    ) : null}
-                    <p>Last Name: {user.lastName}</p>
-                    <p>username: {user.username}</p>
-                    <p>Email: {user.email}</p>
-                    {user.phone ? <p>Phone: {user.phone}</p> : null}
-                    {user.address ? <p>Address: {user.address}</p> : null}
-                </div>
+        <div className="admin-page-user-card neumorphism">
+            <img src={user.avatar} />
+            <div>
+                <p>First Name: {user.firstName}</p>
+                {user.middleName ? <p>Middle Name: {user.middleName}</p> : null}
+                <p>Last Name: {user.lastName}</p>
+                <p>username: {user.username}</p>
+                <p>Email: {user.email}</p>
+                {user.phone ? <p>Phone: {user.phone}</p> : null}
+                {user.address ? <p>Address: {user.address}</p> : null}
             </div>
         </div>
     );
