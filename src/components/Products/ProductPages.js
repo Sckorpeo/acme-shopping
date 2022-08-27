@@ -11,14 +11,10 @@ function ProductPages(props) {
         page * itemPerPage
     );
     return (
-        <div>
-            <div>
-                <div className="product-list">
-                    {currProducts.map((product) => (
-                        <ProductCard productId={product.id} key={product.id} />
-                    ))}
-                </div>
-            </div>
+        <div className="product-list">
+            {currProducts.map((product) => (
+                <ProductCard productId={product.id} key={product.id} />
+            ))}
         </div>
     );
 }

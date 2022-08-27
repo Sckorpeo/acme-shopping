@@ -28,18 +28,21 @@
 
 .admin-page-content {
     display: flex;
+    flex-direction: column;
+    max-width: 100%;
     margin-top: 2rem;
     align-items: center;
     justify-content: center;
 }
 
 .admin-page-wrapper {
-    margin-left: 17rem;
-    margin-right: 17rem;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .admin-product-item-wrapper {
     display: flex;
+    width: 100%;
     background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
     box-shadow: 1px 1px 2px #bebebe, -1px -1px 2px #ffffff;
     padding: 2px;
@@ -54,16 +57,18 @@
     cursor: pointer;
 }
 
+.admin-product-list {
+    width: 100%;
+}
+
 .admin-product-item {
+    width: 100%;
     display: flex;
 }
 
 .admin-product-item div {
-    width: 16rem;
-}
-
-.admin-product-item div:first-child {
-    width: 19rem;
+    display: flex;
+    width: 100%;
 }
 
 .admin-page-users {
