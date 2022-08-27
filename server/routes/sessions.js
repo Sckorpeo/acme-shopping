@@ -15,6 +15,14 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.get('/stripe', async (req, res, next) => {
+    try {
+        res.send(process.env.PUBLISHABLE_KEY);
+    } catch (ex) {
+        next(ex);
+    }
+});
+
 router.get('/', isLoggedIn, async (req, res, next) => {
     res.send(req.user);
 });

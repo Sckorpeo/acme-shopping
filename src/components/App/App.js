@@ -35,7 +35,8 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { fetchCoupons } from '../../state/actionCreators/couponAC';
 
-const stripePromise = loadStripe(process.env.PUBLISHABLE_KEY);
+const stripe_key = await axios.get('/api/sessions/stripe');
+const stripePromise = loadStripe(stripe_key);
 
 function App() {
     const dispatch = useDispatch();
