@@ -1,7 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { apiCreateUser } from '../../api/user';
 import './SignUp.css';
+import {login} from "../../state/actionCreators/authAC";
 
 function SignUp() {
     const [firstName, setFirstName] = useState('');
@@ -12,6 +15,8 @@ function SignUp() {
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -26,6 +31,8 @@ function SignUp() {
                 phone: phone,
                 email: email,
             });
+            dispatch(login({username, password}));
+            navigate('/')
         } catch (ex) {
             console.log(ex.response.data.error.errors[0].message);
         }
@@ -68,6 +75,7 @@ function SignUp() {
                 <div>
                     <label>Password*</label>
                     <input
+                        type='password'
                         className="neumorphism-input"
                         value={password}
                         onChange={(ev) => setPassword(ev.target.value)}
