@@ -37,7 +37,6 @@ function Cart() {
                     <CartSubtotal />
                 </div>
             </div>
-            <hr className="splitter" />
         </>
     );
 }
