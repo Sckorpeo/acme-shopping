@@ -1,7 +1,7 @@
-const DotenvWebpackPlugin = require('dotenv-webpack');
-
 module.exports = {
-    plugins: [new DotenvWebpackPlugin()],
+    experiments: {
+        topLevelAwait: true,
+    },
     devtool: 'source-map',
     module: {
         rules: [
