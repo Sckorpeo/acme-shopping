@@ -20,7 +20,7 @@ function AdminPageUsers() {
                     key={user.id}
                 >
                     <div>
-                        <img src={user.avatar} />
+                        {user.avatar ? <img className='avatar' src={user.avatar} /> : <div className='avatar'>{user.username[0].toUpperCase()}</div>}
                         <p>{user.username}</p>
                     </div>
                 </NavLink>

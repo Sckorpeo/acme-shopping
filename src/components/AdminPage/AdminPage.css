@@ -78,6 +78,16 @@
     gap: 20px;
 }
 
+.admin-page-users .avatar {
+    display:flex;
+    border: #9ca3af solid 2px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
 .admin-page-user-item-wrapper {
     display: flex;
     flex-direction: column;
