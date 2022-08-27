@@ -8,6 +8,10 @@ const apiGetProduct = (productId) => {
     return axios.get(`/api/products/${productId}`);
 };
 
+const apiGetProductByName = (productName) => {
+    return axios.get(`/api/products/name/${productName}`);
+};
+
 const apiGetProductCategory = (categoryId) => {
     return axios.get(`/api/products/category/${categoryId}`);
 };
@@ -46,6 +50,7 @@ export {
     apiGetProductCategory,
     apiGetProductRatings,
     apiAdminAddProduct,
+    apiGetProductByName,
     apiAdminDeleteProduct,
     apiAdminEditProduct,
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addCoupon } from '../../state/actionCreators/couponAC';
+import './CouponForm.css';
 
 const CouponForm = () => {
     const dispatch = useDispatch();
@@ -15,10 +16,19 @@ const CouponForm = () => {
         ev.target.rate.value = '';
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <input name="name" />
-            <input name="rate" type="number" />
-            <button> Add Coupon</button>
+        <form onSubmit={handleSubmit} className="couponForm">
+            <input
+                name="name"
+                className="neumorphism-input"
+                placeholder="Code"
+            />
+            <input
+                name="rate"
+                type="number"
+                className="neumorphism-input"
+                placeholder="Rate"
+            />
+            <button className="neumorphism-btn"> Add Coupon</button>
         </form>
     );
 };

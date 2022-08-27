@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { exchangeToken } from '../../state/actionCreators/authAC';
+import { useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 
 function AdmitPage() {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.auth);
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(exchangeToken());
         console.log(1);
@@ -17,6 +19,12 @@ function AdmitPage() {
             {auth.isAdmin ? (
                 <div className="admin-page-wrapper">
                     <div className="admin-page-navbar">
+                        <button
+                            className="neumorphism-btn"
+                            onClick={() => navigate(-1)}
+                        >
+                            Go Back
+                        </button>
                         <NavLink
                             className={({ isActive }) =>
                                 isActive
