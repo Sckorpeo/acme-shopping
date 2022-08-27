@@ -58,6 +58,11 @@
     margin-right: 20px;
 }
 
+.logo img {
+    height: 2rem;
+    width: 2rem;
+}
+
 .nav-top-right-menu {
     display: flex;
     flex-direction: row;

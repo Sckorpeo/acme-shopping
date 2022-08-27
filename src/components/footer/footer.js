@@ -18,6 +18,12 @@ function Footer() {
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
                         exercitation ullamco laboris nisi ut aliquip ex ea
                     </p>
+                    <a
+                        href="https://www.flaticon.com/free-icons/fortress"
+                        title="fortress icons"
+                    >
+                        Fortress icons created by Eucalyp - Flaticon
+                    </a>
                 </div>
                 <div className="footer-links">
                     <h2>Navigate</h2>

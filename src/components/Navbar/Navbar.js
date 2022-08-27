@@ -4,12 +4,14 @@ import { LoginButton } from '../Login';
 import Search from '../Search';
 import './Navbar.css';
 
+//Fortress icons created by Eucalyp - Flaticon
+
 function Navbar({ auth, cart }) {
     return (
         <div className="nav-wrapper">
             <div className="nav-bar">
                 <NavLink className="logo neumorphism" to="/">
-                    LOGO
+                    <img src="../../public/castle.png" />
                 </NavLink>
                 <div className="nav-content">
                     <NavLink
