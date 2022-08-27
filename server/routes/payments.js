@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+require('dotenv').config();
 const stripe = require('stripe')(process.env.SECRET_KEY);
 
 router.post('/', async (req, res, next) => {
