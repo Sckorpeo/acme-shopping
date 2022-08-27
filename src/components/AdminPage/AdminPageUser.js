@@ -17,6 +17,7 @@ function AdminPageUser() {
 
     return (
         <div>
+            <img src={user.avatar} />
             <p>First Name: {user.firstName}</p>
             {user.middleName ? <p>Middle Name: {user.middleName}</p> : null}
             <p>Last Name: {user.lastName}</p>

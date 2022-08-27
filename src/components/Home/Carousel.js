@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './Home.css';
 import { carouselHelper } from '../../../public/main';
+import { NavLink } from 'react-router-dom';
 
 function Carousel() {
     useEffect(() => {
@@ -8,33 +9,45 @@ function Carousel() {
     }, []);
     return (
         <div className="slider neumorphism">
-            <div className="slide">
+            <NavLink
+                to="/products/646f0892-d1b4-4b8a-8b0c-fe49ec929a91"
+                className="slide"
+            >
                 <img
-                    src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559257233302-61jnMOuRWsL.jpg"
+                    src="https://m.media-amazon.com/images/S/aplus-media/sc/17204ec6-4373-40f8-95c1-b1b35563859b.__CR0,0,1024,317_PT0_SX970_V1___.png"
                     alt=""
                 />
-            </div>
+            </NavLink>
 
-            <div className="slide">
+            <NavLink
+                to="/products/7854180f-3520-4a2e-8aea-6d7a6b124e0f"
+                className="slide"
+            >
                 <img
-                    src="https://source.unsplash.com/random?landscape,cars"
+                    src="https://gamecows.com/wp-content/uploads/2020/01/Camel-Up-2nd-Ed-Featured.jpg"
                     alt=""
                 />
-            </div>
+            </NavLink>
 
-            <div className="slide">
+            <NavLink
+                to="/products/5215e1cd-195b-475b-aecf-c23dfc9d2f23"
+                className="slide"
+            >
                 <img
-                    src="https://source.unsplash.com/random?landscape,night"
+                    src="https://cdn.shopify.com/s/files/1/0335/0485/4155/products/gh_details.png?v=1659040782"
                     alt=""
                 />
-            </div>
+            </NavLink>
 
-            <div className="slide">
+            <NavLink
+                to="/products/a711c2b4-4f1a-4660-ba6f-1eb02f78b825"
+                className="slide"
+            >
                 <img
-                    src="https://source.unsplash.com/random?landscape,city"
+                    src="https://c4.wallpaperflare.com/wallpaper/494/226/351/board-games-wingspan-hd-wallpaper-preview.jpg"
                     alt=""
                 />
-            </div>
+            </NavLink>
 
             <button className="btn btn-next neumorphism-inset"></button>
             <button className="btn btn-prev neumorphism-inset"></button>
