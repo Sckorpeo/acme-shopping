@@ -41,12 +41,16 @@ const CartItem = ({ product, quantity }) => {
                     >
                         remove from cart
                     </button>
-                    <button
-                        className="neumorphism-btn"
-                        onClick={moveToWishList}
-                    >
-                        move to wish list
-                    </button>
+                    {auth.id ? (
+                        <button
+                            className="neumorphism-btn"
+                            onClick={moveToWishList}
+                        >
+                            move to wish list
+                        </button>
+                    ) : (
+                        ''
+                    )}
                 </div>
                 <div className="CartItem-price">
                     <p>${product.price}</p>
