@@ -24,17 +24,19 @@ const reducer = (state = { cart: [] }, action) => {
                         if (
                             lineItem.product.id === action.lineItem.product.id
                         ) {
-                            return {
-                                product: action.lineItem.product,
-                                quantity:
-                                    lineItem.quantity +
-                                    action.lineItem.quantity,
-                            };
+                            const quantity =
+                                lineItem.quantity + action.lineItem.quantity;
+                            if (quantity > 0) {
+                                return {
+                                    product: action.lineItem.product,
+                                    quantity,
+                                };
+                            }
                         } else {
                             return lineItem;
                         }
                     }),
-                ],
+                ].filter((item) => item),
             };
         default:
             return state;

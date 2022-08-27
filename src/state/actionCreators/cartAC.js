@@ -2,12 +2,12 @@ import { apiGetCart, apiAddToCart, apiOrderSuccess } from '../../api';
 
 const fetchCart = () => {
     if (!window.localStorage.getItem('token')) {
-        console.log('In here');
         return (dispatch) => {
             dispatch({
                 type: 'SET_CART',
                 cart: {
-                    lineItems: JSON.parse(window.localStorage.getItem('cart')),
+                    lineItems:
+                        JSON.parse(window.localStorage.getItem('cart')) || [],
                 },
             });
         };
@@ -64,15 +64,21 @@ const guestAddToCart = (lineItem) => {
         if (productAlreadyInCart) {
             const newCart = cart.map((item) => {
                 if (item.product.id === lineItem.product.id) {
-                    return {
-                        product: item.product,
-                        quantity: item.quantity + lineItem.quantity,
-                    };
+                    const quantity = item.quantity + lineItem.quantity;
+                    if (quantity > 0) {
+                        return {
+                            product: item.product,
+                            quantity,
+                        };
+                    }
                 } else {
                     return item;
                 }
             });
-            window.localStorage.setItem('cart', JSON.stringify(newCart));
+            window.localStorage.setItem(
+                'cart',
+                JSON.stringify(newCart.filter((item) => item))
+            );
         } else {
             const newCart = [...cart, lineItem];
             window.localStorage.setItem('cart', JSON.stringify(newCart));
