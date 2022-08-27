@@ -8,7 +8,7 @@ function AdminProductForm() {
         <div>
             <CouponForm />
             {coupons.map((coupon) => (
-                <div key={coupon.id}>
+                <div className="coupon-item" key={coupon.id}>
                     <p>{coupon.name}</p>
                     <p>{coupon.rate}</p>
                 </div>

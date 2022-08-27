@@ -8,12 +8,14 @@ const { isLoggedIn, isAdminUser } = require('./middleware');
 router.get('/', async (req, res, next) => {
     try {
         if (req.query.key) {
-            res.send(await Product.findAll({
-                where: {
-                    name: {[Op.iLike]:`%${req.query.key}%`}
-                },
-                limit: req.query.limit
-            }));
+            res.send(
+                await Product.findAll({
+                    where: {
+                        name: { [Op.iLike]: `%${req.query.key}%` },
+                    },
+                    limit: req.query.limit,
+                })
+            );
         } else {
             res.send(await Product.findAll());
         }
@@ -39,6 +41,16 @@ router.get('/category/:categoryId', async (req, res, next) => {
 router.get('/:productId', async (req, res, next) => {
     try {
         res.send(await Product.findByPk(req.params.productId));
+    } catch (ex) {
+        next(ex);
+    }
+});
+
+router.get('/name/:productName', async (req, res, next) => {
+    try {
+        res.send(
+            await Product.findOne({ where: { name: req.params.productName } })
+        );
     } catch (ex) {
         next(ex);
     }

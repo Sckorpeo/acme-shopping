@@ -10,7 +10,8 @@
     gap: 4rem;
 }
 
-.admin-page-navbar a {
+.admin-page-navbar a,
+.admin-page-navbar button {
     display: flex;
     border-radius: 1rem;
     height: 3rem;
@@ -134,4 +135,42 @@
 .admin-page-form button:disabled {
     box-shadow: none;
     cursor: default;
+}
+
+.admin-page-user-card {
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    width: 15rem;
+    height: 20rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-page-user-card img {
+    max-width: 5rem;
+    max-height: 5rem;
+    border-radius: 50%;
+}
+
+.coupon-item {
+    display: flex;
+    background: linear-gradient(134.17deg, #eef0f5 4.98%, #e6e9ef 94.88%);
+    box-shadow: 1px 1px 2px #bebebe, -1px -1px 2px #ffffff;
+    margin: 0;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.coupon-item p {
+    margin: 0;
+}
+
+.coupon-item :first-child {
+    width: 50%;
+}
+
+.admin-page-user-wrapper {
+    width: 100%;
 }

@@ -6,12 +6,14 @@ import { addToCart, guestAddToCart } from '../../state/actionCreators/cartAC';
 import './Product.css';
 import StarRatingReadOnly from '../StarRating/StarRatingReadOnly';
 import UserRate from './UserRate';
+import { useNavigate } from 'react-router-dom';
 
 function Product() {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const [ratings, setRatings] = useState([]);
     const [rate, setRate] = useState(0);
+    const navigate = useNavigate();
     const { auth } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     async function fetchData() {
@@ -39,6 +41,12 @@ function Product() {
     };
     return (
         <div className="product-page">
+            <button
+                className="neumorphism-btn product-page-back"
+                onClick={() => navigate(-1)}
+            >
+                Go Back
+            </button>
             <div className="product-product-wrapper">
                 <div className="product-wrapper neumorphism">
                     <img className="neumorphism-inset" src={product.imageUrl} />
