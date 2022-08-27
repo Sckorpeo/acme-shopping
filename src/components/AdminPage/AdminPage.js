@@ -13,7 +13,7 @@ function AdmitPage() {
         console.log(1);
     }, []);
     return (
-        <div>
+        <div className="admin-page">
             {auth.isAdmin ? (
                 <div className="admin-page-wrapper">
                     <div className="admin-page-navbar">

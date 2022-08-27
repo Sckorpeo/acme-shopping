@@ -1,26 +1,55 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Footer.css';
 
-function footer() {
+function Footer() {
     return (
-        <div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/products/all/1">All Products</NavLink>
-                <NavLink to="/products/category/A/1">Campaign</NavLink>
-                <NavLink to="/products/category/B/1">Dexterity</NavLink>
-                <NavLink to="/products/category/C/1">Drafting</NavLink>
+        <div className="footer-page">
+            <hr className="splitter" />
+            <p className="rights">
+                Copyright © Team8 2022. All rights reserved.
+            </p>
+            <div className="footer-wrapper">
+                <div>
+                    <h2>About us</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                    </p>
+                </div>
+                <div className="footer-links">
+                    <h2>Navigate</h2>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/products/all/1">All Products</NavLink>
+                    <NavLink to="/products/category/A/1">Campaign</NavLink>
+                    <NavLink to="/products/category/B/1">Dexterity</NavLink>
+                    <NavLink to="/products/category/C/1">Drafting</NavLink>
+                </div>
+                <div className="footer-links">
+                    <h2>Legal</h2>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Terms
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Privacy Policy
+                    </a>
+                </div>
+                <div className="footer-links">
+                    <h2>Products</h2>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        T-shirts
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Books
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        Mugs
+                    </a>
+                </div>
             </div>
         </div>
     );
 }
-export default footer;
+export default Footer;

@@ -29,6 +29,7 @@ import AdminPageCoupons from '../AdminPage/AdminPageCoupons';
 import Success from '../Checkout/Success';
 import { SearchPage } from '../Search';
 import NotFound from '../NotFound';
+import Footer from '../Footer';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -127,6 +128,7 @@ function App() {
                     <Route path="/search/*" element={<SearchPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+                <Footer />
                 <CartBubble>Hello World</CartBubble>
             </Elements>
         </div>

@@ -1,0 +1,37 @@
+.footer-page {
+    margin-left: 17rem;
+    margin-right: 17rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.footer-wrapper {
+    display: flex;
+    height: 10rem;
+    gap: 10rem;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.footer-wrapper h2 {
+    font-size: medium;
+}
+
+.footer-wrapper p {
+    width: 20rem;
+    text-align: justify;
+    text-justify: auto;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.rights {
+    font-size: small;
+    margin: 0;
+}

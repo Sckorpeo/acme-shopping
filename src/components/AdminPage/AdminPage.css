@@ -1,3 +1,7 @@
+.admin-page {
+    min-height: 40rem;
+}
+
 .admin-page-navbar {
     display: flex;
     width: 100%;
