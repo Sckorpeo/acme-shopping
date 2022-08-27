@@ -68,7 +68,7 @@ const Checkout = () => {
             const { data: clientSecret } = await axios.post(
                 '/api/payment_intents',
                 {
-                    amount: price * 100,
+                    amount: Number.parseInt(price * 100),
                 }
             );
 
