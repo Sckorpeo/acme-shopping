@@ -16,7 +16,7 @@ function Footer() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        exercitation ullamco laboris nisi ut aliquip ex
                     </p>
                     <a
                         href="https://www.flaticon.com/free-icons/fortress"
