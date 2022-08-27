@@ -8,8 +8,13 @@ import './Cart.css';
 
 function Cart() {
     const dispatch = useDispatch();
-    const { cart } = useSelector((state) => state.cart);
+    let { cart } = useSelector((state) => state.cart);
     const { auth } = useSelector((state) => state.auth);
+    // const guestBasket = JSON.parse(window.localStorage.getItem('cart'));
+
+    // if (guestBasket.length > 0 && Object.keys(auth).length < 1) {
+    //     cart = guestBasket;
+    // }
 
     useEffect(() => {
         dispatch(exchangeToken());
@@ -22,7 +27,7 @@ function Cart() {
         ? cart.map((item) => (
               <CartItem
                   product={item.product}
-                  key={item.id}
+                  key={item.id || item.product.id}
                   quantity={item.quantity}
                   lineItem={item}
               />

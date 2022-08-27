@@ -1,12 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../state/actionCreators/cartAC';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, guestAddToCart } from '../../state/actionCreators/cartAC';
 import { addToWishList } from '../../state/actionCreators/wishListAC';
 import './CartItem.css';
 
 const CartItem = ({ product, quantity }) => {
     const dispatch = useDispatch();
+    const { auth } = useSelector((state) => state.auth);
     const handleIncrement = (product, value) => {
+        if (!auth.id) {
+            return dispatch(guestAddToCart({ product, quantity: value }));
+        }
         dispatch(addToCart({ product, quantity: value }));
     };
     const moveToWishList = () => {
@@ -37,13 +41,16 @@ const CartItem = ({ product, quantity }) => {
                     >
                         remove from cart
                     </button>
-                    <button
-                        className="neumorphism-btn"
-                        onClick={moveToWishList}
-                    >
-                        move to wish list
-
-                    </button>
+                    {auth.id ? (
+                        <button
+                            className="neumorphism-btn"
+                            onClick={moveToWishList}
+                        >
+                            move to wish list
+                        </button>
+                    ) : (
+                        ''
+                    )}
                 </div>
                 <div className="CartItem-price">
                     <p>${product.price}</p>

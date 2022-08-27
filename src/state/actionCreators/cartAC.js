@@ -1,6 +1,17 @@
 import { apiGetCart, apiAddToCart, apiOrderSuccess } from '../../api';
 
 const fetchCart = () => {
+    if (!window.localStorage.getItem('token')) {
+        return (dispatch) => {
+            dispatch({
+                type: 'SET_CART',
+                cart: {
+                    lineItems:
+                        JSON.parse(window.localStorage.getItem('cart')) || [],
+                },
+            });
+        };
+    }
     return async (dispatch) => {
         const response = await apiGetCart();
         dispatch({
@@ -36,4 +47,56 @@ const emptyCart = () => {
     };
 };
 
-export { fetchCart, addToCart, emptyCart, orderCreatedFromCart };
+const guestAddToCart = (lineItem) => {
+    const cart = JSON.parse(window.localStorage.getItem('cart'));
+
+    if (!cart) {
+        const stringData = JSON.stringify([lineItem]);
+        window.localStorage.setItem('cart', stringData);
+    } else {
+        const productAlreadyInCart = cart.reduce((prev, next) => {
+            if (next.product.id === lineItem.product.id) {
+                return prev + 1;
+            } else {
+                return prev;
+            }
+        }, 0);
+        if (productAlreadyInCart) {
+            const newCart = cart.map((item) => {
+                if (item.product.id === lineItem.product.id) {
+                    const quantity = item.quantity + lineItem.quantity;
+                    if (quantity > 0) {
+                        return {
+                            product: item.product,
+                            quantity,
+                        };
+                    }
+                } else {
+                    return item;
+                }
+            });
+            window.localStorage.setItem(
+                'cart',
+                JSON.stringify(newCart.filter((item) => item))
+            );
+        } else {
+            const newCart = [...cart, lineItem];
+            window.localStorage.setItem('cart', JSON.stringify(newCart));
+        }
+    }
+
+    return (dispatch) => {
+        dispatch({
+            type: 'GUEST_ADD',
+            lineItem: lineItem,
+        });
+    };
+};
+
+export {
+    fetchCart,
+    addToCart,
+    emptyCart,
+    orderCreatedFromCart,
+    guestAddToCart,
+};
