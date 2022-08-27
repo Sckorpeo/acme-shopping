@@ -35,16 +35,21 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { fetchCoupons } from '../../state/actionCreators/couponAC';
 
-const stripe_key = await axios.get('/api/sessions/stripe');
-const stripePromise = loadStripe(stripe_key);
-
 function App() {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.auth);
     const { cart } = useSelector((state) => state.cart);
 
+    let stripePromise = '';
+
+    const fetchStripe = async () => {
+        const stripe_key = await axios.get('/api/sessions/stripe');
+        stripePromise = loadStripe(stripe_key);
+    };
+
     useEffect(() => {
         dispatch(exchangeToken());
+        fetchStripe();
     }, []);
 
     useEffect(() => {
